@@ -709,11 +709,11 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
 }
 .intro-header .page-heading h1 {
   margin-top: 0;
-  font-size: 1.5rem; 
+  font-size: 1rem; 
 }
 .intro-header .post-heading h1 {
   margin-top: 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 .intro-header .page-heading .page-subheading,
 .intro-header .post-heading .post-subheading {
