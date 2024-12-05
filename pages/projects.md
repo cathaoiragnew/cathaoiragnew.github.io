@@ -14,7 +14,9 @@ full-width: False
                 <!-- Creating a Project -->
                   <div class="list-squares-item">
                      <a href="../projects/overfill/"><img src="/assets/img/crepe.jpg" class="item-img"></a>
+                     <center>
                     <h4>Overfill Bins Detection</h4>
+                    </center>
                   
                <!-- Ceating Project Home button-->
                <center>
