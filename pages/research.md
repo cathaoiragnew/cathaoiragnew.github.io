@@ -3,23 +3,9 @@ layout: page
 title: Research
 ---
 
-<!-- Set up icons -->
-<div class="container-fluid">
-   
-      <div class="row" >     
-   
-       <!--   Icon using font awesome v 5 -->
-      <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-        <div style ="text-align: center;">
-           <span class="icon_bg icon_square"></span>
-           <i class="fa-brands fa-google-scholar"></i>" style="font-size:36px;"></i>
-                 <div>Google Scholar Profile</div>
-        </div>
-       </div> 
-
-    </div>            
- </div>
-
+<a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" target="_blank">
+  <i class="fa fa-google"></i> Google Scholar
+</a>
 
 <center><a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" style="color:blue; text-decoration: underline;">Google Scholar Profile</a></center>
 
