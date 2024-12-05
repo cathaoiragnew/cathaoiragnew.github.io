@@ -13,13 +13,12 @@ full-width: False
           
                 <!-- Creating a Project -->
                   <div class="list-squares-item">
-                     <a href="projects/overfill/"><img src="/assets/img/crepe.jpg" class="item-img"></a>
-                    <h4>Overfill Bins Management</h4>
-                     <div class="item-desc">The use of computer vision to detect Overfilled Bins.</div>
+                     <a href="../projects/overfill/"><img src="/assets/img/crepe.jpg" class="item-img"></a>
+                    <h4>Overfill Bins Detection</h4>
                   
                <!-- Ceating Project Home button-->
                <div class="item-links">
-                   <a class="item-link" href="projects/overfill/" title="Website">
+                   <a class="item-link" href="../projects/overfill/" title="Website">
                      <span class="fa fa-home"></span>
                     </a>
                </div>
