@@ -6,9 +6,7 @@ title: Research
  <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" style="color:blue; text-decoration: underline;">Google Scholar Profile</a>
 
 ###### PhD Thesis: "The Effect of Annotation Quality on Computer Vision in Efficient Waste Management" 
-
-\
-
+<br>
 ###### Abstract
 Deep learning-based computer vision models are often data-hungry, which has prompted the creation of larger datasets. The consensus within the field of computer vision is that larger datasets correspond to improved model performance. This is in line with the theory of generalisation which suggests that more complex models need larger datasets. However, the dataset quality is often not considered. Annotating datasets for fully supervised object detection and instance segmentation tasks necessitates substantial investments in time, effort, and other resources. In practice, the demand for large sample sizes often contributes to inaccuracies during the annotation process. My PhD thesis intended to comprehend and measure the influence of annotation quality on the performance of object detection and instance segmentation models.
 
