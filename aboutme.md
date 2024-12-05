@@ -12,7 +12,7 @@ Thanks for taking the time to visit! I'm Cathaoir, a passionate and dedicated re
 
 ### Research Interest
 - Computer Vision & Deep Learning
-- Effect of Annotation Quality on Performance
+- Effect of Annotation Quality on Model Performance
 - Data Efficient Learning
 - Applying Computer Vision to solve Industry Problems
 
