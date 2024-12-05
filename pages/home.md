@@ -4,7 +4,7 @@ title: Welcome
 permalink: /
 ---
 
-Hello and welcome to my website! I’m Cathaoir, a passionate researcher and engineer specializing in Computer Vision, Deep Learning and Artificial Intelligence. Here, you’ll find information about my professional journey, projects, and interests.
+Hello and welcome to my website! Here, you’ll find information about my professional journey, projects, and interests.
 
 
 ##### What you'll find here
