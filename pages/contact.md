@@ -17,9 +17,6 @@ Or feel free to reach out below:
   <label for="email-address">Email Address</label>
   <input type="email" id="email-address" name="email">
 
-  <label for="photo-album">Photos</label>
-  <input type="file" id="photo-album" multiple name="photos[]">
-
   <button type="submit">Submit</button>
 </form>
 
