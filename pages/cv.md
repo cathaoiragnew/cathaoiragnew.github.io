@@ -39,6 +39,7 @@ Fiserv | June 2021 - Sept 2021
 - Achieved over 40% mAP on the task of automated contamination detection, with results published in a  <a href="https://ieeexplore.ieee.org/abstract/document/10669564" style="color:blue; text-decoration: underline;">scientific journal article</a>
 
 **Education**
+
 Ph.D. in Artificial Intelligence & Machine Learning | University of Limerick | Sept 2021 - Nov 2024
 - Thesis: The Effect of Annotation Quality on Computer Vision in Efficient Waste Management
 - Published and co-authored <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" style="color:blue; text-decoration: underline;">multiple scholarly outputs</a>  contributing to the field's knowledge base
