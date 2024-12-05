@@ -3,7 +3,7 @@ layout: page
 title: About me
 ---
 
-Thanks for taking the time to visit! I'm Cathaoir Agnew, a passionate and dedicated researcher and engineer with a strong background in Computer Vision, Deep Learning and Artificial Intelligence. 
+Thanks for taking the time to visit! I'm Cathaoir, a passionate and dedicated researcher and engineer with a strong background in Computer Vision, Deep Learning and Artificial Intelligence. 
 
 ### Education
 - PhD in Artificial Intelligence & Machine Learning from the [University of Limerick](https://www.ul.ie/)
