@@ -7,7 +7,7 @@ Contact me by <a href="mailto:cathaoiragnew@gmail.com" style="color:blue; text-d
 
 Feel free to reach out to me on <a href="https://www.linkedin.com/in/cathaoiragnew/" style="color:blue; text-decoration: underline;">LinkedIn</a>.
 
-Or feel free to reach out below (After submitting you will be redirected to the form hosting site. Your submission will be submitted, please use the back arrow in your browser to return to this page):
+Or feel free to reach out below:
 
 <center>
 <form action="https://formkeep.com/f/f302825db951"
