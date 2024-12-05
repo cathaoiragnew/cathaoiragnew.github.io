@@ -28,6 +28,8 @@ full-width: False
                     </a>
                </div>
                </center>
+
+               </div>
                       
          <!-- Contamination   -->
                 <!-- Creating a Project -->
@@ -46,6 +48,8 @@ full-width: False
                </div>
                </center>
 
+               </div>
+
          <!-- Doorbell  -->
                 <!-- Creating a Project -->
                   <div class="list-squares-item">
@@ -62,6 +66,8 @@ full-width: False
                     </a>
                </div>
                </center>
+
+               </div>
 
 
          <!-- Lotto -->
@@ -80,6 +86,8 @@ full-width: False
                     </a>
                </div>
                </center>
+
+               </div>
  
       </div>
     </div>
