@@ -21,7 +21,7 @@ author: Cathaoir Agnew
 
 navbar-links:
   About Me: "aboutme"
-  Publications: "aboutme"
+  Research: "/pages/research"
   Projects: "aboutme"
   CV: "/pages/cv"
   Contact: "/pages/contact"
