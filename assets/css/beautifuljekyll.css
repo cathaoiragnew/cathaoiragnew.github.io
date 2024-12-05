@@ -167,7 +167,7 @@ img {
 }
 
 .list-squares-item:hover {
-  background: #00CC00;
+  background: #000000;
 }
 
 .list-squares-item .item-img {
@@ -197,7 +197,7 @@ img {
 }
 
 .list-squares-item .item-link:hover {
-  color: #000000;
+  color: #FFFFFF;
 }
 
 
