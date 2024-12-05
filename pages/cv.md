@@ -50,7 +50,7 @@ BSc. in Financial Mathematics | University of Limerick | Sept 2016 - Sept 2020
 - Core Modules: Advanced Data Analysis, Optimisation, Computer Software 1/2, Probability Models, Time Series Analysis
 
 **Skills**
-- Core Skills: Python, Deep Learning, Computer Vision, Statistical Analysis, Mathematics, Artificial Intelligence & Machine Learning, Neural Networks, Research & Development, Supervised Learning, Unsupervised Learning, Semi-Supervised Learning, Self-Supervised Learning
-- Libraries: PyTorch, Keras, Scikit-Learn, OpenCV, NumPy, Pandas, Matplotlib, SciPy, MMDetection, OpenMMLab, Open3D
-- Techniques: Image Classification, Object Detection, Instance Segmentation, Semantic Segmentation, Feature Engineering, Transfer Learning,
+- _Core Skills_: Python, Deep Learning, Computer Vision, Statistical Analysis, Mathematics, Artificial Intelligence & Machine Learning, Neural Networks, Research & Development, Supervised Learning, Unsupervised Learning, Semi-Supervised Learning, Self-Supervised Learning
+- _Libraries_: PyTorch, Keras, Scikit-Learn, OpenCV, NumPy, Pandas, Matplotlib, SciPy, MMDetection, OpenMMLab, Open3D
+- _Techniques_: Image Classification, Object Detection, Instance Segmentation, Semantic Segmentation, Feature Engineering, Transfer Learning,
 Object Tracking, Data Augmentation, Convolution Neural Networks, Transformers, AutoEncoders, GANs, Diffusion Models, Siamese Neural NetworksSoft Skills: Analytical Thinking, Problem-Solving, Collaboration, Continuous Learning, Communication, Project Management
