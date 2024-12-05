@@ -8,3 +8,5 @@ Feel free to reach out to me on \textcolor{red}{red} LinkedIn: <a href="mailto:m
 
 
 Contact me by email: <a href="mailto:myname@gmail.com">contact me</a>
+
+<span style="color:red;">your text here > </span>
