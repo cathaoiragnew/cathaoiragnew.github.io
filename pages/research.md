@@ -3,7 +3,7 @@ layout: page
 title: Research
 ---
 
-![]("/assets/img/png-transparent-google-scholar-hd-logo.png")
+![]("assets/img/png-transparent-google-scholar-hd-logo.png")
 
 <center><a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" style="color:blue; text-decoration: underline;">Google Scholar Profile</a></center>
 
