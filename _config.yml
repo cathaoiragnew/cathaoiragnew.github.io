@@ -24,6 +24,7 @@ navbar-links:
   Publications: "aboutme"
   Projects: "aboutme"
   CV: "aboutme"
+  Contact: "/pages/contact"
 
 ################
 # --- Logo --- #
@@ -59,7 +60,7 @@ social-network-links:
   #whatsapp: 15551212
 #  medium: yourname
 #  reddit: yourname or r/yoursubreddit
-  linkedin: https://www.linkedin.com/in/cathaoiragnew/
+  linkedin: cathaoiragnew/
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
@@ -73,8 +74,8 @@ social-network-links:
 #  calendly: yourname
 #  mastodon: instance.url/@username
 #  bluesky: yourname
-  ORCID: https://orcid.org/0000-0003-1185-2033
-  google-scholar: https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en
+  ORCID: 0000-0003-1185-2033
+  google-scholar: citations?user=gZgIYMoAAAAJ&hl=en
 #  discord: "invite_code" or "users/userid" or "invite/invite_code"
 #  kaggle: yourname
 #  hackerrank: yourname
