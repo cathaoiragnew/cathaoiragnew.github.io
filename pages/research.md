@@ -7,6 +7,8 @@ title: Research
   <img src="assets/img/Google_Scholar_logo.png" alt="Google Scholar" style="width: 40px;" />
 </a>
 
+[![Google Scholar Profile](assets/img/Google_Scholar_logo.png)](https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en)
+
 
 ###### List of Publications
 
