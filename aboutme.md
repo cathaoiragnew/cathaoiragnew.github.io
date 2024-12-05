@@ -15,4 +15,9 @@ When I'm not working, you'll often find me training for sports, primarily [Hurli
 
 ![Alt text](assets/img/hurling_2.jpg){: style="width: 50%" margin-left:auto; margin-right:auto"}
 
+<figure style="text-align: center;">
+  <img src="assets/img/hurling_2.jpg" alt="Hurling" style="width: 80%;" />
+  <figcaption>Source: [The Clare Champion](https://clarechampion.ie/)</figcaption>
+</figure>
+
 
