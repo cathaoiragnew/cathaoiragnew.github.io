@@ -24,7 +24,7 @@ navbar-links:
     - Summary: "aboutme"
     - CV: "/pages/cv"
   Research: "/pages/research"
-  Projects: "aboutme"
+  Projects: "/pages/projects"
   Contact: "/pages/contact"
 
 ################
