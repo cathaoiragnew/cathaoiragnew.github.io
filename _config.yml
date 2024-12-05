@@ -10,7 +10,7 @@
 ############################
 
 # Name of website
-title: Cathaoir Agnew
+title: Home
 
 # Your name to show in the footer
 author: Cathaoir Agnew
@@ -20,10 +20,11 @@ author: Cathaoir Agnew
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
+  About Me: 
+    - Summary: "aboutme"
+    - CV: "/pages/cv"
   Research: "/pages/research"
   Projects: "aboutme"
-  CV: "/pages/cv"
   Contact: "/pages/contact"
 
 ################
