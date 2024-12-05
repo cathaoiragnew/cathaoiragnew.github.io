@@ -13,7 +13,7 @@ Thanks for taking the time to visit! I'm Cathaoir, a passionate and dedicated re
 ### Research Interest
 - Computer Vision & Deep Learning
 - Data Efficient Learning
-- Applying Computer Vision to solve Industrial Problems
+- Applying Computer Vision to solve Industry Problems
 
 ### Outside of Work
 When I'm not working, you'll often find me training for sports, primarily [Hurling](https://en.wikipedia.org/wiki/Hurling) and [Handball](https://en.wikipedia.org/wiki/Gaelic_handball) (both traditional Irish sports). I also enjoy hiking and attending concerts and comedy gigs. These activities keep me active and balanced, allowing me to recharge and return to my professional life with renewed energy and focus.
