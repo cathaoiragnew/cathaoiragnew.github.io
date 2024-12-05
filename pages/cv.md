@@ -37,6 +37,20 @@ Fiserv | June 2021 - Sept 2021
 - Achieved over 40% mAP on the task of automated contamination detection, with results published in a  <a href="https://ieeexplore.ieee.org/abstract/document/10669564" style="color:blue; text-decoration: underline;">scientific journal article</a>
 
 **Education**
-Ph.D. in Artificial Intelligence & Machine Learning | University of Limerick | Sept 2021 - November 2024
+Ph.D. in Artificial Intelligence & Machine Learning | University of Limerick | Sept 2021 - Nov 2024
 - Thesis: The Effect of Annotation Quality on Computer Vision in Efficient Waste Management
 - Published and co-authored <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" style="color:blue; text-decoration: underline;">multiple scholarly outputs</a>  contributing to the field's knowledge base
+ 
+MSc. in Artificial Intelligence & Machine Learning | University of Limerick | Sept 2020 - Sept 2021
+- Thesis: An Investigation into the Timed Up and Go Test Using Inertial Measurements with a Machine Learning Approach
+- Core Modules: Text Analytics and NLP, Machine Vision, Artificial Intelligence and Machine Learning
+
+BSc. in Financial Mathematics | University of Limerick | Sept 2016 - Sept 2020
+- Thesis: Double Trouble? A Statistical Analysis of Child and Parental Outcomes Comparing Singletons to Non-Singletons
+- Core Modules: Advanced Data Analysis, Optimisation, Computer Software 1/2, Probability Models, Time Series Analysis
+
+**Skills**
+- Core Skills: Python, Deep Learning, Computer Vision, Statistical Analysis, Mathematics, Artificial Intelligence & Machine Learning, Neural Networks, Research & Development, Supervised Learning, Unsupervised Learning, Semi-Supervised Learning, Self-Supervised Learning
+- Libraries: PyTorch, Keras, Scikit-Learn, OpenCV, NumPy, Pandas, Matplotlib, SciPy, MMDetection, OpenMMLab, Open3D
+- Techniques: Image Classification, Object Detection, Instance Segmentation, Semantic Segmentation, Feature Engineering, Transfer Learning,
+Object Tracking, Data Augmentation, Convolution Neural Networks, Transformers, AutoEncoders, GANs, Diffusion Models, Siamese Neural NetworksSoft Skills: Analytical Thinking, Problem-Solving, Collaboration, Continuous Learning, Communication, Project Management
