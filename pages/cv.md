@@ -4,7 +4,7 @@ title: Curriculum Vitae
 subtitle: 
 ---
 
-__**Summary**__
+<u>**Summary**</u>
 
 Ph.D. in Artificial Intelligence and Machine Learning, specialising in Computer Vision. With a strong academic background and hands-on experience in developing innovative AI
 solutions, I am passionate about leveraging state-of-the-art technologies to solve real-world problems. My journey from a BSc. in Financial Mathematics to an MSc. and Ph.D. in AI
