@@ -23,7 +23,7 @@ navbar-links:
   About Me: "aboutme"
   Publications: "aboutme"
   Projects: "aboutme"
-  CV: "aboutme"
+  CV: "/pages/cv"
   Contact: "/pages/contact"
 
 ################
