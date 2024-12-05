@@ -7,7 +7,6 @@ title: Research
   <img src="assets/img/Google_Scholar_logo.png" alt="Google Scholar" style="width: 40px;" />
 </a>
 
-<center><a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" style="color:blue; text-decoration: underline;">Google Scholar Profile</a></center>
 
 ###### List of Publications
 
