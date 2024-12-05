@@ -1,6 +1,6 @@
 ---
 layout: page
-title:
+title: Welcome
 permalink: /
 ---
 
@@ -8,8 +8,8 @@ Hello and welcome to my website! I’m Cathaoir, a passionate researcher and eng
 
 
 ##### What you'll find here
-- **About Me**: A quick intro about me along with my CV. 
+- **About Me**: A brief introduction to my background and expertise, along with my CV. 
 - **Projects**: Dive into my portfolio to see how I apply Computer Vision and AI to solve real-world problems in addition to performing fundamental research.
-- **Contact***: Feel free to reach out for collaboration opportunities, job opportunities or to discuss innovative ideas.
+- **Contact**: Feel free to reach out for collaboration opportunities, job opportunities or to discuss innovative ideas.
 
-Thank you for visiting, and I hope you find the content here both informative and inspiring.
+Thank you for visiting!
