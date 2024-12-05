@@ -9,6 +9,7 @@ Feel free to reach out to me on <a href="https://www.linkedin.com/in/cathaoiragn
 
 Or feel free to reach out below (After submitting you will be redirected to the form hosting site. Your submission will be submitted, please use the back arrow in your browser to return to this page):
 
+<center>
 <form action="https://formkeep.com/f/f302825db951"
    accept-charset="UTF-8"
    enctype="multipart/form-data"
@@ -23,6 +24,7 @@ Or feel free to reach out below (After submitting you will be redirected to the 
    <br>
   <button type="submit">Submit</button>
 </form>
+</center>
 
 
 
