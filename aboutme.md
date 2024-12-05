@@ -13,11 +13,9 @@ Thanks for taking the time to visit! I'm Cathaoir Agnew, a passionate and dedica
 ### Outside of Work
 When I'm not working, you'll often find me training for sports, primarily [Hurling](https://en.wikipedia.org/wiki/Hurling) and [Handball](https://en.wikipedia.org/wiki/Gaelic_handball) (both traditional Irish sports). I also enjoy hiking and attending concerts and comedy gigs. These activities keep me active and balanced, allowing me to recharge and return to my professional life with renewed energy and focus.
 
-![Alt text](assets/img/hurling_2.jpg){: style="width: 50%" margin-left:auto; margin-right:auto"}
-
 <figure style="text-align: center;">
   <img src="assets/img/hurling_2.jpg" alt="Hurling" style="width: 80%;" />
-  <figcaption>Source: [The Clare Champion](https://clarechampion.ie/)</figcaption>
+  <figcaption>Source: The Clare Champion</figcaption>
 </figure>
 
 
