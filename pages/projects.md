@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Projects 
+full-width: False
 ---
 
  <div class="container-fluid">
