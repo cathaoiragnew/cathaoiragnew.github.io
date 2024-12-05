@@ -4,7 +4,7 @@ title: Research
 ---
 
 <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" target="_blank">
-  <i class="fa fa-google"></i> Google Scholar
+  <img src="assets/img/Google_Scholar_logo.png" alt="Google Scholar" style="width: 40px;" />
 </a>
 
 <center><a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" style="color:blue; text-decoration: underline;">Google Scholar Profile</a></center>
