@@ -1,13 +1,14 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Thanks for taking the time to visit! I'm Cathaoir Agnew, a passionate and dedicated researcher and engineer with a strong background in Computer Vision, Deep Learning and Artificial Intelligence. 
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+### Education
+- PhD in Artificial Intelligence & Machine Learning from the [University of Limerick](https://www.ul.ie/)
+- MSc in [Artificial Intelligence & Machine Learning](https://www.ul.ie/gps/artificial-intelligence-machine-learning-msc) from the University of Limerick
+- BSc in [Financial Mathematics](https://www.ul.ie/courses/bachelor-science-financial-mathematics) from the University of Limerick
 
 What else do you need?
 
