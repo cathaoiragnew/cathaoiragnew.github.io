@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Projects 
+custom-css: colab
 full-width: False
 ---
 
