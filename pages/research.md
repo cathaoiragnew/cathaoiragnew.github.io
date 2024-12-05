@@ -3,6 +3,8 @@ layout: page
 title: Research
 ---
 
+![]("assets/img/Google_Scholar_logo.png")
+
 <center><a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" style="color:blue; text-decoration: underline;">Google Scholar Profile</a></center>
 
 ###### PhD Thesis Abstract
