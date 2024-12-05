@@ -36,7 +36,7 @@ full-width: False
                   <div class="list-squares-item">
                      <a href="../projects/contamination/"><img src="/assets/img/contamination-image.png" class="item-img"></a>
                      <center>
-                    <h4>Overfill Bins Detection</h4>
+                    <h4>Contamination Detection</h4>
                     </center>
                   
                <!-- Ceating Project Home button-->
@@ -55,7 +55,7 @@ full-width: False
                   <div class="list-squares-item">
                      <a href="../projects/doorbell/"><img src="/assets/img/doorbell.png" class="item-img"></a>
                      <center>
-                    <h4>Overfill Bins Detection</h4>
+                    <h4>Doorbell Analytics</h4>
                     </center>
                   
                <!-- Ceating Project Home button-->
@@ -75,7 +75,7 @@ full-width: False
                   <div class="list-squares-item">
                      <a href="../projects/lotto/"><img src="/assets/img/lotto.jpg" class="item-img"></a>
                      <center>
-                    <h4>Overfill Bins Detection</h4>
+                    <h4>Lotto Analytics</h4>
                     </center>
                   
                <!-- Ceating Project Home button-->
