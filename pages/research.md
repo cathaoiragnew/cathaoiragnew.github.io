@@ -5,7 +5,7 @@ title: Research
 
  <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" style="color:blue; text-decoration: underline;">Google Scholar Profile</a>
 
-###### PhD Thesis: "The Effect of Annotation Quality on Computer Vision in Efficient Waste Management"
+###### PhD Thesis: "The Effect of Annotation Quality on Computer Vision in Efficient Waste Management" \
 
 
 ###### Abstract
