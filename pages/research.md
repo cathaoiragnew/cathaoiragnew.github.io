@@ -4,8 +4,7 @@ title: Research
 ---
 
 
-
-[![Google Scholar Profile](assets/img/Google_Scholar_logo.png)](https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en)
+![Google Scholar Profile](assets/img/Google_Scholar_logo.png)
 
 
 ###### List of Publications
