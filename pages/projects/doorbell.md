@@ -12,7 +12,7 @@ Here’s a step-by-step overview of the process:
 1. **Date and Time Extraction**
    - The date and time are displayed in the top left corner of the video.
    - I cropped this section of the image, as it remains fixed throughout each frame.
-   - After cropping, I applied a threshold to enhance the edges.
+   - After cropping, I applied a threshold and edge detection to enhance the edges for OCR.
    - The enhanced crop of the image is then processed with [Tesseract](https://github.com/tesseract-ocr/tessdoc) for Optical Character Recognition (OCR).
   
    <p style="text-align: center;">
