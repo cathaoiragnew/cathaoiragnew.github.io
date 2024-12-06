@@ -5,7 +5,7 @@ title: Research
 
 <p style="text-align: center;">
   <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en">
-    <img src="/assets/img/Google_Scholar_logo.png" alt="Workflow" style="max-width: 10%; height: auto;" />
+    <img src="/assets/img/Google_Scholar_logo.png" alt="Workflow" style="max-width: 5%; height: auto;" />
   </a>
 </p>
 <p style="text-align: center;">Google Scholar Profile</p>
