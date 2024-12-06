@@ -5,6 +5,9 @@ title: Contamination Detection
 
 In collaboration with an industry partner, we conceptualized and transformed the initial idea of using computer vision to automate the detection of contamination at source into a fully functional product.
 
+<p style="text-align: center;">
+  <img src="/assets/img/workflow.png" alt="Example Image" style="max-width: 100%; height: auto;" />
+</p>
 
 <p style="text-align: center;">
   <img src="/assets/img/overfill_bins.png" alt="Example Image" style="max-width: 100%; height: auto;" />
