@@ -3,7 +3,7 @@ layout: page
 title: Lottery Analytics
 ---
 
-Inspired by [Dr. Richard Jarecki](https://thehustle.co/professor-who-beat-roulette) and as a way to refresh my data science skills, I conducted an investigation into our local GAA's lottery draw.
+Inspired by [Dr. Richard Jarecki](https://thehustle.co/professor-who-beat-roulette){:target="_blank"} and as a way to refresh my data science skills, I conducted an investigation into our local GAA's lottery draw.
 
 The weekly lotto results are available online and look like below (some information has been redacted to protect personal identities).
 
@@ -11,7 +11,7 @@ The weekly lotto results are available online and look like below (some informat
      <img src="/assets/img/Lotto_eg.png" alt="Website example" style="max-width: 100%; height: auto;" />
    </p> 
 
-First, I used [Selenium](https://www.selenium.dev/) to automate web browsing and locate the necessary pages for scraping. Then, I utilised BeautifulSoup to parse the web pages. By employing regex and Python, I extracted the relevant information and stored the results of 450 lotto draws.
+First, I used [Selenium](https://www.selenium.dev/){:target="_blank"} to automate web browsing and locate the necessary pages for scraping. Then, I utilised BeautifulSoup to parse the web pages. By employing regex and Python, I extracted the relevant information and stored the results of 450 lotto draws.
 
    <p style="text-align: center;">
      <img src="/assets/img/results_no.png" alt="Results" style="max-width: 100%; height: auto;" />
