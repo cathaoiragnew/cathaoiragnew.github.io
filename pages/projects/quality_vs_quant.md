@@ -7,7 +7,7 @@ As part of my research during my PhD, understanding the effects and trade-offs i
 
 **This is a quick & digestible overview of the paper.** 
 
-Firstly, we introduce 3 types of annotation uncertainty; incorrect class labels, missing annotations and localisation uncertainty into the [COCO](https://cocodataset.org/#home){:target="_blank"} dataset. As shown below.
+Firstly, we introduce 3 types of annotation uncertainty (bottom row); localisation uncertainty, missing annotations and incorrect class labels into the [COCO](https://cocodataset.org/#home){:target="_blank"} dataset. As shown below.
 
   <p style="text-align: center;">
      <img src="/assets/img/annot_exp.png" alt="Annotation Examples" style="max-width: 100%; height: auto;" />
