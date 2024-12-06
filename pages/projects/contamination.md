@@ -10,9 +10,13 @@ In collaboration with an industry partner, we conceptualized and transformed the
   <img src="../../assets/img/workflow.png" alt="Workflow Overview" />
 </div>
 
+<img src="/assets/img/Projects/workflow.png" class="center">
+
 <div style="text-align: center;">
   <img src="../../assets/img/contamination.png" alt="Contamination Example" />
 </div>
+
+<img src="/assets/img/Projects/contamination.png" class="center">
 
 This project covered the entire process of developing a computer vision solution, including data curation, data cleaning, model development and deployment on Azure Machine Learning Studio. The video below gives a brief overview of the product.
 
