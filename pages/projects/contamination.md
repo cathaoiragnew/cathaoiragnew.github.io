@@ -9,7 +9,7 @@ In collaboration with an industry partner, we conceptualized and transformed the
   <img src="/assets/img/workflow.png" alt="Workflow" style="max-width: 100%; height: auto;" />
 </p>
 
-A sample image from the dataset used to train the contamination detection model
+Sample images from the dataset used to train the contamination detection model
 
 <p style="text-align: center;">
   <img src="/assets/img/contamination.png" alt="Contamination Example" style="max-width: 100%; height: auto;" />
