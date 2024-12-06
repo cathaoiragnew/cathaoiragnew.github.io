@@ -3,6 +3,10 @@ layout: page
 title: Research
 ---
 
+<p style="text-align: center;">
+  <img src="/assets/img/Google_Scholar_logo.png" alt="Workflow" style="max-width: 100%; height: auto;" />
+</p>
+
  <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" style="color:blue; text-decoration: underline;">Google Scholar Profile</a>
 
 **PhD Thesis**:
