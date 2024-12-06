@@ -4,6 +4,13 @@ title: Curriculum Vitae
 subtitle: 
 ---
 
+<p style="text-align: center;">
+  <a href="/assets/img/Cathaoir_Agnew_CV.pdf" target="_blank">PDF>
+    <img src="/assets/img/cv_icon.png" alt="CV Icon" style="max-width: 7.5%; height: auto;" />
+  </a>
+</p>
+<p style="text-align: center;">Google Scholar Profile</p>
+
 **<u>Summary</u>**
 
 Ph.D. in Artificial Intelligence and Machine Learning, specialising in Computer Vision. With a strong academic background and hands-on experience in developing innovative AI
