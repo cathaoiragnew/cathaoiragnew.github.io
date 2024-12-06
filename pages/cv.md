@@ -27,7 +27,7 @@ University of Limerick | Sept 2021 - Present
 - Mentored and supervised summer interns, enhancing their understanding of machine learning principles while fostering a collaborative and supportive research environment
 - Delivered comprehensive instruction on machine learning and deep learning principles, managed computer laboratories and virtual learning platforms and assisted students in
 identifying and resolving coding issues
-- <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" style="color:blue; text-decoration: underline;">Published and co-authored several scholarly outputs</a>, contributing to the academic knowledge base in the field
+- <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" target="_blank" style="color:blue; text-decoration: underline;">Published and co-authored several scholarly outputs</a>, contributing to the academic knowledge base in the field
 
 **Data Scientist**
 Fiserv | June 2021 - Sept 2021
@@ -37,19 +37,19 @@ Fiserv | June 2021 - Sept 2021
 
 **<u>Projects</u>**
 
-<a href="https://www.amcsgroup.com/solutions/amcs-vision-ai/" style="color:blue; text-decoration: underline;">Vision AI</a> | Sept 2021 - Sept 2023
+<a href="https://www.amcsgroup.com/solutions/amcs-vision-ai/" target="_blank" style="color:blue; text-decoration: underline;">Vision AI</a> | Sept 2021 - Sept 2023
 - Conceptualised and transformed initial ideas into a fully functional product for an industry partner, addressing specific business needs
 - Worked closely with a multidisciplinary team to gather data requirements and refine the computer vision system, ensuring alignment with project goals
 - Collaborated with and educated the industry partner, maintaining clear communication to ensure their needs and expectations were met
 - Conducted in-depth research into the specific tasks, exploring and applying cutting-edge techniques to optimise performance
-- Achieved over 80% mean Average Precision (mAP) on the task of automated overfilled container management, with results published in a <a href="https://www.sciencedirect.com/science/article/pii/S2667305323000546" style="color:blue; text-decoration: underline;">scientific journal article</a>
-- Achieved over 40% mAP on the task of automated contamination detection, with results published in a  <a href="https://ieeexplore.ieee.org/abstract/document/10669564" style="color:blue; text-decoration: underline;">scientific journal article</a>
+- Achieved over 80% mean Average Precision (mAP) on the task of automated overfilled container management, with results published in a <a href="https://www.sciencedirect.com/science/article/pii/S2667305323000546" target="_blank" style="color:blue; text-decoration: underline;">scientific journal article</a>
+- Achieved over 40% mAP on the task of automated contamination detection, with results published in a  <a href="https://ieeexplore.ieee.org/abstract/document/10669564" target="_blank" style="color:blue; text-decoration: underline;">scientific journal article</a>
 
 **<u>Education</u>**
 
 **Ph.D. in Artificial Intelligence & Machine Learning** | University of Limerick | Sept 2021 - Nov 2024
 - Thesis: The Effect of Annotation Quality on Computer Vision in Efficient Waste Management
-- Published and co-authored <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" style="color:blue; text-decoration: underline;">multiple scholarly outputs</a>  contributing to the field's knowledge base
+- Published and co-authored <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" target="_blank" style="color:blue; text-decoration: underline;">multiple scholarly outputs</a>  contributing to the field's knowledge base
  
 **MSc. in Artificial Intelligence & Machine Learning** | University of Limerick | Sept 2020 - Sept 2021
 - Thesis: An Investigation into the Timed Up and Go Test Using Inertial Measurements with a Machine Learning Approach
