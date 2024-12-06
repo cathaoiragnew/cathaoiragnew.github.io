@@ -18,7 +18,15 @@ Sample images from the dataset used to train the contamination detection model
 This project covered the entire process of developing a computer vision solution, including data curation, data cleaning, model development and deployment on Azure Machine Learning Studio. The video below gives a brief overview of the product.
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fDmKpEWI3f4?si=xllhO9MG_JO1Pusc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<!-- Video Container (Responsive) -->
+<div class="responsive-video">
+  <iframe src="https://www.youtube.com/embed/fDmKpEWI3f4?si=xllhO9MG_JO1Pusc" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen></iframe>
+</div>
 </center>
 
 Further information about this work can be found in our journal article:   
