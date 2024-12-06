@@ -33,12 +33,17 @@ Here’s a step-by-step overview of the process:
   - With the date and time extracted, I used the DeepSORT model to identify & track objects of interest in each frame of the video.
   - The results are stored and exported into an Excel file.
 
-<div style="text-align: center;">
-  <video width="600" controls>
-    <source src="/assets/img/Doorbell_example.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+<center>
+<!-- Video Container (Responsive) -->
+<div class="responsive-video">
+  <iframe src="/assets/img/Doorbell_example.mp4" type="video/mp4" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen></iframe>
 </div>
+</center>
 
 <br>
 
