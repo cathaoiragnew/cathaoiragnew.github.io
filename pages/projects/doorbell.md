@@ -3,7 +3,7 @@ layout: page
 title: Doorbell Analytics
 ---
 
-During my PhD, I worked on a personal side project to incorporate smart analytics into our smart doorbell. While many smart doorbell providers offer this feature, it often comes with a paid subscription.
+I worked on a personal side project to incorporate analytics into our smart doorbell. While many smart doorbell providers offer this feature, it often comes with a paid subscription.
 
 The doorbell automatically wakes when it detects motion and records for as long as motion is present or for a set period. Using these video recordings, I applied an off-the-shelf [DeepSORT](https://arxiv.org/abs/1703.07402) model to provide smart analytics for classes of interest, specifically Cars and Persons.
 
