@@ -3,7 +3,7 @@ layout: page
 title: Lottery Analytics
 ---
 
-Inspired by [Dr. Richard Jarecki](https://thehustle.co/professor-who-beat-roulette){:target="_blank"} and as a way to refresh my data science skills, I conducted an investigation into our local GAA's lottery draw.
+Inspired by [Dr. Richard Jarecki](https://thehustle.co/professor-who-beat-roulette){:target="_blank"} and as a way to refresh my data science skills, I conducted an investigation into my local GAA's lottery draw.
 
 The weekly lotto results are available online and look like below (some information has been redacted to protect personal identities).
 
