@@ -95,7 +95,7 @@ full-width: False
                   <div class="list-squares-item">
                      <a href="../projects/quality_vs_quant/"><img src="/assets/img/quality-vs-quantity.jpg" class="item-img"></a>
                      <center>
-                    <h4>Annotation Quality Vs Quantity Q</h4>
+                    <h4>Annotation Quality Vs Quantity</h4>
                     </center>
                   
                <!-- Ceating Project Home button-->
