@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Annotation Quantity vs Quality
+title: Annotation Quality vs Quantity
 ---
 
 As part of my research during my PhD, understanding the effects and trade-offs in dataset curation was of particular interest. We explored this trade-off which led to a <a href="https://ieeexplore.ieee.org/abstract/document/10689528" target="_blank" style="color:blue; text-decoration: underline;">journal publication</a>.  
