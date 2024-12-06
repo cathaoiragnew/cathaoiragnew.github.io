@@ -88,6 +88,26 @@ full-width: False
                </center>
 
                </div>
+
+
+                <!-- Quality vs Quanity -->
+                <!-- Creating a Project -->
+                  <div class="list-squares-item">
+                     <a href="../projects/quality_vs_quant/"><img src="/assets/img/quality-vs-quantity.png" class="item-img"></a>
+                     <center>
+                    <h4>Annotation Quality Vs Quantity Q</h4>
+                    </center>
+                  
+               <!-- Ceating Project Home button-->
+               <center>
+               <div class="item-links">
+                   <a class="item-link" href="../projects/quality_vs_quant/" title="Website">
+                     <span class="fa fa-home"></span>
+                    </a>
+               </div>
+               </center>
+
+               </div>
  
       </div>
     </div>
