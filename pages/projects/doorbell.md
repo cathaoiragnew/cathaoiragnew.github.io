@@ -15,26 +15,46 @@ Here’s a step-by-step overview of the process:
    - After cropping, I applied a threshold to enhance the edges.
    - The enhanced crop of the image is then processed with [Tesseract](https://github.com/tesseract-ocr/tessdoc) for Optical Character Recognition (OCR).
   
-<p style="text-align: center;">
-  <img src="/assets/img/time_eg.jpg" alt="Time & Date Example" style="max-width: 100%; height: auto;" />
-</p>  
+   <p style="text-align: center;">
+     <img src="/assets/img/time_eg.jpg" alt="Time & Date Example" style="max-width: 100%; height: auto;" />
+   </p>  
+   
+   <p style="text-align: center;">
+     <img src="/assets/img/threshold.jpg" alt="Thresholding" style="max-width: 100%; height: auto;" />
+   </p>  
+   
+   <p style="text-align: center;">
+     <img src="/assets/img/python_func.jpg" alt="Python Function" style="max-width: 100%; height: auto;" />
+   </p> 
 
-<p style="text-align: center;">
-  <img src="/assets/img/threshold.jpg" alt="Thresholding" style="max-width: 100%; height: auto;" />
-</p>  
+<br>
 
-<p style="text-align: center;">
-  <img src="/assets/img/python_func.jpg" alt="Python Function" style="max-width: 100%; height: auto;" />
-</p> 
-  
 2. **Object Detection**
   - With the date and time extracted, I used the DeepSORT model to identify objects of interest in each frame of the video.
   - The results are stored and exported into an Excel file.
 
+<div style="text-align: center;">
+  <video width="600" controls>
+    <source src="/assets/img/Doorbell_example.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<br>
+
 3. **Data Visualization**
   - The Excel file is then imported into Tableau to provide summary statistics & graphs.
 
-An example of the date and time extraction is provided below. This approach allows for the integration of smart analytics into our doorbell without the need for a subscription service.
+   <p style="text-align: center;">
+     <img src="/assets/img/date_stats.jpg" alt="Date Statistics" style="max-width: 100%; height: auto;" />
+   </p> 
+
+   <p style="text-align: center;">
+     <img src="/assets/img/day_stats.jpg" alt="Day Statistics" style="max-width: 100%; height: auto;" />
+   </p> 
+
+
+This approach allows for the integration of smart analytics into our doorbell without the need for a subscription service! 
 
 
 
