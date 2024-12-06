@@ -7,7 +7,7 @@ In collaboration with an industry partner, we conceptualized and transformed the
 
 
 <p style="text-align: center;">
-  <img src="../../assets/img/overfill_bins.png" alt="Example Image" style="max-width: 100%; height: auto;" />
+  <img src="/assets/img/overfill_bins.png" alt="Example Image" style="max-width: 100%; height: auto;" />
 </p>
 
 This project covered the entire process of developing a computer vision solution, including data curation, data cleaning, model development and deployment on Azure Machine Learning Studio. The video below gives a brief overview of the product.
