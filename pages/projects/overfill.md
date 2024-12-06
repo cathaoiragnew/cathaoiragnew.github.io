@@ -30,6 +30,6 @@ This project covered the entire process of developing a computer vision solution
 </center>
 
 Further information about this work can be found in our journal article:   
-- <a href="https://www.sciencedirect.com/science/article/pii/S2667305323000546" style="color:blue; text-decoration: underline;">Detecting the overfilled status of domestic and commercial bins using computer vision</a> 
+- <a href="https://www.sciencedirect.com/science/article/pii/S2667305323000546" target="_blank" style="color:blue; text-decoration: underline;">Detecting the overfilled status of domestic and commercial bins using computer vision</a> 
 
 
