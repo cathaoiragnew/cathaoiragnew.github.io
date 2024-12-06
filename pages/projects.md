@@ -93,7 +93,7 @@ full-width: False
                 <!-- Quality vs Quanity -->
                 <!-- Creating a Project -->
                   <div class="list-squares-item">
-                     <a href="../projects/quality_vs_quant/"><img src="/assets/img/quality-vs-quantity.png" class="item-img"></a>
+                     <a href="../projects/quality_vs_quant/"><img src="/assets/img/quality-vs-quantity.jpg" class="item-img"></a>
                      <center>
                     <h4>Annotation Quality Vs Quantity Q</h4>
                     </center>
