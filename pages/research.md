@@ -20,8 +20,8 @@ In addition to this, in collaboration with an industry partner, we investigated 
 - <a href="https://ieeexplore.ieee.org/abstract/document/10689528" style="color:blue; text-decoration: underline;">Annotation quality versus quantity for object detection and instance segmentation</a> 
 - <a href="https://www.sciencedirect.com/science/article/pii/S2667305323000546" style="color:blue; text-decoration: underline;">Detecting the overfilled status of domestic and commercial bins using computer vision</a> 
 - <a href="https://ieeexplore.ieee.org/abstract/document/10068201" style="color:blue; text-decoration: underline;">Quantifying the effects of ground truth annotation quality on object detection and instance segmentation performance</a> 
-- <a href="https://ieeexplore.ieee.org/abstract/document/10068201" style="color:blue; text-decoration: underline;">Contamination detection from highly cluttered waste scenes using computer vision</a> 
-- <a href="https://ieeexplore.ieee.org/abstract/document/10068201" style="color:blue; text-decoration: underline;">SS-SFR: synthetic scenes spatial frequency response on Virtual KITTI and degraded automotive simulations for object detection</a> 
+- <a href="https://ieeexplore.ieee.org/abstract/document/10669564" style="color:blue; text-decoration: underline;">Contamination detection from highly cluttered waste scenes using computer vision</a> 
+- <a href="https://digital-library.theiet.org/doi/abs/10.1049/icp.2024.3292" style="color:blue; text-decoration: underline;">SS-SFR: synthetic scenes spatial frequency response on Virtual KITTI and degraded automotive simulations for object detection</a> 
 
 
 
