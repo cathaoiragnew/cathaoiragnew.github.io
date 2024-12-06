@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Overfill Detection
+title: Overfill Bin Detection
 ---
 
 In collaboration with an industry partner, we conceptualized and transformed the initial idea of using computer vision to automate the detection of overfilled bins into a fully functional product.
@@ -15,5 +15,5 @@ Further information about this work can be found in our journal article:
 - <a href="https://www.sciencedirect.com/science/article/pii/S2667305323000546" style="color:blue; text-decoration: underline;">Detecting the overfilled status of domestic and commercial bins using computer vision</a> 
 
 <center>
-![Example Image](../../../assets/img/overfill_bins.png)
+![Example Image](cathaoiragnew/cathaoiragnew.github.io/assets/img/overfill_bins.png)
 </center>
