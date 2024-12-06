@@ -9,7 +9,7 @@ subtitle:
     <img src="/assets/img/cv_icon.png" alt="CV Icon" style="max-width: 7.5%; height: auto;" />
   </a>
 </p>
-<p style="text-align: center; margin-top: 2px;">PDF</p>
+<p style="text-align: center; margin-top: 2px !important;">PDF</p>
 
 **<u>Summary</u>**
 
