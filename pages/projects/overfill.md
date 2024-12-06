@@ -9,7 +9,7 @@ In collaboration with an industry partner, we conceptualized and transformed the
   <img src="/assets/img/workflow.png" alt="Workflow" style="max-width: 100%; height: auto;" />
 </p>
 
-A sample image from the dataset used to train the overfill bin detection model.
+Sample images from the dataset used to train the overfill bin detection model.
 
 <p style="text-align: center;">
   <img src="/assets/img/overfill_bins.png" alt="Overfill Bin Example" style="max-width: 100%; height: auto;" />
