@@ -15,4 +15,4 @@ Further information about this work can be found in our journal article:
 - <a href="https://ieeexplore.ieee.org/abstract/document/10669564" style="color:blue; text-decoration: underline;">Contamination detection from highly cluttered waste scenes using computer vision</a> 
 
 
-![Example Image](/assets/img/overfill_bins.png)
+![Example Image](/assets/img/contamination.png)
