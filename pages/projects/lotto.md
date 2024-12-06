@@ -40,3 +40,6 @@ Additionally, I gathered data on the winning numbers and prize amounts from prev
   <p style="text-align: center;">
      <img src="/assets/img/high_low.png" alt="High-Low Numbers" style="max-width: 100%; height: auto;" />
    </p> 
+
+
+Unfortunately even with this data-driven approach I still haven't won! 
