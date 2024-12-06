@@ -30,6 +30,6 @@ This project covered the entire process of developing a computer vision solution
 </center>
 
 Further information about this work can be found in our journal article:   
-- <a href="https://ieeexplore.ieee.org/abstract/document/10669564" style="color:blue; text-decoration: underline;">Contamination detection from highly cluttered waste scenes using computer vision</a> 
+- <a href="https://ieeexplore.ieee.org/abstract/document/10669564" target="_blank" style="color:blue; text-decoration: underline;">Contamination detection from highly cluttered waste scenes using computer vision</a> 
 
 
