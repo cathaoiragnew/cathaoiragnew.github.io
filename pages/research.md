@@ -4,10 +4,12 @@ title: Research
 ---
 
 <p style="text-align: center;">
-  <img src="/assets/img/Google_Scholar_logo.png" alt="Workflow" style="max-width: 100%; height: auto;" />
+  <a href="/assets/img/Google_Scholar_logo.png">
+    <img src="/assets/img/Google_Scholar_logo.png" alt="Workflow" style="max-width: 20%; height: auto;" />
+  </a>
 </p>
+<p style="text-align: center;">Google Scholar Profile</p>
 
- <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" style="color:blue; text-decoration: underline;">Google Scholar Profile</a>
 
 **PhD Thesis**:
 The Effect of Annotation Quality on Computer Vision in Efficient Waste Management
