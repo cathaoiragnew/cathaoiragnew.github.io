@@ -5,7 +5,7 @@ subtitle:
 ---
 
 <p style="text-align: center;">
-  <a href="/assets/img/Cathaoir_Agnew_CV.pdf" target="_blank"> </a> 
+  <a href="/assets/img/Cathaoir_Agnew_CV.pdf" target="_blank"> 
     <img src="/assets/img/cv_icon.png" alt="CV Icon" style="max-width: 7.5%; height: auto;" />
   </a>
 </p>
