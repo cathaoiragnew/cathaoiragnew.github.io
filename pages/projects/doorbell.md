@@ -30,7 +30,7 @@ Here’s a step-by-step overview of the process:
 <br>
 
 2. **Object Detection**
-  - With the date and time extracted, I used the DeepSORT model to identify objects of interest in each frame of the video.
+  - With the date and time extracted, I used the DeepSORT model to identify & track objects of interest in each frame of the video.
   - The results are stored and exported into an Excel file.
 
 <div style="text-align: center;">
