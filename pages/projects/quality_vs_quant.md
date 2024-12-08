@@ -20,7 +20,7 @@ Following this, we trained 3 models YOLACT (1-stage CNN), Mask-RCNN (2-stage CNN
    </p> 
 
 From this work, we have the following key takeaways:
-- All three annotation uncertainties negatively affect mAP performance, with incorrect class labels degrading the mAP performance the most, followed by missing annotations and lastly localization uncertainty.
+- All three annotation uncertainties negatively affect mAP performance, with incorrect class labels degrading the mAP performance the most, followed by missing annotations and lastly localisation uncertainty.
 - The results show that perfectly labelled data outperforms degraded annotations for a fixed sample size, however, there is utility in adding additional data of lesser annotation quality.
 - The extent of the benefits of the additional data is directly related to how degraded the annotations’ are.
 
