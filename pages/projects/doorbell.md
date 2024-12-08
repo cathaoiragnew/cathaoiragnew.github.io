@@ -27,25 +27,25 @@ Here’s a step-by-step overview of the process:
      <img src="/assets/img/python_func.jpg" alt="Python Function" style="max-width: 100%; height: auto;" />
    </p> 
 
-<br>
+   <br>
 
 2. **Object Detection**
   - With the date and time extracted, I used the DeepSORT model to identify & track objects of interest in each frame of the video.
   - The results are stored and exported into an Excel file.
 
-<center>
-<!-- Video Container (Responsive) -->
-<div class="responsive-video">
-  <iframe src="/assets/img/Doorbell_example.mp4" type="video/mp4" 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
-          allowfullscreen></iframe>
-</div>
-</center>
+   <center>
+   <!-- Video Container (Responsive) -->
+   <div class="responsive-video">
+     <iframe src="/assets/img/Doorbell_example.mp4" type="video/mp4" 
+             title="YouTube video player" 
+             frameborder="0" 
+             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+             referrerpolicy="strict-origin-when-cross-origin" 
+             allowfullscreen></iframe>
+   </div>
+   </center>
 
-<br>
+   <br>
 
 3. **Data Visualization**
   - The Excel file is then imported into Tableau to provide summary statistics & graphs.
