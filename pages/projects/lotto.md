@@ -11,7 +11,7 @@ The weekly lotto results are available online and look like below (some informat
      <img src="/assets/img/Lotto_eg.png" alt="Website example" style="max-width: 100%; height: auto;" />
    </p> 
 
-First, I used [Selenium](https://www.selenium.dev/){:target="_blank"} to automate web browsing and locate the necessary pages for scraping. Then, I utilised BeautifulSoup to parse the web pages. By employing regex and Python, I extracted the relevant information and stored the results of 450 lotto draws (approx. 8 years of data).
+First, I used [Selenium](https://www.selenium.dev/){:target="_blank"} to automate web browsing and locate the necessary pages for scraping. Then, I utilised BeautifulSoup to parse the web pages. By employing regex and some data wrangling, I extracted the relevant information and stored the results of 450 lotto draws (approx. 8 years of data).
 
    <p style="text-align: center;">
      <img src="/assets/img/results_no.png" alt="Results" style="max-width: 100%; height: auto;" />
