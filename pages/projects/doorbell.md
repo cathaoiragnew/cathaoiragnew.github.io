@@ -51,11 +51,11 @@ Here’s a step-by-step overview of the process:
   - The Excel file is then imported into Tableau to provide summary statistics & graphs.
 
    <p style="text-align: center;">
-     <img src="/assets/img/date_stats.jpg" alt="Date Statistics" style="max-width: 100%; height: auto;" />
+     <img src="/assets/img/date_stats.png" alt="Date Statistics" style="max-width: 100%; height: auto;" />
    </p> 
 
    <p style="text-align: center;">
-     <img src="/assets/img/day_stats.jpg" alt="Day Statistics" style="max-width: 100%; height: auto;" />
+     <img src="/assets/img/day_stats.png" alt="Day Statistics" style="max-width: 100%; height: auto;" />
    </p> 
 
 
