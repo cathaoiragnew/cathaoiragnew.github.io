@@ -90,6 +90,7 @@ The script will provide class counts and distrubitions in addition to the object
    </p>
 
 2. Spatial Distribution
+   
 I provide heatmaps to reflect where the model has detected each class of interest. This provides some indication as to where objects of interest are most likely to be present, however it may also highlight areas that require extra annotations if the model fails to detect objects in the particular region of the image. I provide the heatmaps for 3 of the classes below.
 
    <p style="text-align: center;">
@@ -101,5 +102,5 @@ I provide heatmaps to reflect where the model has detected each class of interes
    </p>
 
    <p style="text-align: center;">
-     <img src="/assets/img/heatmap_class_3_motorcycle.png" alt="Motorcycle Distribution" style="max-width: 100%; height: auto;" />
+     <img src="/assets/img/heatmap_class_2_motorcycle.png" alt="Motorcycle Distribution" style="max-width: 100%; height: auto;" />
    </p>
