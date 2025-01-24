@@ -12,6 +12,27 @@ full-width: False
                  
        <div class="list-squares">
 
+          <!-- Pseudo label  -->
+                <!-- Creating a Project -->
+                  <div class="list-squares-item">
+                     <a href="../projects/pseudo_label/"><img src="/assets/img/Example_1.jpg" class="item-img"></a>
+                     <center>
+                    <h4>Pseudo Labelling Script</h4>
+                    </center>
+                  
+               <!-- Ceating Project Home button-->
+               <center>
+               <div class="item-links">
+                   <a class="item-link" href="../projects/pseudo_label/" title="Website">
+                     <span class="fa fa-home"></span>
+                    </a>
+               </div>
+               </center>
+
+               </div>
+
+
+
           <!-- Overfill  -->
                 <!-- Creating a Project -->
                   <div class="list-squares-item">
