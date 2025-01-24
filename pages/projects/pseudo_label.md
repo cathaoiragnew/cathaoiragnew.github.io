@@ -5,7 +5,7 @@ title: Pseudo labelling
 
 <p style="text-align: center;">
   <a href="https://github.com/cathaoiragnew/Pseudo_Label_Video_Frames" target="_blank">
-    <img src="/assets/img/git_icon.jpg" alt="Workflow" style="max-width: 25%; height: auto;" />
+    <img src="/assets/img/git_icon.png" alt="Workflow" style="max-width: 25%; height: auto;" />
   </a>
 </p>
 <p style="text-align: center;">Github Repo Link</p>
@@ -34,7 +34,7 @@ Example Video:
 - This project develops a pipeline that extracts frames from videos and generates pseudo labels using pre-trained models from Hugging Face, as seen below.
 
    <p style="text-align: center;">
-     <img src="/assets/img/example_1.png" alt="Pseudo Label Example" style="max-width: 100%; height: auto;" />
+     <img src="/assets/img/example_1.jpg" alt="Pseudo Label Example" style="max-width: 100%; height: auto;" />
    </p>
 
 ## Overview of process:
@@ -48,13 +48,13 @@ Example Video:
   
 2. (Near)/Duplicate Detection using embeddings (duplicate_detection.py):
 
-   - It is important to remove duplicates and near duplicates from the dataset as they can lead to data leakage and skew metrics of interest. Furthermore, we want a diverse dataset to help the models learn and  generalize better. 
+   - It is important to remove duplicates and near duplicates from the dataset as they can lead to data leakage and skew metrics of interest. Furthermore, we want a diverse dataset to help the models learn and           generalize better. 
    - CLIP is used to extract feature embeddings of each image
    - Using the embeddings of each image, cosine similarity is calcualted between feature embeddings
    - Using a threshold, we can filter out (near) duplicates
 
 3.  Pseudo-Label images with HuggingFace Object Detection models (pseudo_label.py):
-   
+
    - An Object Detection model pretrained on the COCO dataset is used to pseudo label each image
    - Each predictions is saved in the COCO json format
    - We can then filter out classes that are not considered of interest.
@@ -62,6 +62,9 @@ Example Video:
 
 
 Each of these steps are combined into a single python script that runs the process (create_pseudo_data.py). Below are some pseudo labelled frames from our example video.
+
+
+
    
    <p style="text-align: center;">
      <img src="/assets/img/example_2.jpg" alt="Pseudo Label Example" style="max-width: 100%; height: auto;" />
