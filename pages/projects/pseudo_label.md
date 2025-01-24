@@ -3,7 +3,12 @@ layout: page
 title: Pseudo label frames from Video
 ---
 
-[Github Link](https://github.com/cathaoiragnew/Pseudo_Label_Video_Frames)
+<p style="text-align: center;">
+  <a href="https://github.com/cathaoiragnew/Pseudo_Label_Video_Frames" target="_blank">
+    <img src="/assets/img/git_icon.jpg" alt="Workflow" style="max-width: 25%; height: auto;" />
+  </a>
+</p>
+<p style="text-align: center;">Github Repo Link</p>
 
 Example Video:
 
@@ -21,8 +26,18 @@ Example Video:
 
    <br>
 
+- Data annotation for object detection is time-consuming, requiring precise bounding box labeling for each image
+- This process is labor-intensive, especially for large datasets, to ensure accuracy and consistency
+- Pseudo-labeling reduces this workload by using a pre-trained model to generate initial annotations
+- Pseudo labels provide a strong starting point, enabling annotators to refine and verify predictions instead of starting from scratch
+- This approach speeds up annotation, improves efficiency, and enhances scalability in preparing datasets
+- The project develops a pipeline to read video frames and create pseudo labels using pre-trained models from Hugging Face
 
-Data annotation for object detection is a highly time-consuming and tedious process, as it requires precise labeling of bounding boxes around objects in each image. This meticulous task demands significant human effort, especially for large datasets, to ensure accuracy and consistency. By leveraging pseudo-labeling, where a pre-trained model generates initial annotations, this workload can be significantly reduced. These pseudo labels provide a strong starting point for annotators, allowing them to focus on refining and verifying the predictions rather than starting from scratch. This approach not only speeds up the annotation process but also improves overall efficiency and scalability in preparing high-quality datasets for object detection. For this project, I develop a pipeline for reading in frames from a video and creating pseudo labels using pretrained models on Hugging face. An overview of the process is given below.
+   <p style="text-align: center;">
+     <img src="/assets/img/example_1.jpg" alt="Pseudo Label Example" style="max-width: 100%; height: auto;" />
+   </p>
+
+## Overview of process:
 
 1. Extract frames and perform quality checks on the images (extract_frames.py):
    
@@ -48,15 +63,11 @@ It is important to remove duplicates and near duplicates from the dataset as the
 
 
 Each of these steps are combined into a single python script that runs the process (create_pseudo_data.py). Below are some pseudo labelled frames from our example video.
-
-   <p style="text-align: center;">
-     <img src="/assets/img/example_1.jpg" alt="Pseudo Label Example" style="max-width: 100%; height: auto;" />
-   </p>
    
    <p style="text-align: center;">
      <img src="/assets/img/example_2.jpg" alt="Pseudo Label Example" style="max-width: 100%; height: auto;" />
    </p> 
 
-    <p style="text-align: center;">
+   <p style="text-align: center;">
      <img src="/assets/img/example_3.jpg" alt="Pseudo Label Example" style="max-width: 100%; height: auto;" />
    </p> 
