@@ -5,7 +5,7 @@ title: Pseudo labelling
 
 <p style="text-align: center;">
   <a href="https://github.com/cathaoiragnew/Pseudo_Label_Video_Frames" target="_blank">
-    <img src="/assets/img/git_icon_.png" alt="Workflow" style="max-width: 25%; height: auto;" />
+    <img src="/assets/img/git_icon_.png" alt="Workflow" style="max-width: 7.5%; height: auto;" />
   </a>
 </p>
 <p style="text-align: center;">Github Repo Link</p>
@@ -56,13 +56,13 @@ This project develops a pipeline that extracts frames from videos and generates 
 
 3.  Pseudo-Label images with HuggingFace Object Detection models (pseudo_label.py):
     
-    - An Object Detection model pretrained on the COCO dataset is used to pseudo label each image
-    - Each predictions is saved in the COCO json format
-    - We can then filter out classes that are not considered of interest.
+    - An object detection model pretrained on the COCO dataset is used to pseudo label each image
+    - Each prediction is saved in the COCO json format
+    - We can then filter out COCO classes that are not considered of interest.
     - We can also filter out bounding boxes by its respective size (filter out small or extremely large boxes that may be false postives).  
 
 
-Each of these steps are combined into a single python script that runs the process (create_pseudo_data.py). Below are some pseudo labelled frames from our example video.
+Each of these steps are combined into a single python script that runs the entire process (create_pseudo_data.py). Below are some pseudo labelled frames from our example video.
 
    <p style="text-align: center;">
      <img src="/assets/img/run_script.png" alt="Pseudo Label Example" style="max-width: 100%; height: auto;" />
@@ -76,3 +76,6 @@ Each of these steps are combined into a single python script that runs the proce
    <p style="text-align: center;">
      <img src="/assets/img/example_3.jpg" alt="Pseudo Label Example" style="max-width: 100%; height: auto;" />
    </p> 
+
+
+## Lastly we provide summary statistics of the dataset
