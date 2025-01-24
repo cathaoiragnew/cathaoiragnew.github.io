@@ -31,7 +31,8 @@ Example Video:
 - Pseudo-labeling reduces this workload by using a pre-trained model to generate initial annotations
 - Pseudo labels provide a strong starting point, enabling annotators to refine and verify predictions instead of starting from scratch
 - This approach speeds up annotation, improves efficiency, and enhances scalability in preparing datasets
-- This project develops a pipeline that extracts frames from videos and generates pseudo labels using pre-trained models from Hugging Face, as seen below.
+
+This project develops a pipeline that extracts frames from videos and generates pseudo labels using pre-trained models from Hugging Face, as seen below.
 
    <p style="text-align: center;">
      <img src="/assets/img/example_1.jpg" alt="Pseudo Label Example" style="max-width: 100%; height: auto;" />
@@ -40,25 +41,25 @@ Example Video:
 ## Overview of process:
 
 1. Extract frames and perform quality checks on the images (extract_frames.py):
-   
-   - Converts the video into image frames
-   - Remove any bad frames (white noise/blur)
-   - Resizes the images to given dimensions
-   - Save the images in jpg format with an appropriate file name
+    
+    - Converts the video into image frames
+    - Remove any bad frames (white noise/blur)
+    - Resizes the images to given dimensions
+    - Save the images in jpg format with an appropriate file name
   
 2. (Near)/Duplicate Detection using embeddings (duplicate_detection.py):
-
-   - It is important to remove duplicates and near duplicates from the dataset as they can lead to data leakage and skew metrics of interest. Furthermore, we want a diverse dataset to help the models learn and           generalize better. 
-   - CLIP is used to extract feature embeddings of each image
-   - Using the embeddings of each image, cosine similarity is calcualted between feature embeddings
-   - Using a threshold, we can filter out (near) duplicates
+    
+    - It is important to remove duplicates and near duplicates from the dataset as they can lead to data leakage and skew metrics of interest. Furthermore, we want a diverse dataset to help the models learn and           generalize better. 
+    - CLIP is used to extract feature embeddings of each image
+    - Using the embeddings of each image, cosine similarity is calcualted between feature embeddings
+    - Using a threshold, we can filter out (near) duplicates
 
 3.  Pseudo-Label images with HuggingFace Object Detection models (pseudo_label.py):
-
-   - An Object Detection model pretrained on the COCO dataset is used to pseudo label each image
-   - Each predictions is saved in the COCO json format
-   - We can then filter out classes that are not considered of interest.
-   - We can also filter out bounding boxes by its respective size (filter out small or extremely large boxes that may be false postives).  
+    
+    - An Object Detection model pretrained on the COCO dataset is used to pseudo label each image
+    - Each predictions is saved in the COCO json format
+    - We can then filter out classes that are not considered of interest.
+    - We can also filter out bounding boxes by its respective size (filter out small or extremely large boxes that may be false postives).  
 
 
 Each of these steps are combined into a single python script that runs the process (create_pseudo_data.py). Below are some pseudo labelled frames from our example video.
