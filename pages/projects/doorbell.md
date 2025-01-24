@@ -5,7 +5,7 @@ title: Doorbell Analytics
 
 I worked on a personal side project to incorporate analytics into our smart doorbell. While many smart doorbell providers offer this feature, it often comes with a paid subscription.
 
-The doorbell automatically wakes when it detects motion and records for as long as motion is present or for a set period. Using these video recordings, I applied an off-the-shelf [DeepSORT](https://arxiv.org/abs/1703.07402){:target="_blank"} model to provide smart analytics for classes of interest, specifically Cars and Persons.
+The doorbell automatically wakes when it detects motion and records for as long as motion is present or for a set period. Using these video recordings, I applied an off-the-shelf [YOLO](https://arxiv.org/abs/1506.02640) & [DeepSORT](https://arxiv.org/abs/1703.07402){:target="_blank"} to provide smart analytics for classes of interest, specifically Cars and Persons.
 
 Here’s a step-by-step overview of the process:
 
@@ -29,8 +29,8 @@ Here’s a step-by-step overview of the process:
 
    <br>
 
-2. **Object Detection**
-  - With the date and time extracted, I used the DeepSORT model to identify & track objects of interest in each frame of the video.
+2. **Object Detection & Tracking**
+  - With the date and time extracted, I used the YOLO & DeepSORT to identify & track objects of interest in each frame of the video.
   - The results are stored and exported into an Excel file.
 
    <center>
