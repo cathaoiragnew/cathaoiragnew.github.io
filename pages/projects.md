@@ -15,7 +15,7 @@ full-width: False
           <!-- Pseudo label  -->
                 <!-- Creating a Project -->
                   <div class="list-squares-item">
-                     <a href="../projects/pseudo_label/"><img src="/assets/img/Example_1.jpg" class="item-img"></a>
+                     <a href="../projects/pseudo_label/"><img src="/assets/img/example_1.jpg" class="item-img"></a>
                      <center>
                     <h4>Pseudo Labelling Script</h4>
                     </center>
