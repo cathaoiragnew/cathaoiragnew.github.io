@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Pseudo label frames from Video
+title: Pseudo labelling
 ---
 
 <p style="text-align: center;">
@@ -31,10 +31,10 @@ Example Video:
 - Pseudo-labeling reduces this workload by using a pre-trained model to generate initial annotations
 - Pseudo labels provide a strong starting point, enabling annotators to refine and verify predictions instead of starting from scratch
 - This approach speeds up annotation, improves efficiency, and enhances scalability in preparing datasets
-- The project develops a pipeline to read video frames and create pseudo labels using pre-trained models from Hugging Face
+- This project develops a pipeline that extracts frames from videos and generates pseudo labels using pre-trained models from Hugging Face, as seen below.
 
    <p style="text-align: center;">
-     <img src="/assets/img/example_1.jpg" alt="Pseudo Label Example" style="max-width: 100%; height: auto;" />
+     <img src="/assets/img/example_1.png" alt="Pseudo Label Example" style="max-width: 100%; height: auto;" />
    </p>
 
 ## Overview of process:
@@ -46,10 +46,9 @@ Example Video:
    - Resizes the images to given dimensions
    - Save the images in jpg format with an appropriate file name
   
-3. (Near)/Duplicate Detection using embeddings (duplicate_detection.py):
+2. (Near)/Duplicate Detection using embeddings (duplicate_detection.py):
 
-It is important to remove duplicates and near duplicates from the dataset as they can lead to data leakage and skew metrics of interest. Furthermore, we want a diverse dataset to help the models learn and generalize better.
-
+   - It is important to remove duplicates and near duplicates from the dataset as they can lead to data leakage and skew metrics of interest. Furthermore, we want a diverse dataset to help the models learn and  generalize better. 
    - CLIP is used to extract feature embeddings of each image
    - Using the embeddings of each image, cosine similarity is calcualted between feature embeddings
    - Using a threshold, we can filter out (near) duplicates
