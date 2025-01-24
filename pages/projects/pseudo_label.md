@@ -80,9 +80,26 @@ Each of these steps are combined into a single python script that runs the entir
 
 ## Lastly we provide summary statistics of the dataset
 
-1. The script will provide class counts and distrubitions in addition to the objects size (w.r.t to COCO object size definition).
+The values below are taken from a different video feed that had more activity in addition to a longer duration.
 
+1. Class Distribution
+The script will provide class counts and distrubitions in addition to the objects size (w.r.t to COCO object size definition), as seen below. 
 
+   <p style="text-align: center;">
+     <img src="/assets/img/summary_stats.png" alt="Class Distribution" style="max-width: 100%; height: auto;" />
+   </p>
 
+2. Spatial Distribution
+I provide heatmaps to reflect where the model has detected each class of interest. This provides some indication as to where objects of interest are most likely to be present, however it may also highlight areas that require extra annotations if the model fails to detect objects in the particular region of the image. I provide the heatmaps for 3 of the classes below.
 
-2. We provide heatmaps of the spatial distrubtion of each of the objects of interest. This 
+   <p style="text-align: center;">
+     <img src="/assets/img/heatmap_class_0_person.png" alt="Person Distribution" style="max-width: 100%; height: auto;" />
+   </p>
+
+   <p style="text-align: center;">
+     <img src="/assets/img/heatmap_class_1_bicycle.png" alt="Bicycle Distribution" style="max-width: 100%; height: auto;" />
+   </p>
+
+   <p style="text-align: center;">
+     <img src="/assets/img/heatmap_class_3_motorcycle.png" alt="Motorcycle Distribution" style="max-width: 100%; height: auto;" />
+   </p>
