@@ -79,3 +79,10 @@ Each of these steps are combined into a single python script that runs the entir
 
 
 ## Lastly we provide summary statistics of the dataset
+
+1. The script will provide class counts and distrubitions in addition to the objects size (w.r.t to COCO object size definition).
+
+
+
+
+2. We provide heatmaps of the spatial distrubtion of each of the objects of interest. This 
