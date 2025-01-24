@@ -103,5 +103,5 @@ I provide heatmaps to reflect where the model has detected each class of interes
    </p>
 
    <p style="text-align: center;">
-     <img src="/assets/img/heatmap_class_2_motorcycle.png" alt="Motorcycle Distribution" style="max-width: 100%; height: auto;" />
+     <img src="/assets/img/heatmap_class_2_car.png" alt="Car Distribution" style="max-width: 100%; height: auto;" />
    </p>
