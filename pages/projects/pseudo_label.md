@@ -5,7 +5,7 @@ title: Pseudo labelling
 
 <p style="text-align: center;">
   <a href="https://github.com/cathaoiragnew/Pseudo_Label_Video_Frames" target="_blank">
-    <img src="/assets/img/git_icon.png" alt="Workflow" style="max-width: 25%; height: auto;" />
+    <img src="/assets/img/git_icon_.png" alt="Workflow" style="max-width: 25%; height: auto;" />
   </a>
 </p>
 <p style="text-align: center;">Github Repo Link</p>
@@ -64,7 +64,9 @@ This project develops a pipeline that extracts frames from videos and generates 
 
 Each of these steps are combined into a single python script that runs the process (create_pseudo_data.py). Below are some pseudo labelled frames from our example video.
 
-
+   <p style="text-align: center;">
+     <img src="/assets/img/run_script.png" alt="Pseudo Label Example" style="max-width: 100%; height: auto;" />
+   </p>
 
    
    <p style="text-align: center;">
