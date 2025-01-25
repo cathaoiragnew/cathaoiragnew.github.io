@@ -90,7 +90,7 @@ The script will provide class counts and distrubitions in addition to the object
      <img src="/assets/img/summary_stats.png" alt="Class Distribution" style="max-width: 100%; height: auto;" />
    </p>
 
-3. Spatial Distribution
+2. Spatial Distribution
    
 I provide heatmaps to reflect where the model has detected each class of interest. This provides some indication as to where objects of interest are most likely to be present, however it may also highlight areas that require extra annotations if the model fails to detect objects in the particular region of the image. I provide the heatmaps for 3 of the classes below.
 
