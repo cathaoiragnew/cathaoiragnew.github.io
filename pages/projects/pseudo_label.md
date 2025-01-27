@@ -84,7 +84,7 @@ The values below are taken from a different video feed that had more activity in
 
 1. Class Distribution
    
-The script will provide class counts and distrubitions in addition to the objects size (w.r.t to COCO object size definition), as seen below. 
+   The script will provide class counts and distrubitions in addition to the objects size (w.r.t to COCO object size definition), as seen below. 
 
    <p style="text-align: center;">
      <img src="/assets/img/summary_stats.png" alt="Class Distribution" style="max-width: 100%; height: auto;" />
