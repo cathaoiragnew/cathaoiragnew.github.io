@@ -92,7 +92,7 @@ The values below are taken from a different video feed that had more activity in
 
 2. Spatial Distribution
    
-  I provide heatmaps to reflect where the model has detected each class of interest. This provides some indication as to where objects of interest are most likely to be present, however it may also highlight areas that require extra annotations if the model fails to detect objects in the particular region of the image. I provide the heatmaps for 3 of the classes below.
+    I provide heatmaps to reflect where the model has detected each class of interest. This provides some indication as to where objects of interest are most likely to be present, however it may also highlight areas that require extra annotations if the model fails to detect objects in the particular region of the image. I provide the heatmaps for 3 of the classes below.
 
    <p style="text-align: center;">
      <img src="/assets/img/heatmap_class_0_person.png" alt="Person Distribution" style="max-width: 100%; height: auto;" />
