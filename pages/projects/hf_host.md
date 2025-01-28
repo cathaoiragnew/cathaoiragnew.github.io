@@ -20,7 +20,7 @@ This page shows the result of using a Hugging Face model for image segmentation.
   <img id="segmentationResult" width="300" alt="Segmented result"/>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.11.1/dist/onnxruntime-web.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.10.0/dist/ort.min.js"></script>
 
 <script>
   // URL for the ONNX model hosted on GitHub Releases or another CORS-enabled server
