@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Segmentation with DETR</title>
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        canvas {
+            border: 1px solid black;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Segmentation with DETR</h1>
+    <div class="container">
+        <input type="file" id="imageInput" accept="image/*">
+        <canvas id="inputCanvas"></canvas>
+        <canvas id="outputCanvas"></canvas>
+    </div>
+    <script>
+        async function loadModel() {
+            const modelURL = "https://drive.google.com/uc?id=165rvCLu2rotOf65TXphsg1W-nozqUe_J&export=download";
+            const session = await ort.InferenceSession.create(modelURL);
+            return session;
+        }
+
+        function preprocessImage(image, canvas, ctx) {
+            const [width, height] = [800, 1066]; // Resize to model input
+            canvas.width = width;
+            canvas.height = height;
+            ctx.drawImage(image, 0, 0, width, height);
+            const imgData = ctx.getImageData(0, 0, width, height);
+            const inputTensor = new Float32Array(3 * width * height);
+            for (let i = 0; i < imgData.data.length; i += 4) {
+                inputTensor[i / 4] = imgData.data[i] / 255.0;       // Red
+                inputTensor[i / 4 + width * height] = imgData.data[i + 1] / 255.0; // Green
+                inputTensor[i / 4 + 2 * width * height] = imgData.data[i + 2] / 255.0; // Blue
+            }
+            return inputTensor;
+        }
+
+        function postprocessOutput(outputData, canvas, ctx) {
+            const [width, height] = [canvas.width, canvas.height];
+            const segMask = outputData[0];
+            const imageData = ctx.createImageData(width, height);
+
+            for (let i = 0; i < segMask.length; i++) {
+                const id = Math.floor(segMask[i]); // Map ID to color
+                imageData.data[i * 4] = id * 40 % 255; // R
+                imageData.data[i * 4 + 1] = id * 70 % 255; // G
+                imageData.data[i * 4 + 2] = id * 100 % 255; // B
+                imageData.data[i * 4 + 3] = 255; // A
+            }
+            ctx.putImageData(imageData, 0, 0);
+        }
+
+        async function runModel(session, inputTensor) {
+            const input = new ort.Tensor("float32", inputTensor, [1, 3, 800, 1066]);
+            const feeds = { input: input };
+            const output = await session.run(feeds);
+            return output.output; // Name of ONNX output layer
+        }
+
+        async function main() {
+            const session = await loadModel();
+            const imageInput = document.getElementById("imageInput");
+            const inputCanvas = document.getElementById("inputCanvas");
+            const outputCanvas = document.getElementById("outputCanvas");
+            const inputCtx = inputCanvas.getContext("2d");
+            const outputCtx = outputCanvas.getContext("2d");
+
+            imageInput.addEventListener("change", async (event) => {
+                const file = event.target.files[0];
+                if (!file) return;
+                const image = new Image();
+                image.onload = async () => {
+                    const inputTensor = preprocessImage(image, inputCanvas, inputCtx);
+                    const outputData = await runModel(session, inputTensor);
+                    postprocessOutput(outputData, outputCanvas, outputCtx);
+                };
+                image.src = URL.createObjectURL(file);
+            });
+        }
+
+        main();
+    </script>
+</body>
+</html>
