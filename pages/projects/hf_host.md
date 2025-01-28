@@ -23,9 +23,9 @@ Welcome to my computer vision demo! Below, you can upload an image and see the p
   <img id="segmentationResult" style="max-width: 100%; height: auto;" />
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
 
 <script>
-  import * as ort from "onnxruntime-web";
   
   // URL for the ONNX model hosted on GitHub Releases or another CORS-enabled server
   const modelURL = "https://github.com/cathaoiragnew/cathaoiragnew.github.io/releases/download/Model/detr.onnx";
