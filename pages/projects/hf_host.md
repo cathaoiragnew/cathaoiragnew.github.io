@@ -23,7 +23,7 @@ Welcome to my computer vision demo! Below, you can upload an image and see the p
   <img id="segmentationResult" style="max-width: 100%; height: auto;" />
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.11.1/dist/onnxruntime-web.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.9.0/dist/onnxruntime-web.min.js"></script>
 
 
 <script>
