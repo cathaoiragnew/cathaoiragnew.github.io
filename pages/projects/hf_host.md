@@ -24,10 +24,9 @@ Welcome to my computer vision demo! Below, you can upload an image and see the p
 </div>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/onnxruntime-web/1.8.0/onnxruntime-web.min.js"></script>
-
-
 <script>
+  import * as ort from "onnxruntime-web";
+  
   // URL for the ONNX model hosted on GitHub Releases or another CORS-enabled server
   const modelURL = "https://github.com/cathaoiragnew/cathaoiragnew.github.io/releases/download/Model/detr.onnx";
 
