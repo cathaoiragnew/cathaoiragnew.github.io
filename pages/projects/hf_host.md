@@ -23,6 +23,9 @@ Welcome to my computer vision demo! Below, you can upload an image and see the p
   <img id="segmentationResult" style="max-width: 100%; height: auto;" />
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.11.1/dist/onnxruntime-web.min.js"></script>
+
+
 <script>
   // URL for the ONNX model hosted on GitHub Releases or another CORS-enabled server
   const modelURL = "https://github.com/cathaoiragnew/cathaoiragnew.github.io/releases/download/Model/detr.onnx";
@@ -41,6 +44,7 @@ Welcome to my computer vision demo! Below, you can upload an image and see the p
 
     // Load the model (use a suitable JS library to handle ONNX models)
     const session = await ort.InferenceSession.create(modelURL);
+    console.log("Model loaded successfully!");
 
     // Prepare image for inference (you can use a library to convert the image to tensor)
     const imageTensor = await prepareImageForInference(inputFile);
