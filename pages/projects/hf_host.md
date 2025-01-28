@@ -47,7 +47,7 @@ This page shows the result of using a Hugging Face model for image segmentation.
       const imageTensor = await prepareImageForInference(inputFile);
 
       // Run the model to get predictions
-      const results = await session.run([imageTensor]);
+      const results = await session.run({ input: imageTensor });
 
       // Post-process results to show segmentation masks
       const segmentedImage = processSegmentationResults(results);
