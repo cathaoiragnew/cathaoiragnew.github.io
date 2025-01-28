@@ -31,7 +31,7 @@
     </div>
     <script>
         async function loadModel() {
-            const modelURL = "https://github.com/cathaoiragnew/cathaoiragnew.github.io/releases/download/v1/detr.onnx";
+            const modelURL = "https://github.com/cathaoiragnew/cathaoiragnew.github.io/releases/download/Model/detr.onnx";
             const session = await ort.InferenceSession.create(modelURL);
             return session;
         }
