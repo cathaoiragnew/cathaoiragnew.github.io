@@ -20,7 +20,7 @@ This page shows the result of using a Hugging Face model for image segmentation.
   <img id="segmentationResult" width="300" alt="Segmented result"/>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.12.1/dist/onnxruntime-web.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.11.1/dist/onnxruntime-web.min.js"></script>
 
 <script>
   // URL for the ONNX model hosted on GitHub Releases or another CORS-enabled server
@@ -39,21 +39,25 @@ This page shows the result of using a Hugging Face model for image segmentation.
     img.src = URL.createObjectURL(inputFile);
 
     // Load the model (use a suitable JS library to handle ONNX models)
-    const session = await ort.InferenceSession.create(modelURL); // Correctly using `ort` from onnxruntime-web
-    console.log("Model loaded successfully!");
+    try {
+      const session = await ort.InferenceSession.create(modelURL); // Correct method call using ort
+      console.log("Model loaded successfully!");
 
-    // Prepare image for inference (you can use a library to convert the image to tensor)
-    const imageTensor = await prepareImageForInference(inputFile);
+      // Prepare image for inference (you can use a library to convert the image to tensor)
+      const imageTensor = await prepareImageForInference(inputFile);
 
-    // Run the model to get predictions
-    const results = await session.run([imageTensor]);
+      // Run the model to get predictions
+      const results = await session.run([imageTensor]);
 
-    // Post-process results to show segmentation masks
-    const segmentedImage = processSegmentationResults(results);
+      // Post-process results to show segmentation masks
+      const segmentedImage = processSegmentationResults(results);
 
-    // Show the segmented image
-    const segmentationImageElement = document.getElementById('segmentationResult');
-    segmentationImageElement.src = segmentedImage;
+      // Show the segmented image
+      const segmentationImageElement = document.getElementById('segmentationResult');
+      segmentationImageElement.src = segmentedImage;
+    } catch (error) {
+      console.error("Error loading model:", error);
+    }
   }
 
   // Helper function to convert image to tensor
@@ -65,7 +69,7 @@ This page shows the result of using a Hugging Face model for image segmentation.
     const tensor = preprocessImage(img, 800, 1066);
     
     // Returning a tensor that is compatible with the model
-    return new ort.Tensor(tensor, 'float32'); // Using `ort.Tensor` from onnxruntime-web
+    return new ort.Tensor(tensor, 'float32'); // Using ort.Tensor from onnxruntime-web
   }
 
   // Load image into an HTMLImageElement
@@ -112,6 +116,26 @@ This page shows the result of using a Hugging Face model for image segmentation.
   // Post-process segmentation results to generate an image URL
   function processSegmentationResults(results) {
     // Assuming the model output includes a segmentation mask in a format we can process
-    // This is where you would process the model output and convert it into an image format
-    // For simplicity, let's assume this function returns a base
+    const segmentationData = results[0].data; // Get the segmentation mask
 
+    // Convert the segmentation data into an image format (base64)
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const width = 800; // Expected width
+    const height = 1066; // Expected height
+    canvas.width = width;
+    canvas.height = height;
+
+    const imageData = ctx.createImageData(width, height);
+    for (let i = 0; i < segmentationData.length; i++) {
+      const value = Math.min(255, segmentationData[i] * 255);
+      imageData.data[i * 4] = value;     // Red channel
+      imageData.data[i * 4 + 1] = value; // Green channel
+      imageData.data[i * 4 + 2] = value; // Blue channel
+      imageData.data[i * 4 + 3] = 255;   // Alpha channel (opaque)
+    }
+
+    ctx.putImageData(imageData, 0, 0);
+    return canvas.toDataURL(); // Return the image in base64 format
+  }
+</script>
