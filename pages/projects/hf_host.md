@@ -3,10 +3,22 @@ layout: page
 title: HF hosted model 
 ---
 
-Welcome to my computer vision demo! Below, you can upload an image and see the predictions overlaid by the DETR model.
+# Host Hugging Face Model on GitHub Pages
 
+This page shows the result of using a Hugging Face model for image segmentation.
 
-## Upload Image
+---
+
+<div>
+  <h3>Upload Image for Segmentation</h3>
+  <input type="file" id="fileInput" onchange="loadAndSegmentImage()"/>
+  <br />
+  <h4>Input Image:</h4>
+  <img id="inputImage" width="300" alt="Uploaded image"/>
+  <br />
+  <h4>Segmentation Result:</h4>
+  <img id="segmentationResult" width="300" alt="Segmented result"/>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
 
