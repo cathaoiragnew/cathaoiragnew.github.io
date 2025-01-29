@@ -51,6 +51,25 @@ full-width: False
                </center>
 
                </div>
+
+          <!-- Onnx Hosted Model  -->
+                <!-- Creating a Project -->
+                  <div class="list-squares-item">
+                     <a href="../projects/model_infer/"><img src="/assets/img/onnx.png" class="item-img"></a>
+                     <center>
+                    <h4>Onnx hosted model for inference</h4>
+                    </center>
+                  
+               <!-- Ceating Project Home button-->
+               <center>
+               <div class="item-links">
+                   <a class="item-link" href="../projects/model_infer/" title="Website">
+                     <span class="fa fa-home"></span>
+                    </a>
+               </div>
+               </center>
+
+               </div>
                       
          <!-- Contamination   -->
                 <!-- Creating a Project -->
