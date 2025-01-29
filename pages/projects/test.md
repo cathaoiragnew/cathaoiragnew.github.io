@@ -41,11 +41,16 @@ This page demonstrates the use of a Mask R-CNN ONNX model for object detection, 
       const session = await ort.InferenceSession.create(modelURL);  // Correct method call using ort
       console.log("Model loaded successfully!");
 
+      // Check the input names of the model
+      console.log("Model input names:", session.inputNames);
+
       // Prepare image for inference
       const imageTensor = await prepareImageForInference(inputFile);
 
       // Run the model to get predictions
-      const results = await session.run({ images: imageTensor });
+      const feeds = {};
+      feeds[session.inputNames[0]] = imageTensor;  // Assuming the first input is the image input
+      const results = await session.run(feeds);
 
       // Process results and show segmentation
       const segmentedImage = processSegmentationResults(results);
@@ -128,3 +133,4 @@ This page demonstrates the use of a Mask R-CNN ONNX model for object detection, 
     return canvas.toDataURL();
   }
 </script>
+
