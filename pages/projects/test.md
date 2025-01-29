@@ -22,7 +22,7 @@ This page demonstrates the use of a Mask R-CNN ONNX model for object detection, 
 
 <script>
   // URL for the ONNX model hosted on your GitHub Pages repo
-  const modelURL = "https://cathaoiragnew.github.io/MaskRCNN-12-int8.onnx";  // Update with the correct URL
+  const modelURL = "https://cathaoiragnew.github.io/MaskRCNN-12-int8.onnx";  // Update with the correct URL for your model
 
   // Function to handle image upload and perform object detection
   async function loadAndSegmentImage() {
@@ -61,12 +61,12 @@ This page demonstrates the use of a Mask R-CNN ONNX model for object detection, 
   // Helper function to convert image to tensor
   async function prepareImageForInference(imageFile) {
     const img = await loadImage(imageFile);
-    const tensor = preprocessImage(img, 800, 1066);
+    const tensorData = preprocessImage(img, 800, 1066);
     
     // Reshape the tensor to have the correct dimensions: [1, 3, 800, 1066]
-    const reshapedTensor = tensor.reshape([1, 3, 800, 1066]);  // 1 batch, 3 channels, 800x1066 image size
+    const reshapedTensor = new ort.Tensor('float32', tensorData, [1, 3, 800, 1066]);  // 1 batch, 3 channels, 800x1066 image size
     
-    return new ort.Tensor('float32', reshapedTensor, [1, 3, 800, 1066]);  // 'float32' type
+    return reshapedTensor;
   }
 
   // Load image into an HTMLImageElement
