@@ -3,11 +3,9 @@ layout: page
 title: Model Inference
 ---
 
-# YOLOv8 Object Detection in Markdown
-
 This is an interactive object detection demo using **YOLOv8** with **ONNX**.
 
-Upload an image, and the model will process it. The original image and the image with detected objects will be displayed.
+Upload an image, and the model will process it. The original image and the image with detected objects will be displayed. Please be patient while the model processes the image, as it is not running on dedicated hardware (approx 10 seconds).
 
 ## Upload an Image
 
@@ -36,14 +34,16 @@ Upload an image, and the model will process it. The original image and the image
       }
       .image-container {
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
       }
     </style>
 </head>
 <body>
     <input id="uploadInput" type="file"/>
     <div id="progress-container">
-      <div id="progress-bar">0%</div>
+      <div id="progress-bar">0%</</div>
     </div>
     <div class="image-container">
         <canvas id="originalImage"></canvas>
