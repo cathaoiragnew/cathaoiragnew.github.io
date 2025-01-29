@@ -119,7 +119,7 @@ Upload an image, and the model will process it. The original image and the image
        * @returns Raw output of neural network as a flat array of numbers
        */
       async function run_model(input) {
-          const model = await ort.InferenceSession.create("yolov8m.onnx");
+          const model = await ort.InferenceSession.create("../yolov8m.onnx");
           input = new ort.Tensor(Float32Array.from(input),[1, 3, 640, 640]);
           const outputs = await model.run({images:input});
           return outputs["output0"].data;
