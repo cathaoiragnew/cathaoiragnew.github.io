@@ -11,9 +11,6 @@ Upload an image, and the model will process it. The original image and the image
 
 ## Upload an Image
 
-```html
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>YOLOv8 Object Detection</title>
@@ -225,4 +222,4 @@ Upload an image, and the model will process it. The original image and the image
       ];
     </script>
 </body>
-</html>
+
