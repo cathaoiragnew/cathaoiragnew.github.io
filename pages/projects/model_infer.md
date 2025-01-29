@@ -6,6 +6,12 @@ Upload an image, and the model will process it. The original image and the image
 
 ## Upload an Image
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YOLOv8 Object Detection</title>
     <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
     <style>
       canvas {
@@ -213,3 +219,5 @@ Upload an image, and the model will process it. The original image and the image
           'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush'
       ];
     </script>
+</body>
+</html>
