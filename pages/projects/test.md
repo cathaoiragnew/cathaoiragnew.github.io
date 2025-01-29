@@ -24,7 +24,7 @@ This page demonstrates the use of the Mask R-CNN model for object segmentation o
 
 <script>
   // URL for the Mask R-CNN model (ensure to replace with the direct URL)
-  const modelURL = "https://github.com/onnx/models/releases/download/Computer_Vision/maskrcnn_resnet50_fpn_v2_Opset16.onnx";
+  const modelURL = "https://cathaoiragnew.github.io/MaskRCNN-12-int8.onnx";
 
   // Function to handle image upload and prediction
   async function loadAndSegmentImage() {
