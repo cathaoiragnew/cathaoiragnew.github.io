@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+---
+layout: page
+title: Model Inference
+---
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
