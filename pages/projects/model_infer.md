@@ -3,9 +3,7 @@ layout: page
 title: Model Inference
 ---
 
-# YOLOv8 Object Detection in Markdown
-
-This is an interactive object detection demo using **YOLOv8** with **ONNX**. The model is trained on COCO, so only COCO object classes are detectable. 
+This is an interactive object detection demo using **YOLOv8** with **ONNX**. This model is trained on COCO, so only its classes are detectable.
 
 Upload an image, and the model will process it. The original image and the image with detected objects will be displayed. Please be patient while the model processes the image, as it is not running on dedicated hardware.
 
@@ -13,16 +11,13 @@ Upload an image, and the model will process it. The original image and the image
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YOLOv8 Object Detection</title>
     <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
     <style>
       canvas {
-          display: block;
+          display:block;
           border: 1px solid black;
-          margin-top: 10px;
-          max-width: 100%;
-          height: auto;
+          margin-top:10px;
       }
       #progress-container {
           width: 100%;
@@ -188,7 +183,7 @@ Upload an image, and the model will process it. The original image and the image
               const x1 = (xc-w/2)/640*img_width;
               const y1 = (yc-h/2)/640*img_height;
               const x2 = (xc+w/2)/640*img_width;
-              const y2 = (yc+h/2)/640*img_height);
+              const y2 = (yc+h/2)/640*img_height;
               boxes.push([x1,y1,x2,y2,label,prob]);
           }
 
