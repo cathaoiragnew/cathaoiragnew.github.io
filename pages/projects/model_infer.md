@@ -21,11 +21,34 @@ Upload an image, and the model will process it. The original image and the image
           border: 1px solid black;
           margin-top:10px;
       }
+      #progress-container {
+          width: 100%;
+          background-color: #f3f3f3;
+          margin-top: 10px;
+      }
+      #progress-bar {
+          width: 0%;
+          height: 30px;
+          background-color: #4caf50;
+          text-align: center;
+          line-height: 30px;
+          color: white;
+      }
+      .image-container {
+          display: flex;
+          justify-content: space-between;
+      }
     </style>
 </head>
 <body>
     <input id="uploadInput" type="file"/>
-    <canvas></canvas>
+    <div id="progress-container">
+      <div id="progress-bar">0%</div>
+    </div>
+    <div class="image-container">
+        <canvas id="originalImage"></canvas>
+        <canvas id="resultImage"></canvas>
+    </div>
     <script>
       /**
        * "Upload" button onClick handler: uploads selected image file
@@ -49,21 +72,26 @@ Upload an image, and the model will process it. The original image and the image
           const img = new Image()
           img.src = URL.createObjectURL(file);
           img.onload = () => {
-              const canvas = document.querySelector("canvas");
-              canvas.width = img.width;
-              canvas.height = img.height;
-              const ctx = canvas.getContext("2d");
-              ctx.drawImage(img,0,0);
-              ctx.strokeStyle = "#00FF00";
-              ctx.lineWidth = 3;
-              ctx.font = "18px serif";
+              const originalCanvas = document.getElementById("originalImage");
+              const resultCanvas = document.getElementById("resultImage");
+              originalCanvas.width = img.width;
+              originalCanvas.height = img.height;
+              resultCanvas.width = img.width;
+              resultCanvas.height = img.height;
+              const originalCtx = originalCanvas.getContext("2d");
+              const resultCtx = resultCanvas.getContext("2d");
+              originalCtx.drawImage(img,0,0);
+              resultCtx.drawImage(img,0,0);
+              resultCtx.strokeStyle = "#00FF00";
+              resultCtx.lineWidth = 3;
+              resultCtx.font = "18px serif";
               boxes.forEach(([x1,y1,x2,y2,label]) => {
-                  ctx.strokeRect(x1,y1,x2-x1,y2-y1);
-                  ctx.fillStyle = "#00ff00";
-                  const width = ctx.measureText(label).width;
-                  ctx.fillRect(x1,y1,width+10,25);
-                  ctx.fillStyle = "#000000";
-                  ctx.fillText(label, x1, y1+18);
+                  resultCtx.strokeRect(x1,y1,x2-x1,y2-y1);
+                  resultCtx.fillStyle = "#00ff00";
+                  const width = resultCtx.measureText(label).width;
+                  resultCtx.fillRect(x1,y1,width+10,25);
+                  resultCtx.fillStyle = "#000000";
+                  resultCtx.fillText(label, x1, y1+18);
               });
           }
       }
@@ -75,9 +103,14 @@ Upload an image, and the model will process it. The original image and the image
        * @returns Array of bounding boxes in format [[x1,y1,x2,y2,object_type,probability],..]
        */
       async function detect_objects_on_image(buf) {
+          updateProgressBar(20);
           const [input,img_width,img_height] = await prepare_input(buf);
+          updateProgressBar(50);
           const output = await run_model(input);
-          return process_output(output,img_width,img_height);
+          updateProgressBar(80);
+          const boxes = process_output(output,img_width,img_height);
+          updateProgressBar(100);
+          return boxes;
       }
 
       /**
@@ -108,7 +141,7 @@ Upload an image, and the model will process it. The original image and the image
                       blue.push(pixels[index+2]/255.0);
                   }
                   const input = [...red, ...green, ...blue];
-                  resolve([input, img_width, img_height])
+                  resolve([input, img_width, img_height]);
               }
           })
       }
@@ -220,6 +253,15 @@ Upload an image, and the model will process it. The original image and the image
           'bed', 'dining table', 'toilet', 'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'microwave', 'oven',
           'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush'
       ];
+
+      /**
+       * Function to update the progress bar
+       * @param {number} percentage The percentage to set the progress bar to
+       */
+      function updateProgressBar(percentage) {
+          const progressBar = document.getElementById("progress-bar");
+          progressBar.style.width = percentage + "%";
+          progressBar.innerHTML = percentage + "%";
+      }
     </script>
 </body>
-
