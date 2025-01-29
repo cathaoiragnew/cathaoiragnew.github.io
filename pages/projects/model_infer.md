@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/81d625c9-7e85-4c9e-8630-38838aa2543a)
 ---
 layout: page
 title: Model Inference
