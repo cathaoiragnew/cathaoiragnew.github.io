@@ -1,32 +1,30 @@
 ---
 layout: page
-title: Mask R-CNN Image Segmentation
+title: Mask R-CNN Model for Object Detection
 ---
 
-# Mask R-CNN Object Segmentation
+# Object Detection Using Mask R-CNN
 
-This page demonstrates the use of the Mask R-CNN model for object segmentation on uploaded images.
-
----
+This page demonstrates the use of a Mask R-CNN ONNX model for object detection, directly on GitHub Pages.
 
 <div>
-  <h3>Upload an Image for Segmentation</h3>
+  <h3>Upload Image for Detection</h3>
   <input type="file" id="fileInput" onchange="loadAndSegmentImage()"/>
   <br />
   <h4>Input Image:</h4>
   <img id="inputImage" width="300" alt="Uploaded image"/>
   <br />
-  <h4>Segmentation Result:</h4>
-  <img id="segmentationResult" width="300" alt="Segmentation result"/>
+  <h4>Detection Result:</h4>
+  <img id="segmentationResult" width="300" alt="Detection result"/>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.10.0/dist/ort.min.js"></script>
 
 <script>
-  // URL for the Mask R-CNN model (ensure to replace with the direct URL)
-  const modelURL = "https://cathaoiragnew.github.io/MaskRCNN-12-int8.onnx";
+  // URL for the ONNX model hosted on your GitHub Pages repo
+  const modelURL = "https://cathaoiragnew.github.io/MaskRCNN-12-int8.onnx";  // Update with the correct URL
 
-  // Function to handle image upload and prediction
+  // Function to handle image upload and perform object detection
   async function loadAndSegmentImage() {
     const inputFile = document.getElementById('fileInput').files[0];
     if (!inputFile) {
@@ -40,7 +38,7 @@ This page demonstrates the use of the Mask R-CNN model for object segmentation o
 
     // Load the model
     try {
-      const session = await ort.InferenceSession.create(modelURL); // Correct method call using ort
+      const session = await ort.InferenceSession.create(modelURL);  // Correct method call using ort
       console.log("Model loaded successfully!");
 
       // Prepare image for inference
@@ -49,10 +47,10 @@ This page demonstrates the use of the Mask R-CNN model for object segmentation o
       // Run the model to get predictions
       const results = await session.run({ images: imageTensor });
 
-      // Post-process the segmentation results
+      // Process results and show segmentation
       const segmentedImage = processSegmentationResults(results);
-
-      // Display the segmented image
+      
+      // Show the segmented image
       const segmentationImageElement = document.getElementById('segmentationResult');
       segmentationImageElement.src = segmentedImage;
     } catch (error) {
@@ -63,12 +61,12 @@ This page demonstrates the use of the Mask R-CNN model for object segmentation o
   // Helper function to convert image to tensor
   async function prepareImageForInference(imageFile) {
     const img = await loadImage(imageFile);
+    const tensor = preprocessImage(img, 800, 1066);
     
-    // Resize and normalize the image (using Mask R-CNN input size: 800x800)
-    const tensor = preprocessImage(img, 800, 800);
+    // Reshape the tensor to have the correct dimensions: [1, 3, 800, 1066]
+    const reshapedTensor = tensor.reshape([1, 3, 800, 1066]);  // 1 batch, 3 channels, 800x1066 image size
     
-    // Returning a tensor that is compatible with the model
-    return new ort.Tensor(tensor, 'float32');
+    return new ort.Tensor('float32', reshapedTensor, [1, 3, 800, 1066]);  // 'float32' type
   }
 
   // Load image into an HTMLImageElement
@@ -81,21 +79,18 @@ This page demonstrates the use of the Mask R-CNN model for object segmentation o
     });
   }
 
-  // Preprocess the image (resize and normalize it to fit the model input)
+  // Preprocess the image (resize and normalize it)
   function preprocessImage(img, width, height) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-
     canvas.width = width;
     canvas.height = height;
     ctx.drawImage(img, 0, 0, width, height);
 
     const imageData = ctx.getImageData(0, 0, width, height);
     const data = imageData.data;
-
     const normalizedData = new Float32Array(3 * width * height);
 
-    // Normalize image data to the range [0, 1]
     for (let i = 0; i < data.length; i += 4) {
       const r = data[i] / 255.0;
       const g = data[i + 1] / 255.0;
@@ -109,40 +104,27 @@ This page demonstrates the use of the Mask R-CNN model for object segmentation o
     return normalizedData;
   }
 
-  // Post-process segmentation results (to display masks)
+  // Post-process segmentation results to generate an image URL
   function processSegmentationResults(results) {
-    // Assuming the model output includes boxes, masks, and labels
-    const boxes = results[0].data;  // Bounding boxes
-    const masks = results[1].data;  // Masks
-    const labels = results[2].data; // Class labels
+    const segmentationData = results[0].data;
 
-    // Create a canvas to draw the results
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    const width = 800;  // Expected width for Mask R-CNN
-    const height = 800; // Expected height for Mask R-CNN
+    const width = 800;
+    const height = 1066;
     canvas.width = width;
     canvas.height = height;
 
-    // Draw the masks
-    for (let i = 0; i < masks.length; i++) {
-      const mask = masks[i];
-      const box = boxes[i];
-      const x1 = box[0] * width;
-      const y1 = box[1] * height;
-      const x2 = box[2] * width;
-      const y2 = box[3] * height;
-
-      ctx.beginPath();
-      ctx.rect(x1, y1, x2 - x1, y2 - y1);
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = 'red';
-      ctx.stroke();
-
-      // Draw the mask
-      ctx.putImageData(mask, x1, y1);
+    const imageData = ctx.createImageData(width, height);
+    for (let i = 0; i < segmentationData.length; i++) {
+      const value = Math.min(255, segmentationData[i] * 255);
+      imageData.data[i * 4] = value;     // Red channel
+      imageData.data[i * 4 + 1] = value; // Green channel
+      imageData.data[i * 4 + 2] = value; // Blue channel
+      imageData.data[i * 4 + 3] = 255;   // Alpha channel
     }
 
+    ctx.putImageData(imageData, 0, 0);
     return canvas.toDataURL();
   }
 </script>
