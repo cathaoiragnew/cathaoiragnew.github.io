@@ -68,10 +68,10 @@ This page demonstrates the use of a Mask R-CNN ONNX model for object detection, 
     const img = await loadImage(imageFile);
     const tensorData = preprocessImage(img, 800, 1066);
     
-    // Reshape the tensor to have the correct dimensions: [1, 3, 800, 1066]
-    const reshapedTensor = new ort.Tensor('float32', tensorData, [1, 3, 800, 1066]);  // 1 batch, 3 channels, 800x1066 image size
+    // Return a tensor with shape [3, 800, 1066] (no batch dimension)
+    const imageTensor = new ort.Tensor('float32', tensorData, [3, 800, 1066]);  // 3 channels, 800x1066 image size
     
-    return reshapedTensor;
+    return imageTensor;
   }
 
   // Load image into an HTMLImageElement
@@ -133,4 +133,5 @@ This page demonstrates the use of a Mask R-CNN ONNX model for object detection, 
     return canvas.toDataURL();
   }
 </script>
+
 
