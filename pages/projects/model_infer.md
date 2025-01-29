@@ -1,12 +1,3 @@
-# YOLOv8 Object Detection in Markdown
-
-This is an interactive object detection demo using **YOLOv8** with **ONNX**.
-
-Upload an image, and the model will process it. The original image and the image with detected objects will be displayed.
-
-## Upload an Image
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,7 +154,6 @@ Upload an image, and the model will process it. The original image and the image
 
       /**
        * Function calculates "Intersection-over-union" coefficient for specified two boxes
-       * https://pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/.
        * @param box1 First box in format: [x1,y1,x2,y2,object_class,probability]
        * @param box2 Second box in format: [x1,y1,x2,y2,object_class,probability]
        * @returns Intersection over union ratio as a float number
@@ -174,9 +164,6 @@ Upload an image, and the model will process it. The original image and the image
 
       /**
        * Function calculates union area of two boxes.
-       *     :param box1: First box in format [x1,y1,x2,y2,object_class,probability]
-       *     :param box2: Second box in format [x1,y1,x2,y2,object_class,probability]
-       *     :return: Area of the boxes union as a float number
        * @param box1 First box in format [x1,y1,x2,y2,object_class,probability]
        * @param box2 Second box in format [x1,y1,x2,y2,object_class,probability]
        * @returns Area of the boxes union as a float number
@@ -184,40 +171,15 @@ Upload an image, and the model will process it. The original image and the image
       function union(box1,box2) {
           const [box1_x1,box1_y1,box1_x2,box1_y2] = box1;
           const [box2_x1,box2_y1,box2_x2,box2_y2] = box2;
-          const box1_area = (box1_x2-box1_x1)*(box1_y2-box1_y1)
-          const box2_area = (box2_x2-box2_x1)*(box2_y2-box2_y1)
-          return box1_area + box2_area - intersection(box1,box2)
-      }
-
-      /**
-       * Function calculates intersection area of two boxes
-       * @param box1 First box in format [x1,y1,x2,y2,object_class,probability]
-       * @param box2 Second box in format [x1,y1,x2,y2,object_class,probability]
-       * @returns Area of intersection of the boxes as a float number
-       */
-      function intersection(box1,box2) {
-          const [box1_x1,box1_y1,box1_x2,box1_y2] = box1;
-          const [box2_x1,box2_y1,box2_x2,box2_y2] = box2;
-          const x1 = Math.max(box1_x1,box2_x1);
-          const y1 = Math.max(box1_y1,box2_y1);
-          const x2 = Math.min(box1_x2,box2_x2);
-          const y2 = Math.min(box1_y2,box2_y2);
-          return (x2-x1)*(y2-y1)
+          const box1_area = (box1_x2-box1_x1)*(box1_y2-box1_y1);
+          const box2_area = (box2_x2-box2_x1)*(box2_y2-box2_y1);
+          return box1_area + box2_area - intersection(box1,box2);
       }
 
       /**
        * Array of YOLOv8 class labels
        */
-      const yolo_classes = [
-          'person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat',
-          'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse',
-          'sheep', 'cow', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase',
-          'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard',
-          'surfboard', 'tennis racket', 'bottle', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'banana', 'apple',
-          'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'chair', 'couch', 'potted plant',
-          'bed', 'dining table', 'toilet', 'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'microwave', 'oven',
-          'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush'
-      ];
+      const yolo_classes = ['person', 'bicycle', 'car', ...];
     </script>
 </body>
 </html>
