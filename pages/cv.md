@@ -13,49 +13,48 @@ subtitle:
 
 **<u>Summary</u>**
 
-Ph.D. in Artificial Intelligence and Machine Learning, specialising in Computer Vision. With a strong academic background and hands-on experience in developing innovative AI
-solutions, I am passionate about leveraging state-of-the-art technologies to solve real-world problems. My journey from a BSc. in Financial Mathematics to an MSc. and Ph.D. in AI
-& ML has equipped me with a unique blend of analytical and technical skills, allowing me to excel in both research and practical applications. Committed to continuous learning
-and driven by a passion for problem-solving, I am eager to contribute to cutting-edge projects while continuously expanding my knowledge and skills in diverse AI applications.
-Open to international relocation.
+Ph.D. in Artificial Intelligence & Machine Learning, specializing in Computer Vision, with hands-on experience in developing real-world AI solutions. Throughout my 3-year Ph.D., I
+contributed significantly in launching two AI products in collaboration with an industry partner, from conception to deployment, while also publishing six peer-reviewed articles
+(four as first author). Skilled in translating academic insights into practical applications, utilising advanced deep learning techniques to solve complex business problems.
+Passionate about driving innovation and eager to contribute to high-impact AI projects while continuously expanding my technical expertise.
 
 **<u>Experience</u>**
 
-**PhD Researcher**
+**Computer Vision Researcher**
 University of Limerick | Sept 2021 - Present
-- Developed and optimised object detection and instance segmentation models for waste management applications, enhancing efficiency
-- Mentored and supervised summer interns, enhancing their understanding of machine learning principles while fostering a collaborative and supportive research environment
+- Conducted extensive research on the impact of ground truth annotation quality on computer vision performance, resulting in significant insights published in scholarly journals.
+- Mentored and supervised summer interns, enhancing their understanding of machine learning principles while fostering a collaborative and supportive research environment.
 - Delivered comprehensive instruction on machine learning and deep learning principles, managed computer laboratories and virtual learning platforms and assisted students in
-identifying and resolving coding issues
-- <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" target="_blank" style="color:blue; text-decoration: underline;">Published and co-authored several scholarly outputs</a>, contributing to the academic knowledge base in the field
+identifying and resolving coding issues.
+- <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" target="_blank" style="color:blue; text-decoration: underline;">Published and co-authored six peer-reviewed publications during my PhD</a>, contributing to the academic knowledge base in the field.
+
+
+**Computer Vision Engineer**
+University of Limerick | Sept 2021 - Sept 2023
+- Collaborated with an industry partner as part of my PhD to conceptualise and develop their first AI system, <a href="https://www.amcsgroup.com/solutions/amcs-vision-ai/" target="_blank" style="color:blue; text-decoration: underline;">Vision AI</a>, which automated previously manual processes in container overfill and contamination detection.
+- Worked closely with multidisciplinary teams to define data requirements and align project goals, ensuring clear communication to meet their needs and expectations
+throughout the process.
+- Trained and deployed the models on Azure Machine Learning Studio, facilitating cloud-based solutions for model deployment and production.
+- Achieved 80% mean Average Precision (mAP) on automated overfill container detection and 40% mAP on contamination detection - results published in peer-reviewed journals.
+- Applied and researched cutting-edge computer vision techniques to optimise performance, ensuring the final product met both the industry partner's operational needs and
+quality standards.
 
 **Data Scientist**
 Fiserv | June 2021 - Sept 2021
-- Conducted data analysis on financial transaction acceptance rates to identify trends and insights
-- Developed interactive dashboards using Tableau to communicate findings to business stakeholders and support data-driven decision-making
+- Analysed financial transaction data using SQL to identify key trends and insights, optimising transaction acceptance rates.
+- Developed interactive Tableau dashboards to visualise findings and communicate results to business stakeholders, enabling data-driven decision-making.
 
-
-**<u>Projects</u>**
-
-<a href="https://www.amcsgroup.com/solutions/amcs-vision-ai/" target="_blank" style="color:blue; text-decoration: underline;">Vision AI</a> | Sept 2021 - Sept 2023
-- Conceptualised and transformed initial ideas into a fully functional product for an industry partner, addressing specific business needs
-- Worked closely with a multidisciplinary team to gather data requirements and refine the computer vision system, ensuring alignment with project goals
-- Collaborated with and educated the industry partner, maintaining clear communication to ensure their needs and expectations were met
-- Conducted in-depth research into the specific tasks, exploring and applying cutting-edge techniques to optimise performance
-- Achieved over 80% mean Average Precision (mAP) on the task of automated overfilled container management, with results published in a <a href="https://www.sciencedirect.com/science/article/pii/S2667305323000546" target="_blank" style="color:blue; text-decoration: underline;">scientific journal article</a>
-- Achieved over 40% mAP on the task of automated contamination detection, with results published in a  <a href="https://ieeexplore.ieee.org/abstract/document/10669564" target="_blank" style="color:blue; text-decoration: underline;">scientific journal article</a>
 
 **<u>Education</u>**
 
 **Ph.D. in Artificial Intelligence & Machine Learning** | University of Limerick | Sept 2021 - Nov 2024
 - Thesis: The Effect of Annotation Quality on Computer Vision in Efficient Waste Management
-- Published and co-authored <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" target="_blank" style="color:blue; text-decoration: underline;">multiple scholarly outputs</a>  contributing to the field's knowledge base
+- Published and co-authored <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" target="_blank" style="color:blue; text-decoration: underline;">multiple scholarly outputs</a>  contributing to the field's knowledge base.
  
 **MSc. in Artificial Intelligence & Machine Learning** | University of Limerick | Sept 2020 - Sept 2021
 - Thesis: An Investigation into the Timed Up and Go Test Using Inertial Measurements with a Machine Learning Approach
-- Core Modules: Text Analytics and NLP, Machine Vision, Artificial Intelligence and Machine Learning
 
 **BSc. in Financial Mathematics** | University of Limerick | Sept 2016 - Sept 2020
 - Thesis: Double Trouble? A Statistical Analysis of Child and Parental Outcomes Comparing Singletons to Non-Singletons
-- Core Modules: Advanced Data Analysis, Optimisation, Computer Software 1/2, Probability Models, Time Series Analysis
+
 
