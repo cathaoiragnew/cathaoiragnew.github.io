@@ -31,7 +31,24 @@ full-width: False
 
                </div>
 
+          <!-- New Door Bell   -->
+                <!-- Creating a Project -->
+                  <div class="list-squares-item">
+                     <a href="../projects/doorbell_new/"><img src="/assets/img/depth_ex.jpg" class="item-img"></a>
+                     <center>
+                    <h4>Return of the Doorbell</h4>
+                    </center>
+                  
+               <!-- Ceating Project Home button-->
+               <center>
+               <div class="item-links">
+                   <a class="item-link" href="../projects/doorbell_new/" title="Website">
+                     <span class="fa fa-home"></span>
+                    </a>
+               </div>
+               </center>
 
+               </div>
 
           <!-- Overfill  -->
                 <!-- Creating a Project -->
