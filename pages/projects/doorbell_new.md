@@ -29,7 +29,7 @@ The [InsightFace](https://github.com/deepinsight/insightface) library is used fo
  A custom function is developed to read images, detect faces and open a GUI for labelling detected faces (quickly developed for functionality not aesthetics/UI). This facilitates the creation of a labelled dataset for face recognition.
 
  <p style="text-align: center;">
-   <img src="/assets/img/face_embed_collect.png" alt="Face Embedding Labeller" style="max-width: 100%; height: auto;" />
+   <img src="/assets/img/face_embed_collect.PNG" alt="Face Embedding Labeller" style="max-width: 100%; height: auto;" />
  </p>  
 
 #### 5.2 Vector Search for Embedding Comparison
