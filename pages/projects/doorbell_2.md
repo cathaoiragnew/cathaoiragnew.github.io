@@ -45,21 +45,20 @@ Here is a quick image to show easyOCR and Facial Reconition in action. Blurring 
 ### 7. Example Video
 
 <center>
-<!-- Video Container (Responsive) -->
-<div class="responsive-video">
-  <iframe src="/assets/img/walking_2_trim4_output.mp4" type="video/mp4" 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
-          allowfullscreen></iframe>
-</div>
+  <!-- Video Container (Responsive) -->
+  <div class="responsive-video">
+    <video controls>
+      <source src="/assets/img/walking_2_trim4_output_compatible.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 </center>
+
 
 ### Conclusion
 The enhanced smart doorbell system now offers object detection, tracking, pose estimation, face recognition and text interpretation. This information can be used to build high level based rule systems such as fall detection, detection of persons in eclusion zone etc. 
 
-**Note:** I tried to explicitly detect license plates using available models on HuggingFace, to allow for vechicle reconition, but found no open-source models performed well for my given videos. This may be due to several reasons, angle/distance to license plate, possibly lack of Irish licenses in training data etc. A workaround could involve high-level filtering rules, such as using regex to extract specific license plate patterns or maintaining a dictionary of known plates. However, I chose not to pursue this, as the primary goal of this project is to provide the information needed for further rule-based automation. Lastly, I could fine-tune a model for my use-case, however I did not understake this as the purpose of this project is just to provide all the necessary information to build high level rules with off-the-shelf models. 
+**Note:** I tried to explicitly detect license plates using available models on HuggingFace, to allow for vechicle recoginition, but found no open-source models performed well for my given videos. This may be due to several reasons, angle/distance to license plate, possibly lack of Irish licenses in training data etc. A workaround could involve high-level filtering rules, such as using regex to extract specific license plate patterns or maintaining a dictionary of known plates. However, I chose not to pursue this, as the primary goal of this project is to provide the information needed for further rule-based automation. Lastly, I could fine-tune a model for my use-case, however I did not understake this as the purpose of this project is just to provide all the necessary information to build high level rules with off-the-shelf models. 
 
 
 
