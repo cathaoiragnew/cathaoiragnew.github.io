@@ -30,7 +30,7 @@ The [InsightFace](https://github.com/deepinsight/insightface) library is used fo
   A custom function (quickly developed for functionality not aesthetics/UI) is developed to read images, detect faces and open a GUI for labelling detected faces. This facilitates the creation of a labelled dataset for face recognition.
 
 #### 5.2 Vector Search for Embedding Comparison
-  The [FAISS](https://github.com/facebookresearch/faiss) library is employed to perform vector searches. Normalized embeddings are compared using L2 distance to identify the closest matches between detected faces and labeled embeddings. 
+  The [Faiss](https://github.com/facebookresearch/faiss) library is employed to perform vector searches. Normalized embeddings are compared using L2 distance to identify the closest matches between detected faces and labeled embeddings. 
 
 
 ### 6. Text Detection with EasyOCR
