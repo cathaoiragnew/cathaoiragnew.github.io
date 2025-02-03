@@ -26,17 +26,17 @@ For detect persons, the bounding boxes are used to crop the region of interest a
 ## 5. Face Detection & Recognition using 
 The [InsightFace](https://github.com/deepinsight/insightface) library is used for face detection and embedding. A RetinaNet model fine-tuned for face detection identifies faces within frames, and embeddings are generated for recognition purposes.
 
-  #### 5.1 Face Labeling Interface
+#### 5.1 Face Labeling Interface
   A custom function (quickly developed for functionality not aesthetics/UI) is developed to read images, detect faces and open a GUI for labelling detected faces. This facilitates the creation of a labelled dataset for face recognition.
 
-  #### 5.2 Vector Search for Embedding Comparison
+#### 5.2 Vector Search for Embedding Comparison
   The [FAISS](https://github.com/facebookresearch/faiss) library is employed to perform vector searches. Normalized embeddings are compared using L2 distance to identify the closest matches between detected faces and labeled embeddings. 
 
 
 ## 6. Text Detection with EasyOCR
 Finally [EasyOCR](https://github.com/JaidedAI/EasyOCR) is used to detect and extract text from images. This capability enhances the system's ability to interpret and respond to textual information present in the environment.
 
-Here is a quick image to show easyOCR and Facial Reconition in action. Blurring is used to protect identities. 
+Here is a quick image to show easyOCR and Facial Reconition in action. Blurring is used to protect identities. We can see the red outline for the detected face refers to an unknown face recognised. It will be green if face is recognised (see example video below were it detects and recognises me). 
 
  <p style="text-align: center;">
    <img src="/assets/img/frame_unknown_1_trim_output_10.jpg" alt="Depth Map Example" style="max-width: 100%; height: auto;" />
@@ -44,21 +44,22 @@ Here is a quick image to show easyOCR and Facial Reconition in action. Blurring 
 
 ## 7. Example Video
 
-   <center>
-   <!-- Video Container (Responsive) -->
-   <div class="responsive-video">
-     <iframe src="/assets/img/walking_2_trim4_output.mp4" type="video/mp4" 
-             title="YouTube video player" 
-             frameborder="0" 
-             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-             referrerpolicy="strict-origin-when-cross-origin" 
-             allowfullscreen></iframe>
-   </div>
-   </center>
+<center>
+<!-- Video Container (Responsive) -->
+<div class="responsive-video">
+  <iframe src="/assets/img/walking_2_trim4_output.mp4" type="video/mp4" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen></iframe>
+</div>
+</center>
 
 
 The enhanced smart doorbell system now offers object detection, tracking, pose estimation, face recognition and text interpretation. This information can be used to build high level based rule systems such as fall detection, detection of persons in eclusion zone etc. 
 
-**Note:** I tried to explicitly detect license plates using available models on HuggingFace, to allow for vechicle reconition, but found no open-source models performed well for my given videos. This may be due to several reasons, angle/distance to license plate, possibly lack of Irish licenses in training data etc. We could if we wanted add some high level rules to filter detections. This might inclube using regrex to extract certain license plate patterns. Lastly, I could fine-tune a model for my use-case, however, ultimately I did not understake this as the purpose of this project is just to provide all the necessary information to build high level rules with off-the-shelf models. 
+**Note:** I tried to explicitly detect license plates using available models on HuggingFace, to allow for vechicle reconition, but found no open-source models performed well for my given videos. This may be due to several reasons, angle/distance to license plate, possibly lack of Irish licenses in training data etc. A workaround could involve high-level filtering rules, such as using regex to extract specific license plate patterns or maintaining a dictionary of known plates. However, I chose not to pursue this, as the primary goal of this project is to provide the information needed for further rule-based automation. Lastly, I could fine-tune a model for my use-case, however I did not understake this as the purpose of this project is just to provide all the necessary information to build high level rules with off-the-shelf models. 
+
 
 
