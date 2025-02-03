@@ -4,7 +4,7 @@ title: Return of the Doorbell
 ---
 
 Revisting the [smart doorbell project](https://cathaoiragnew.github.io/pages/projects/doorbell/), I have now updated this project to provide more features. A brief overview is given for each of the steps.
-For this project I do not fine-tune any model, this is the off-the-sheld performance for each of the models. 
+For this project I do not fine-tune any model, this is the off-the-shelf performance for each of the models. 
 
 ### 1. Video Frame Processing with OpenCV
 The system begins by reading each frame from video streams using OpenCV.
@@ -61,7 +61,7 @@ Here is a quick image to show easyOCR and Facial Reconition in action. Blurring 
 
 
 ### Conclusion
-The enhanced smart doorbell system now offers object detection, tracking, pose estimation, face recognition, text interpretation and distance and speed estimates. This information can be used to build high level based rule systems such as fall detection, detection of persons in eclusion zones etc. 
+The enhanced smart doorbell system now offers object detection, tracking, pose estimation, face recognition, text interpretation, distance and speed estimates. This information can be used to build high level based rule systems such as fall detection, detection of persons in eclusion zones etc. 
 
 **Note:** I tried to explicitly detect license plates using available models on HuggingFace, to allow for vechicle recoginition, but found no open-source models performed well for my given videos. This may be due to several reasons, video quality, angle/distance to license plate, possibly lack of Irish licenses in training data etc. A workaround could involve high-level filtering rules, such as using regex to extract specific license plate patterns or maintaining a dictionary of known plates. However, I chose not to pursue this, as the primary goal of this project is to provide the information needed for further rule-based automation. Lastly, I could fine-tune a model for my use-case, however I did not understake this as the purpose of this project is just to provide all the necessary information to build high level rules with off-the-shelf models. 
 
