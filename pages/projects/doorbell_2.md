@@ -6,24 +6,24 @@ title: Return of the Doorbell
 Revisting the [smart doorbell project](https://cathaoiragnew.github.io/pages/projects/doorbell/), I have now updated this project to provide more features. A brief overview is given for each of the steps.
 For this project I do not fine-tune any model, this is the off-the-sheld performance for each of the models. 
 
-## 1. Video Frame Processing with OpenCV
+### 1. Video Frame Processing with OpenCV
 The system begins by reading each frame from video streams using OpenCV.
 
-## 2. Get Depth Map Estimates
+### 2. Get Depth Map Estimates
 Using the [DINOv2](https://huggingface.co/facebook/dpt-dinov2-small-kitti) model from HuggingFace, depth maps (in metres) are generated for each frame. These maps estimate the distance of each pixel from the camera, aiding in understanding spatial relationships between objects. 
 
  <p style="text-align: center;">
    <img src="/assets/img/depth_ex.jpg" alt="Depth Map Example" style="max-width: 100%; height: auto;" />
  </p>  
 
-## 3. Perform Object Detection
+### 3. Perform Object Detection
 The [DETR](https://huggingface.co/facebook/detr-resnet-50) model is employed for object detection, identifying and locating objects within frames. Following detection, [DeepSORT](https://github.com/nwojke/deep_sort) is used to track these objects across frames, assigning unique identifiers to each.
 
-## 4. Pose estimation
+### 4. Pose estimation
 For detected persons, [MediaPose](https://github.com/google-ai-edge/mediapipe) is used to estimate for pose estimation.
 For detect persons, the bounding boxes are used to crop the region of interest and pass this onto 
 
-## 5. Face Detection & Recognition using 
+### 5. Face Detection & Recognition using 
 The [InsightFace](https://github.com/deepinsight/insightface) library is used for face detection and embedding. A RetinaNet model fine-tuned for face detection identifies faces within frames, and embeddings are generated for recognition purposes.
 
 #### 5.1 Face Labeling Interface
@@ -33,7 +33,7 @@ The [InsightFace](https://github.com/deepinsight/insightface) library is used fo
   The [FAISS](https://github.com/facebookresearch/faiss) library is employed to perform vector searches. Normalized embeddings are compared using L2 distance to identify the closest matches between detected faces and labeled embeddings. 
 
 
-## 6. Text Detection with EasyOCR
+### 6. Text Detection with EasyOCR
 Finally [EasyOCR](https://github.com/JaidedAI/EasyOCR) is used to detect and extract text from images. This capability enhances the system's ability to interpret and respond to textual information present in the environment.
 
 Here is a quick image to show easyOCR and Facial Reconition in action. Blurring is used to protect identities. We can see the red outline for the detected face refers to an unknown face recognised. It will be green if face is recognised (see example video below were it detects and recognises me). 
@@ -42,7 +42,7 @@ Here is a quick image to show easyOCR and Facial Reconition in action. Blurring 
    <img src="/assets/img/frame_unknown_1_trim_output_10.jpg" alt="Depth Map Example" style="max-width: 100%; height: auto;" />
  </p>  
 
-## 7. Example Video
+### 7. Example Video
 
 <center>
 <!-- Video Container (Responsive) -->
@@ -56,7 +56,7 @@ Here is a quick image to show easyOCR and Facial Reconition in action. Blurring 
 </div>
 </center>
 
-
+### Conclusion
 The enhanced smart doorbell system now offers object detection, tracking, pose estimation, face recognition and text interpretation. This information can be used to build high level based rule systems such as fall detection, detection of persons in eclusion zone etc. 
 
 **Note:** I tried to explicitly detect license plates using available models on HuggingFace, to allow for vechicle reconition, but found no open-source models performed well for my given videos. This may be due to several reasons, angle/distance to license plate, possibly lack of Irish licenses in training data etc. A workaround could involve high-level filtering rules, such as using regex to extract specific license plate patterns or maintaining a dictionary of known plates. However, I chose not to pursue this, as the primary goal of this project is to provide the information needed for further rule-based automation. Lastly, I could fine-tune a model for my use-case, however I did not understake this as the purpose of this project is just to provide all the necessary information to build high level rules with off-the-shelf models. 
