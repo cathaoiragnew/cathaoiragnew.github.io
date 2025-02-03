@@ -20,14 +20,17 @@ Using the [DINOv2](https://huggingface.co/facebook/dpt-dinov2-small-kitti) model
 The [DETR](https://huggingface.co/facebook/detr-resnet-50) model is employed for object detection, identifying and locating objects within frames. Following detection, [DeepSORT](https://github.com/nwojke/deep_sort) is used to track these objects across frames, assigning unique identifiers to each. Using the tracked objects, speed estimates are calculated for each object by analyzing its movement across consecutive frames. This is done by computing the distance an object moves between frames, along with the frame rate of the video, to estimate the speed at which the object is traveling. These are not perfect and will compound errors from the depth maps, but the estimates may still provide some useful information. We could apply some moving averages to reduce the uncertainty in distance and speed estimates, or kalman filters if we had real measurements. However for the sake of this project I don't implement this. 
 
 ### 4. Pose estimation
-For detected persons, [MediaPose](https://github.com/google-ai-edge/mediapipe) is used to estimate for pose estimation.
-For detect persons, the bounding boxes are used to crop the region of interest and pass this onto 
+For each detected person, [MediaPose](https://github.com/google-ai-edge/mediapipe) is used for pose estimation. This is done by cropping the region of interest based on the person's bounding box and passing it to MediaPose.
 
 ### 5. Face Detection & Recognition using 
 The [InsightFace](https://github.com/deepinsight/insightface) library is used for face detection and embedding. A RetinaNet model fine-tuned for face detection identifies faces within frames, and embeddings are generated for recognition purposes.
 
 #### 5.1 Face Labeling Interface
-  A custom function (quickly developed for functionality not aesthetics/UI) is developed to read images, detect faces and open a GUI for labelling detected faces. This facilitates the creation of a labelled dataset for face recognition.
+ A custom function is developed to read images, detect faces and open a GUI for labelling detected faces (quickly developed for functionality not aesthetics/UI). This facilitates the creation of a labelled dataset for face recognition.
+
+ <p style="text-align: center;">
+   <img src="/assets/img/face_embed_collect.png" alt="Face Embedding Labeller" style="max-width: 100%; height: auto;" />
+ </p>  
 
 #### 5.2 Vector Search for Embedding Comparison
   The [Faiss](https://github.com/facebookresearch/faiss) library is employed to perform vector searches. Normalized embeddings are compared using L2 distance to identify the closest matches between detected faces and labeled embeddings. 
