@@ -17,7 +17,7 @@ Using the [DINOv2](https://huggingface.co/facebook/dpt-dinov2-small-kitti) model
  </p>  
 
 ### 3. Perform Object Detection
-The [DETR](https://huggingface.co/facebook/detr-resnet-50) model is employed for object detection, identifying and locating objects within frames. Following detection, [DeepSORT](https://github.com/nwojke/deep_sort) is used to track these objects across frames, assigning unique identifiers to each.
+The [DETR](https://huggingface.co/facebook/detr-resnet-50) model is employed for object detection, identifying and locating objects within frames. Following detection, [DeepSORT](https://github.com/nwojke/deep_sort) is used to track these objects across frames, assigning unique identifiers to each. Using the tracked objects, speed estimates are calculated for each object by analyzing its movement across consecutive frames. This is done by computing the distance an object moves between frames, along with the frame rate of the video, to estimate the speed at which the object is traveling. These are not perfect and will compound errors from the depth maps, but the estimates may still provide some useful information. 
 
 ### 4. Pose estimation
 For detected persons, [MediaPose](https://github.com/google-ai-edge/mediapipe) is used to estimate for pose estimation.
@@ -45,13 +45,15 @@ Here is a quick image to show easyOCR and Facial Reconition in action. Blurring 
 ### 7. Example Video
 
 <center>
-  <!-- Video Container (Responsive) -->
-  <div class="responsive-video">
-    <video controls>
-      <source src="/assets/img/walking_2_trim4_output_compatible.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+<!-- Video Container (Responsive) -->
+<div class="responsive-video">
+  <iframe src="/assets/img/example_walking.mp4" type="video/mp4" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen></iframe>
+</div>
 </center>
 
 
