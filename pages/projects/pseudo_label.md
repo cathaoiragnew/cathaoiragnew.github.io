@@ -49,9 +49,9 @@ This project develops a pipeline that extracts frames from videos and generates 
   
 2. (Near)/Duplicate Detection using embeddings (duplicate_detection.py):
     
-    - It is important to remove duplicates and near duplicates from the dataset as they can lead to data leakage and skew metrics of interest. Furthermore, we want a diverse dataset to help the models learn and           generalize better. 
+    - It is important to remove duplicates and near duplicates from the dataset as they can lead to data leakage and skew metrics of interest. Furthermore, we want a diverse dataset to help the models learn and generalize better. 
     - CLIP is used to extract feature embeddings of each image
-    - Using the embeddings of each image, cosine similarity is calcualted between feature embeddings
+    - Using the embeddings of each image, cosine similarity is calculated between feature embeddings
     - Using a threshold, we can filter out (near) duplicates
 
 3.  Pseudo-Label images with HuggingFace Object Detection models (pseudo_label.py):
