@@ -26,7 +26,7 @@ For each detected person, [MediaPose](https://github.com/google-ai-edge/mediapip
 The [InsightFace](https://github.com/deepinsight/insightface) library is used for face detection and embedding. A RetinaNet model fine-tuned for face detection identifies faces within frames, and embeddings are generated for recognition purposes.
 
 #### 5.1 Face Labeling Interface
- A custom function is developed to read images, detect faces and open a GUI for labelling detected faces (quickly developed for functionality not aesthetics/UI). This facilitates the creation of a labelled dataset for face recognition.
+ A custom function is developed to read videos, detect faces in frames and open a GUI for labelling detected faces (quickly developed for functionality not aesthetics/UI). This facilitates the creation of a labelled dataset for face recognition.
 
  <p style="text-align: center;">
    <img src="/assets/img/face_embed_collect.PNG" alt="Face Embedding Labeller" style="max-width: 100%; height: auto;" />
