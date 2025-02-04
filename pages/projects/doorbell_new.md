@@ -22,7 +22,7 @@ The [DETR](https://huggingface.co/facebook/detr-resnet-50) model is employed for
 ### 4. Pose estimation
 For each detected person, [MediaPose](https://github.com/google-ai-edge/mediapipe) is used for pose estimation. This is done by cropping the region of interest based on the person's bounding box and passing it to MediaPose.
 
-### 5. Face Detection & Recognition using 
+### 5. Face Detection & Recognition 
 The [InsightFace](https://github.com/deepinsight/insightface) library is used for face detection and embedding. A RetinaNet model fine-tuned for face detection identifies faces within frames, and embeddings are generated for recognition purposes.
 
 #### 5.1 Face Labeling Interface
