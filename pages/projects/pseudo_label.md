@@ -59,7 +59,7 @@ This project develops a pipeline that extracts frames from videos and generates 
     - An object detection model pretrained on the COCO dataset is used to pseudo label each image
     - Each prediction is saved in the COCO json format
     - We can then filter out COCO classes that are not considered of interest.
-    - We can also filter out bounding boxes by its respective size (filter out small or extremely large boxes that may be false postives).  
+    - We can also filter out bounding boxes by its respective size (filter out small or extremely large boxes that may be false positives).  
 
 
 Each of these steps are combined into a single python script that runs the entire process (create_pseudo_data.py). Below are some pseudo labelled frames from our example video.
