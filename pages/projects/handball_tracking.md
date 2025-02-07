@@ -3,7 +3,7 @@ layout: page
 title: Handball Analytics
 ---
 
-This is an early-stage proof of concept for sports tracking in the sport of handball. It highlights exciting possibilities for performance analysis, officiating and player safety in handball. With the right setup and model training, it could be significantly improved to deliver more precise tracking, enhanced player identification, and deeper analytics.
+This is an early-stage proof of concept for automated analytics for the sport of handball. It highlights exciting possibilities for performance analysis, officiating and player safety in handball. With the right setup and model training, it could be significantly improved to deliver more precise tracking, enhanced player identification, and deeper analytics.
 
    <center>
    <!-- Video Container (Responsive) -->
