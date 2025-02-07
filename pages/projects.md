@@ -50,6 +50,25 @@ full-width: False
 
                </div>
 
+          <!-- Handball tracking  -->
+                <!-- Creating a Project -->
+                  <div class="list-squares-item">
+                     <a href="../projects/handball_tracking/"><img src="/assets/img/frame_handball.jpg" class="item-img"></a>
+                     <center>
+                    <h4>Handball Analytics</h4>
+                    </center>
+                  
+               <!-- Ceating Project Home button-->
+               <center>
+               <div class="item-links">
+                   <a class="item-link" href="../projects/doorbell_new/" title="Website">
+                     <span class="fa fa-home"></span>
+                    </a>
+               </div>
+               </center>
+
+               </div>
+
           <!-- Overfill  -->
                 <!-- Creating a Project -->
                   <div class="list-squares-item">
