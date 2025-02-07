@@ -61,7 +61,7 @@ full-width: False
                <!-- Ceating Project Home button-->
                <center>
                <div class="item-links">
-                   <a class="item-link" href="../projects/doorbell_new/" title="Website">
+                   <a class="item-link" href="../projects/handball_tracking/" title="Website">
                      <span class="fa fa-home"></span>
                     </a>
                </div>
