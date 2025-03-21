@@ -20,8 +20,12 @@ Passionate about driving innovation and eager to contribute to high-impact AI pr
 
 **<u>Experience</u>**
 
+**Machine Learning Engineer**
+Akara | Feb 2025 - Present
+
+
 **Computer Vision Researcher**
-University of Limerick | Sept 2021 - Present
+University of Limerick | Sept 2021 - Jan 2025
 - Conducted extensive research on the impact of ground truth annotation quality on computer vision performance, resulting in significant insights published in scholarly journals.
 - Mentored and supervised summer interns, enhancing their understanding of machine learning principles while fostering a collaborative and supportive research environment.
 - Delivered comprehensive instruction on machine learning and deep learning principles, managed computer laboratories and virtual learning platforms and assisted students in
