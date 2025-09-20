@@ -22,6 +22,10 @@ Passionate about driving innovation and eager to contribute to high-impact AI pr
 
 **Machine Learning Engineer**
 Akara | Feb 2025 - Present
+- Transform thermal video data into actionable computer vision systems, enabling real-time event detection, activity recognition and object tracking in critical environments such as operating rooms.
+- Drive end-to-end development of machine learning models, from dataset creation and preprocessing to training, fine-tuning and deployment on embedded edge devices.
+- Build automated and scalable ML infrastructure using AWS SageMaker, streamlining dataset preprocessing and training pipelines.
+- Explore and prototype multiple use cases of thermal imaging technology, establishing the foundation for scalable deployment and market adoption.
 
 
 **Computer Vision Researcher**
