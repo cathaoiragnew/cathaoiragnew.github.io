@@ -13,28 +13,29 @@ subtitle:
 
 **<u>Summary</u>**
 
-Ph.D. in Artificial Intelligence & Machine Learning, specializing in Computer Vision, with hands-on experience in developing real-world AI solutions. Throughout my 3-year Ph.D., I
-contributed significantly in launching two AI products in collaboration with an industry partner, from conception to deployment, while also publishing six peer-reviewed articles
-(four as first author). Skilled in translating academic insights into practical applications, utilising advanced deep learning techniques to solve complex business problems.
-Passionate about driving innovation and eager to contribute to high-impact AI projects while continuously expanding my technical expertise.
+Ph.D. in Artificial Intelligence & Machine Learning, specialising in Computer Vision, with hands-on experience developing real-world AI solutions. In my current role at Akara, I am the sole Computer Vision‑focused ML Engineer, building real‑time vision systems for healthcare applications, including surgical event detection, temporal action recognition, person detection for UV safety, and OCR and foundation‑model‑driven workflows for case‑cost analysis. I own the full ML lifecycle up to deployment, automate workflows in AWS SageMaker, and collaborate with cross‑functional teams to integrate models into production systems.
 
 **<u>Experience</u>**
 
 **Machine Learning Engineer**
 Akara | Feb 2025 - Present
-- Transform thermal video data into actionable computer vision systems, enabling real-time event detection, activity recognition and object tracking in critical environments such as operating rooms.
-- Drive end-to-end development of machine learning models, from dataset creation and preprocessing to training, fine-tuning and deployment on embedded edge devices.
-- Build automated and scalable ML infrastructure using AWS SageMaker, streamlining dataset preprocessing and training pipelines.
-- Explore and prototype multiple use cases of thermal imaging technology, establishing the foundation for scalable deployment and market adoption.
+- Built real-time surgical workflow event detection systems for orthopedic and pain management procedures using object detection, multi-object tracking, and temporal video action recognition on thermal video data.
+- Developed and trained a person‑detection model for a UV disinfection robot, used to trigger safe shutdown of UV emission in the presence of humans.
+- Implemented OCR and foundation‑model‑driven workflows for healthcare case‑cost analysis and prediction.
+- Own the full ML lifecycle up to deployment, including dataset design, preprocessing, model training, fine-tuning and optimisation for edge devices.
+- Improved model robustness with temporal reasoning and post‑processing logic to reduce false positives in noisy, real‑world operating room environments.
+- Automated preprocessing and training workflows using AWS SageMaker to improve scalability.
+- Collaborate with cross-functional teams to support production deployment and system integration.
+- Continuously research and prototype computer vision models
 
 
 **Computer Vision Researcher**
-University of Limerick | Sept 2021 - Jan 2025
+University of Limerick | Sept 2021 - Feb 2025
 - Conducted extensive research on the impact of ground truth annotation quality on computer vision performance, resulting in significant insights published in scholarly journals.
 - Mentored and supervised summer interns, enhancing their understanding of machine learning principles while fostering a collaborative and supportive research environment.
 - Delivered comprehensive instruction on machine learning and deep learning principles, managed computer laboratories and virtual learning platforms and assisted students in
 identifying and resolving coding issues.
-- <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" target="_blank" style="color:blue; text-decoration: underline;">Published and co-authored six peer-reviewed publications during my PhD</a>, contributing to the academic knowledge base in the field.
+- <a href="https://scholar.google.com/citations?user=gZgIYMoAAAAJ&hl=en" target="_blank" style="color:blue; text-decoration: underline;">Published and co-authored seven peer-reviewed publications during my PhD</a>, contributing to the academic knowledge base in the field.
 
 
 **Computer Vision Engineer**
