@@ -10,8 +10,10 @@ entirely from ground-truth annotations.*
     loop
     muted
     playsinline
+    controls
     style="width: 100%; height: auto;">
     <source src="{{ '/assets/img/preview_app_.webm' | relative_url }}" type="video/webm">
+    Your browser does not support the video tag.
 </video>
 
 I wanted to be able to search a padel match the way you'd describe it to a friend -
