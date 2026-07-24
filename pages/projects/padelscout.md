@@ -11,7 +11,7 @@ entirely from ground-truth annotations.*
     loop
     muted
     playsinline
-    width="800">
+    style="width: 100%; height: auto;">
     <source src="{{ '/assets/img/preview_app.webm' | relative_url }}" type="video/webm">
 </video>
 
@@ -33,7 +33,7 @@ downstream cares where they come from, so swapping them for model **predictions*
 **2 · Pixels → court metres.** The **homography** maps any pixel to a real position on the
 10 × 20 m court (verified to a few cm). 
 
-<img src="{{ '/assets/images/homography_exp.png' | relative_url }}"
+<img src="{{ '/assets/img/homography_exp.png' | relative_url }}"
      alt="Homography example"
      style="width:100%; max-width:900px;">
 
@@ -46,7 +46,7 @@ heatmap already shows the tell - players cluster at the net and the baseline, wi
 band across the net.
 
 
-<img src="{{ '/assets/images/highlights.png' | relative_url }}"
+<img src="{{ '/assets/img/highlights.png' | relative_url }}"
      alt="Highlights example"
      style="width:100%; max-width:900px;">
 
@@ -61,7 +61,7 @@ model on a schematic gives usable phrases ("powerful smash", "defensive scramble
 broadcast commentary. 
 
 
-<img src="{{ '/assets/images/VLM_exp.png' | relative_url }}"
+<img src="{{ '/assets/img/VLM_exp.png' | relative_url }}"
      alt="VLM Caption example"
      style="width:100%; max-width:900px;">
 
@@ -145,19 +145,16 @@ It orchestrates existing capabilities — it doesn't invent new ground truth.
 ## Scope — a proof of concept
 
 This is a **proof of concept**, not a production system. It exists to show the whole idea
-working end-to-end — ground-truth annotations → court geometry → reconstruction → VLM
-captions → hybrid search — on a single match of 60 rallies. Every stage is deliberately the
+working end-to-end - ground-truth annotations → court geometry → reconstruction → VLM
+captions → hybrid search - on a single match of 60 rallies. Every stage is deliberately the
 simplest thing that demonstrates the approach. A production version would need:
 
 - **Perception models in front.** Here the annotations are ground truth. A live system
   would run its own ball/player detection, pose estimation, homography calibration and shot
-  classification (the dataset ships the YOLO recipes for exactly this), each adding error
-  the pipeline would have to tolerate.
+  classification, each adding error   the pipeline would have to tolerate.
 - **A stronger captioner.** SmolVLM2-2.2B on a schematic gives rough, occasionally wrong
-  descriptions; a larger or fine-tuned VLM — ideally on real footage — would sharpen
+  descriptions; a larger or fine-tuned VLM - ideally on real footage - would sharpen
   retrieval a lot.
-- **Evaluation.** Retrieval quality here is *eyeballed*. A real build needs a labelled query
-  set and actual recall/precision numbers, not vibes.
 - **Scale and robustness.** Brute-force vector search is fine for 60 rallies but untuned for
   millions (no ANN index, no latency budget); the Gradio app is a single-user demo with no
   auth, monitoring, or hardened error handling.
@@ -165,8 +162,8 @@ simplest thing that demonstrates the approach. A production version would need:
   hints, not calibrated against real outcomes.
 
 And some limits are the data's, not the build's: there are no score labels, so "who won the
-point" is only inference, and fine trick shots (a between-the-legs *por tres*) are beyond
-both the labels and a small model reading a diagram. The demo says so rather than faking it.
+point" is only inference, and fine trick shots (a between-the-legs) are beyond
+both the labels and a small model reading a diagram.
 
 ## Stack
 
