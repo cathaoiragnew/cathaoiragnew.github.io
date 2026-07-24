@@ -7,12 +7,11 @@ title: Paddle Scout
 entirely from ground-truth annotations.*
 
 <video
-    autoplay
     loop
     muted
     playsinline
     style="width: 100%; height: auto;">
-    <source src="{{ '/assets/img/preview_app.webm' | relative_url }}" type="video/webm">
+    <source src="{{ '/assets/img/preview_app_.webm' | relative_url }}" type="video/webm">
 </video>
 
 I wanted to be able to search a padel match the way you'd describe it to a friend -
