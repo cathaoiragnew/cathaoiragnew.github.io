@@ -1,4 +1,7 @@
-# PadelScout - Finding padel rallies by describing them
+---
+layout: page
+title: Paddle Scout
+---
 
 *Natural-language search over a padel match - reconstructed, described, and indexed
 entirely from ground-truth annotations.*
