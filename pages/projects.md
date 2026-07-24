@@ -11,6 +11,26 @@ full-width: False
    <div class="row">
                  
        <div class="list-squares">
+       
+          <!-- Paddel Scout  -->
+                <!-- Creating a Project -->
+                  <div class="list-squares-item">
+                     <a href="../projects/padelscout/"><img src="/assets/img/homography_exp.png" class="item-img"></a>
+                     <center>
+                    <h4>Padel Scout</h4>
+                    </center>
+                  
+               <!-- Ceating Project Home button-->
+               <center>
+               <div class="item-links">
+                   <a class="item-link" href="../projects/padelscout/" title="Website">
+                     <span class="fa fa-home"></span>
+                    </a>
+               </div>
+               </center>
+
+               </div>
+
 
           <!-- Pseudo label  -->
                 <!-- Creating a Project -->
