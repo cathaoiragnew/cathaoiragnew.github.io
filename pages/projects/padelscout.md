@@ -34,10 +34,6 @@ downstream cares where they come from, so swapping them for model **predictions*
 **2 · Pixels → court metres.** The **homography** maps any pixel to a real position on the
 10 × 20 m court (verified to a few cm). 
 
-<img src="{{ '/assets/img/homography_exp.png' | relative_url }}"
-     alt="Homography example"
-     style="width:100%; max-width:900px;">
-
 **3 · Rally segmentation.** Collapse per-frame shot labels into discrete shots, then split
 into rallies on a serve or a >2 s gap → 60 rallies for the women's final, ~7.6 shots each.
 
@@ -55,6 +51,10 @@ band across the net.
 by side of the net), a ball trail, and the court in perspective via the **inverse
 homography** → a short clip that plays in the browser. Solves the no-video
 problem.
+
+<img src="{{ '/assets/img/homography_exp.png' | relative_url }}"
+     alt="Homography example"
+     style="width:100%; max-width:900px;">
 
 **6 · Captioning (VLM).** **SmolVLM2** (2.2 B, bf16) commentates each reconstruction,
 grounded by injecting the ground-truth facts into the prompt. Honest ceiling: a small
