@@ -22,50 +22,32 @@ subtitle: How ToothGroupNet, the winner of the 3DTeethSeg'22 challenge, labels e
 
 *One upper-jaw scan from Teeth3DS+. Left: the raw mesh. Right: the dataset's ground-truth labels, coloured by tooth type.*
 
-I came to this with no background in dentistry. The vocabulary was new (gingiva, FDI numbers, occlusal surfaces), but the recipe underneath was one I already knew from 2D computer vision:
+Out of curiosity, I wanted to explore a new domain in healthcare tech, so I picked up a public benchmark of 3D dental scans and the solution that won its challenge. The vocabulary was new (gingiva, occlusal surfaces, FDI tooth numbers), but the fundamentals don't change from domain to domain:
 
 **input → feature vectors → operations → outputs**
 
-The winning solution also relies on a trick I keep running into, including in my own research: **get a coarse answer first, then refine it where it matters.** This page walks through the benchmark and the architecture, then comes back to that coarse-to-fine idea.
+The winning solution also relies on a trick I keep running into, including in my own research: **get a coarse answer first, then refine it where it matters.** This page walks through the architecture, then comes back to that coarse-to-fine idea.
 
 ## The benchmark: Teeth3DS+
 
-[Teeth3DS+](https://crns-smartvision.github.io/teeth3ds/){:target="_blank"} contains **1,800 intra-oral 3D scans from 900 patients**. The upper and lower jaws are scanned separately. The scans came from partner clinics, mainly in France and Belgium, using three intra-oral scanners: the Primescan (Dentsply), the Trios3 (3Shape) and the iTero Element 2 Plus. Each scan is a triangle mesh (`.obj`) with a JSON file giving **a tooth label and an instance ID for every vertex**.
-
-The tooth labels use the **FDI numbering system**. The first digit is the quadrant (1 upper right, 2 upper left, 3 lower left, 4 lower right, from the patient's point of view). The second digit is the position counted from the midline, from 1 (central incisor) to 8 (third molar). Gingiva (gum) is labelled 0. So `23` is the upper-left canine.
-
-The scan used throughout this page (`01F4JV8X`, upper jaw) has 120,522 vertices, 240,900 triangles and 14 labelled teeth (FDI 11–17 and 21–27). About a third of its vertices (32%) are gingiva.
-
-The dataset was used for the [3DTeethSeg'22 challenge](https://arxiv.org/abs/2305.18277){:target="_blank"} at MICCAI 2022, and later extended with landmark annotations for the 3DTeethLand challenge at MICCAI 2024. 3DTeethSeg'22 scored three things:
-
-- **TLA (localisation):** the distance from each ground-truth tooth centroid to the closest predicted centroid, normalised by tooth size. Reported as Exp(-TLA), so higher is better.
-- **TSA (segmentation):** the average F1-score over all tooth instances.
-- **TIR (identification):** the share of ground-truth teeth whose closest predicted centroid is within half a tooth size *and* carries the right label.
-
-The final score is the mean of the three. The top three teams:
-
-| Team | Exp(-TLA) | TSA | TIR | Score |
-|---|---|---|---|---|
-| **CGIP (ToothGroupNet)** | 0.9658 | **0.9859** | 0.9100 | **0.9539** |
-| FiboSeg | **0.9924** | 0.9293 | 0.9223 | 0.9480 |
-| IGIP | 0.9244 | 0.9750 | **0.9289** | 0.9427 |
-
-ToothGroupNet won overall on the strength of its segmentation. It wasn't best at everything, though: FiboSeg localised teeth better and IGIP labelled them better. The team's code is on [GitHub](https://github.com/limhoyeon/ToothGroupNetwork){:target="_blank"}.
+[Teeth3DS+](https://crns-smartvision.github.io/teeth3ds/){:target="_blank"} contains **1,800 intra-oral 3D scans from 900 patients**. The upper and lower jaws are scanned separately. Each scan is a triangle mesh (`.obj`) with a JSON file giving **a tooth label and an instance ID for every vertex**. The dataset was used for the [3DTeethSeg'22 challenge](https://arxiv.org/abs/2305.18277){:target="_blank"} at MICCAI 2022.
 
 ## Same recipe, new domain
 
-Put side by side with a typical 2D instance segmentation model, the structure is the same:
+Set against a standard image segmentation model, the structure is the same:
 
-| Step | 2D image model | ToothGroupNet |
+| Step | Image model | ToothGroupNet |
 |---|---|---|
 | **Input** | Pixels, 3 numbers each (RGB) | 24,000 points sampled from the mesh, 6 numbers each (xyz + surface normal) |
 | **Feature vectors** | CNN or ViT backbone → feature map | Point Transformer backbone → a feature vector per point |
 | **Operations** | Heads for class, box and mask | Heads for tooth class and offset to the tooth centre, then clustering, cropping and resampling |
-| **Output** | A mask and label per object | An FDI number and tooth instance for every vertex |
+| **Output** | A mask and label per object | A tooth number (FDI) and tooth instance for every vertex |
 
 The one real difference is that **a point cloud has no grid**. In an image, the neighbours of a pixel are simply the pixels next to it. In a point cloud, neighbours have to be computed (the *k* nearest points), and the network has to cope with points that are unevenly spaced. A lot of what makes point-cloud networks look unfamiliar comes down to that.
 
 ## ToothGroupNet architecture
+
+ToothGroupNet ([code on GitHub](https://github.com/limhoyeon/ToothGroupNetwork){:target="_blank"}) works in two stages:
 
 <a href="{{ '/assets/img/teeth_seg_pipeline.svg' | relative_url }}" target="_blank"><img src="{{ '/assets/img/teeth_seg_pipeline.svg' | relative_url }}"
      alt="ToothGroupNet pipeline: stage 1 samples 24,000 points with farthest point sampling and labels them with a Point Grouping Module and a Tooth Cropping Module; stage 2 finds boundaries from the stage-1 labels, resamples them densely and labels them with a second network; the labels are merged onto every mesh vertex"
@@ -90,9 +72,9 @@ The mesh is first reduced to **24,000 points by farthest point sampling (FPS)**.
 
 Adding each point's offset to its position pulls all the points of one tooth towards the same spot. Gingiva points are dropped, and **DBSCAN** clusters what remains into one group per tooth. The paper notes this works well because each tooth is a compact, roughly cylindrical shape that is easy to group. In the code, the offset head is trained so that shifted points land on their tooth's centre, point towards it, and end up much closer to one tooth centre than to any other.
 
-**Tooth Cropping Module.** For each predicted tooth centre, the 3,072 nearest points are cropped and passed to a second Point Transformer. This one makes a single binary call: tooth or gingiva. Its mask cleans up the grouping result. Points the first module called tooth but the crop calls gingiva become gingiva. Points it called gingiva but the crop calls tooth take the label of their nearest neighbour. This is the **proposal → crop → mask** pattern from two-stage detectors, in 3D: find the object roughly, then look closely at a crop around it.
+**Tooth Cropping Module.** For each predicted tooth centre, the 3,072 nearest points are cropped and passed to a second Point Transformer. This one makes a single binary call: tooth or gingiva. Its mask has the final say on which points count as tooth, which cleans up the grouping result. This is the **proposal → crop → mask** pattern from two-stage detectors, in 3D: find the object roughly, then look closely at a crop around it.
 
-A detail that only shows up in the code: **the stage-1 classifier mostly doesn't separate left from right.** Apart from the two central incisors, each tooth type is one class for both sides (13 and 23 are the same class, for example). The side is assigned afterwards from geometry, relative to the midline between the central incisors. Left and right teeth of the same type are close to mirror images, so my read is that this lets the network focus on tooth type and leaves the side to geometry.
+A detail that only shows up in the code: **the stage-1 classifier mostly doesn't separate left from right.** Apart from the two central incisors, each tooth type is one class for both sides (the left and right canines share a class, for example). The side is assigned afterwards from geometry, relative to the midline between the central incisors. Left and right teeth of the same type are close to mirror images, so my read is that this lets the network focus on tooth type and leaves the side to geometry.
 
 ### Stage 2: refine, with boundary aware point sampling
 
@@ -104,7 +86,7 @@ On the sample scan, using the ground-truth labels, **16% of the mesh's vertices 
 
 1. Use the stage-1 labels to find the boundaries. In the code, a vertex counts as a boundary vertex if fewer than 70% of its 40 nearest sampled points share its label.
 2. Draw a new set of 24,000 points: up to **20,000 boundary points**, with the rest filled in by FPS.
-3. Label this boundary-heavy sample with a **second Tooth Group Network**.
+3. Run a **second Tooth Group Network** on this sample. It only decides which tooth (or gingiva) each point belongs to, grouping the points into the number of teeth stage 1 found. Its tooth-type predictions aren't used.
 
 On the sample scan, **82% of the new sample sits on boundaries.**
 
@@ -114,7 +96,7 @@ On the sample scan, **82% of the new sample sits on boundaries.**
 
 *The same front teeth, sampled both ways. Bright points lie on a tooth–tooth or tooth–gingiva boundary. Boundaries here come from the ground-truth labels, whereas ToothGroupNet finds them from its stage-1 predictions.*
 
-Finally, the labels from both point sets are merged. Every mesh vertex takes the label of its nearest sampled point, and each tooth's FDI number is a majority vote of the stage-1 class predictions inside it.
+Finally, the two are merged. Only stage 2's boundary points are kept, and each of its clusters is matched to a stage-1 tooth by a nearest-neighbour majority vote. Every mesh vertex then takes the label of its nearest sampled point from either set. Each tooth's number is a majority vote of the **stage-1** class predictions inside it. So stage 2 refines where the edges are, not which tooth is which.
 
 How the two stages are trained is worth noting. Stage 1 is trained first. Stage 2's training loads the finished stage-1 model and keeps it **frozen**, using it only to decide where to sample. The stage-2 network is a **separate, smaller model** (two levels, feature widths 16 and 32) trained on those boundary-heavy samples. So the refinement doesn't come from fine-tuning the same weights. It comes from a second, specialist model whose input is mostly the hard regions.
 

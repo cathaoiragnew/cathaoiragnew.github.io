@@ -82,14 +82,15 @@
   <rect class="box" x="522" y="370" width="214" height="118" rx="6"/>
   <text class="h" x="536" y="394">Second Tooth Group Net</text>
   <text class="b" x="536" y="418">a smaller network, trained</text>
-  <text class="b" x="536" y="436">separately, labels the</text>
-  <text class="b" x="536" y="454">boundary-heavy points</text>
+  <text class="b" x="536" y="436">separately, re-assigns each</text>
+  <text class="b" x="536" y="454">boundary point to a tooth</text>
+  <text class="b" x="536" y="472">or gingiva</text>
 
   <!-- Merge + output -->
   <path class="a" d="M380,504 V534"/>
   <rect class="box" x="24" y="536" width="463" height="94" rx="6"/>
   <text class="h" x="38" y="560">Merge</text>
-  <text class="b" x="38" y="584">labels from both point sets are combined; every mesh</text>
+  <text class="b" x="38" y="584">stage-2 clusters are matched to stage-1 teeth; every mesh</text>
   <text class="b" x="38" y="602">vertex takes the label of its nearest sampled point, and</text>
   <text class="b" x="38" y="620">each tooth's number is a majority vote of stage-1 classes</text>
 
