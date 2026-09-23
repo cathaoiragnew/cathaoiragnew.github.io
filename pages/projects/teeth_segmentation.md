@@ -2,6 +2,7 @@
 layout: page
 title: 3D Teeth Segmentation
 subtitle: How ToothGroupNet, the winner of the 3DTeethSeg'22 challenge, labels every tooth in an intra-oral scan
+share-img: /assets/img/teeth_seg_hero.png
 ---
 
 <style>
