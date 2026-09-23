@@ -12,6 +12,25 @@ full-width: False
                  
        <div class="list-squares">
        
+          <!-- Teeth segmentation  -->
+                <!-- Creating a Project -->
+                  <div class="list-squares-item">
+                     <a href="../projects/teeth_segmentation/"><img src="/assets/img/teeth_seg_thumb.png" class="item-img"></a>
+                     <center>
+                    <h4>3D Teeth Segmentation</h4>
+                    </center>
+                  
+               <!-- Ceating Project Home button-->
+               <center>
+               <div class="item-links">
+                   <a class="item-link" href="../projects/teeth_segmentation/" title="Website">
+                     <span class="fa fa-home"></span>
+                    </a>
+               </div>
+               </center>
+
+               </div>
+
           <!-- Paddel Scout  -->
                 <!-- Creating a Project -->
                   <div class="list-squares-item">

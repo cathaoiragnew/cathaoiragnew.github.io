@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 640" width="760" height="640" role="img" aria-labelledby="t d">
+  <title id="t">ToothGroupNet pipeline</title>
+  <desc id="d">An intra-oral mesh is sampled with farthest point sampling and labelled by a Tooth Group Network (Point Grouping Module then Tooth Cropping Module). The stage-1 labels are used to find tooth boundaries, which are densely resampled and labelled by a second Tooth Group Network. The two sets of labels are merged onto every mesh vertex.</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c3c2b7"/>
+    </marker>
+    <style>
+      text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; fill: #ffffff; }
+      .h { font-size: 14.5px; font-weight: 600; }
+      .b { font-size: 12.5px; fill: #c3c2b7; }
+      .k { font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; fill: #c3c2b7; }
+      .n { font-size: 12px; fill: #c3c2b7; font-style: italic; }
+      .box { fill: #1a1a19; stroke: #4a4945; stroke-width: 1; }
+      .io { fill: #2c2c2a; stroke: #6b6a65; stroke-width: 1; }
+      .lane { fill: #0f0f0e; stroke: #2c2c2a; stroke-width: 1; }
+      .a { stroke: #c3c2b7; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+    </style>
+  </defs>
+
+  <!-- Input -->
+  <rect class="io" x="205" y="8" width="350" height="58" rx="8"/>
+  <text class="h" x="380" y="32" text-anchor="middle">Intra-oral scan (triangle mesh)</text>
+  <text class="b" x="380" y="52" text-anchor="middle">every vertex: position (x, y, z) + surface normal</text>
+  <path class="a" d="M380,66 V94"/>
+
+  <!-- Stage 1 -->
+  <rect class="lane" x="8" y="96" width="744" height="190" rx="10"/>
+  <text class="k" x="24" y="120">STAGE 1 · COARSE: FARTHEST POINT SAMPLING</text>
+
+  <rect class="box" x="24" y="134" width="214" height="136" rx="6"/>
+  <text class="h" x="38" y="158">Farthest point sampling</text>
+  <text class="b" x="38" y="182">24,000 evenly spread points,</text>
+  <text class="b" x="38" y="200">each with 6 numbers:</text>
+  <text class="b" x="38" y="218">xyz + normal</text>
+
+  <path class="a" d="M238,202 H271"/>
+
+  <rect class="box" x="273" y="134" width="214" height="136" rx="6"/>
+  <text class="h" x="287" y="158">Point Grouping Module</text>
+  <text class="b" x="287" y="182">Point Transformer backbone</text>
+  <text class="b" x="287" y="200">predicts each point's tooth</text>
+  <text class="b" x="287" y="218">class + offset to its tooth</text>
+  <text class="b" x="287" y="236">centre; shifted points are</text>
+  <text class="b" x="287" y="254">clustered with DBSCAN</text>
+
+  <path class="a" d="M487,202 H520"/>
+
+  <rect class="box" x="522" y="134" width="214" height="136" rx="6"/>
+  <text class="h" x="536" y="158">Tooth Cropping Module</text>
+  <text class="b" x="536" y="182">crops 3,072 points around</text>
+  <text class="b" x="536" y="200">each predicted centre; a</text>
+  <text class="b" x="536" y="218">Point Transformer predicts</text>
+  <text class="b" x="536" y="236">tooth vs gingiva to clean</text>
+  <text class="b" x="536" y="254">up each tooth instance</text>
+
+  <!-- Hand-off -->
+  <path class="a" d="M380,286 V330"/>
+  <text class="n" x="392" y="313">stage-1 labels show where the boundaries are</text>
+
+  <!-- Stage 2 -->
+  <rect class="lane" x="8" y="332" width="744" height="172" rx="10"/>
+  <text class="k" x="24" y="356">STAGE 2 · REFINE: BOUNDARY AWARE POINT SAMPLING</text>
+
+  <rect class="box" x="24" y="370" width="214" height="118" rx="6"/>
+  <text class="h" x="38" y="394">Find the boundaries</text>
+  <text class="b" x="38" y="418">a vertex is on a boundary if</text>
+  <text class="b" x="38" y="436">&lt;70% of its 40 nearest</text>
+  <text class="b" x="38" y="454">sampled points share its</text>
+  <text class="b" x="38" y="472">stage-1 label</text>
+
+  <path class="a" d="M238,429 H271"/>
+
+  <rect class="box" x="273" y="370" width="214" height="118" rx="6"/>
+  <text class="h" x="287" y="394">Resample densely</text>
+  <text class="b" x="287" y="418">up to 20,000 boundary</text>
+  <text class="b" x="287" y="436">points, the rest by FPS,</text>
+  <text class="b" x="287" y="454">24,000 in total</text>
+
+  <path class="a" d="M487,429 H520"/>
+
+  <rect class="box" x="522" y="370" width="214" height="118" rx="6"/>
+  <text class="h" x="536" y="394">Second Tooth Group Net</text>
+  <text class="b" x="536" y="418">a smaller network, trained</text>
+  <text class="b" x="536" y="436">separately, labels the</text>
+  <text class="b" x="536" y="454">boundary-heavy points</text>
+
+  <!-- Merge + output -->
+  <path class="a" d="M380,504 V534"/>
+  <rect class="box" x="24" y="536" width="463" height="94" rx="6"/>
+  <text class="h" x="38" y="560">Merge</text>
+  <text class="b" x="38" y="584">labels from both point sets are combined; every mesh</text>
+  <text class="b" x="38" y="602">vertex takes the label of its nearest sampled point, and</text>
+  <text class="b" x="38" y="620">each tooth's number is a majority vote of stage-1 classes</text>
+
+  <path class="a" d="M487,583 H520"/>
+  <rect class="io" x="522" y="536" width="214" height="94" rx="6"/>
+  <text class="h" x="536" y="560">Output</text>
+  <text class="b" x="536" y="584">an FDI tooth number and</text>
+  <text class="b" x="536" y="602">a tooth instance for every</text>
+  <text class="b" x="536" y="620">vertex of the scan</text>
+</svg>
