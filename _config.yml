@@ -25,6 +25,7 @@ navbar-links:
     - CV: "/pages/cv"
   Research: "/pages/research"
   Projects: "/pages/projects"
+  Paper Walkthroughs: "/pages/walkthroughs"
   Contact: "/pages/contact"
 
 ################
