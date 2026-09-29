@@ -1,128 +1,253 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 830" width="760" height="830" role="img" aria-labelledby="t d" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTplMTM3YWI5My1kMDI4LTQwN2UtOTJiOS01ZWQ5Y2FlYWIwZGUAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaHGI98DUSsBmjl69Y3+BLUUAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpkOWIzNzIyYS02YzIyLTQ0ZDAtOGJmZC02ZTE0YTgzMzI4MzFscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNo8771erfB794BTqaesf2dkQAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggA7fBWC3dyDnwdp9yUqfvC7uJ8tYECxQKqoH78AqjxhikZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaBEh21Mclzknee7jGlJnN0IAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCDx2ofjP6bLG5hRrf+L5ZrKnuiNATapp6G82d+UK+lQ0WRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBi3Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmUxMzdhYjkzLWQwMjgtNDA3ZS05MmI5LTVlZDljYWVhYjBkZS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmY1NTI4ZWNlLThjNWYtNGYxZC04OWQ5LTAzYjc5MDM3NjYyYXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCADt8FYLd3IOfB2n3JSp+8Lu4ny1gQLFAqqgfvwCqPGGKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggVa7mnkwC77P6AQcZL2DicXyxVWHxWXRnfcSOz0D/OPSiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggkXL9GrAdHqjCmIQkOmEymZbd9I7u9OIEAS5NMAXZQml0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQCCBDIhy9M1HVFqpzto3gibzRFJnFdabsl2wRe9hTL/ps8cXldGRSONs8kxQy6bBAk8H9IRaZYYxkHj1+ro+Rxc=</c2pa:manifest></metadata>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1165 1113" width="1165" height="1113" role="img" aria-labelledby="t d">
   <title id="t">U-Mamba2 architecture (ToothFairy3 Task 1)</title>
-  <desc id="d">A CBCT patch of 160 by 288 by 288 voxels goes through a seven-stage residual encoder that shrinks it to 5 by 9 by 9 with 320 channels. At the bottleneck the features are flattened into 405 tokens, normalised and passed through a Mamba2 layer, then reshaped. A six-stage decoder upsamples with transposed convolutions, concatenates the encoder skips and outputs 47 class scores per voxel. Around the network: self-supervised pretraining, a loss with label smoothing and class weights, left-right mirroring with label swapping, and connected-component post-processing.</desc>
+  <desc id="d">A U-shaped network drawn as 3D blocks. A 1-channel CBCT patch of 160 by 288 by 288 voxels goes through a stem convolution and seven encoder stages of residual blocks with 32, 64, 128, 256, 320, 320 and 320 channels. Stages 2 to 6 halve every side with a stride-2 residual block, down to 5 by 9 by 9; stage 7 keeps that size. At the bottleneck a Mamba2 layer processes the 5 by 9 by 9 grid as 405 tokens. The decoder has six stages: each upsamples with a transposed convolution, concatenates the matching encoder features and applies one 3 by 3 by 3 convolution. A final 1 by 1 by 1 convolution gives 47 class scores per voxel.</desc>
   <defs>
-    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#c3c2b7"/>
-    </marker>
-    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#6b6a65"/>
-    </marker>
+    <marker id="gr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#46a758"/></marker>
+    <marker id="pk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d55181"/></marker>
     <style>
       text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; fill: #ffffff; }
-      .h { font-size: 14.5px; font-weight: 600; }
-      .b { font-size: 12.5px; fill: #c3c2b7; }
-      .s { font-size: 12px; fill: #c3c2b7; }
-      .m { font-size: 12px; fill: #ffffff; font-variant-numeric: tabular-nums; }
-      .k { font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; fill: #c3c2b7; }
-      .n { font-size: 12px; fill: #c3c2b7; font-style: italic; }
-      .box { fill: #1a1a19; stroke: #4a4945; stroke-width: 1; }
-      .io { fill: #2c2c2a; stroke: #6b6a65; stroke-width: 1; }
-      .mb { fill: #1d2733; stroke: #3987e5; stroke-width: 1.5; }
-      .lane { fill: #0f0f0e; stroke: #2c2c2a; stroke-width: 1; }
-      .dash { fill: none; stroke: #6b6a65; stroke-width: 1; stroke-dasharray: 5 4; }
-      .a { stroke: #c3c2b7; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
-      .sk { stroke: #6b6a65; stroke-width: 1.2; fill: none; stroke-dasharray: 4 4; marker-end: url(#arr2); }
+      .c { font-size: 15px; font-variant-numeric: tabular-nums; }
+      .r { font-size: 15px; fill: #ffffff; font-variant-numeric: tabular-nums; }
+      .r2 { font-size: 15px; fill: #c3c2b7; }
+      .g { font-size: 14px; fill: #c3c2b7; }
+      .s { font-size: 14px; fill: #c3c2b7; }
+      .l { font-size: 15.5px; fill: #c3c2b7; }
+      .k { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; fill: #c3c2b7; }
+      .mb { font-size: 16px; font-weight: 600; fill: #ffffff; }
     </style>
   </defs>
-
-  <!-- Input and output -->
-  <rect class="io" x="8" y="8" width="300" height="58" rx="8"/>
-  <text class="h" x="158" y="32" text-anchor="middle">CBCT patch, 160×288×288 voxels</text>
-  <text class="b" x="158" y="52" text-anchor="middle">0.3 mm voxels, 1 channel (CT-normalised)</text>
-  <rect class="io" x="452" y="8" width="300" height="58" rx="8"/>
-  <text class="h" x="602" y="32" text-anchor="middle">47 scores per voxel</text>
-  <text class="b" x="602" y="52" text-anchor="middle">background + 46 classes (pulps merged)</text>
-  <path class="a" d="M158,66 V88"/>
-  <path class="a" d="M602,88 V70"/>
-
-  <text class="k" x="24" y="84">ENCODER (RESIDUAL BLOCKS)</text>
-  <text class="k" x="736" y="84" text-anchor="end">DECODER</text>
-
-  <!-- Encoder stages: channels · size · residual blocks -->
-  <g>
-    <rect class="box" x="24" y="92" width="268" height="30" rx="5"/>
-    <text class="m" x="36" y="112">32 ch · 160×288×288</text><text class="s" x="280" y="112" text-anchor="end">1 block</text>
-    <rect class="box" x="24" y="130" width="268" height="30" rx="5"/>
-    <text class="m" x="36" y="150">64 ch · 80×144×144</text><text class="s" x="280" y="150" text-anchor="end">3 blocks</text>
-    <rect class="box" x="24" y="168" width="268" height="30" rx="5"/>
-    <text class="m" x="36" y="188">128 ch · 40×72×72</text><text class="s" x="280" y="188" text-anchor="end">4 blocks</text>
-    <rect class="box" x="24" y="206" width="268" height="30" rx="5"/>
-    <text class="m" x="36" y="226">256 ch · 20×36×36</text><text class="s" x="280" y="226" text-anchor="end">6 blocks</text>
-    <rect class="box" x="24" y="244" width="268" height="30" rx="5"/>
-    <text class="m" x="36" y="264">320 ch · 10×18×18</text><text class="s" x="280" y="264" text-anchor="end">6 blocks</text>
-    <rect class="box" x="24" y="282" width="268" height="30" rx="5"/>
-    <text class="m" x="36" y="302">320 ch · 5×9×9</text><text class="s" x="280" y="302" text-anchor="end">6 blocks</text>
-    <rect class="box" x="24" y="320" width="268" height="30" rx="5"/>
-    <text class="m" x="36" y="340">320 ch · 5×9×9</text><text class="s" x="280" y="340" text-anchor="end">6 blocks</text>
-  </g>
-  <text class="n" x="24" y="370">stages 2–6 halve every side; stage 7 keeps 5×9×9</text>
-
-  <!-- Decoder stages -->
-  <g>
-    <rect class="box" x="468" y="92" width="268" height="30" rx="5"/>
-    <text class="m" x="480" y="112">32 ch · 160×288×288</text>
-    <rect class="box" x="468" y="130" width="268" height="30" rx="5"/>
-    <text class="m" x="480" y="150">64 ch · 80×144×144</text>
-    <rect class="box" x="468" y="168" width="268" height="30" rx="5"/>
-    <text class="m" x="480" y="188">128 ch · 40×72×72</text>
-    <rect class="box" x="468" y="206" width="268" height="30" rx="5"/>
-    <text class="m" x="480" y="226">256 ch · 20×36×36</text>
-    <rect class="box" x="468" y="244" width="268" height="30" rx="5"/>
-    <text class="m" x="480" y="264">320 ch · 10×18×18</text>
-    <rect class="box" x="468" y="282" width="268" height="30" rx="5"/>
-    <text class="m" x="480" y="302">320 ch · 5×9×9</text>
-  </g>
-  <text class="n" x="684" y="336" text-anchor="end">upsample (transposed conv), concatenate</text>
-  <text class="n" x="684" y="352" text-anchor="end">the skip, then convolutions at each stage</text>
-
-  <!-- Skips -->
-  <path class="sk" d="M292,107 H464"/>
-  <path class="sk" d="M292,145 H464"/>
-  <path class="sk" d="M292,183 H464"/>
-  <path class="sk" d="M292,221 H464"/>
-  <path class="sk" d="M292,259 H464"/>
-  <path class="sk" d="M292,297 H464"/>
-  <text class="n" x="380" y="138" text-anchor="middle">skip connections</text>
-
-  <!-- Bottleneck Mamba2 -->
-  <path class="a" d="M158,350 V396"/>
-  <rect class="mb" x="24" y="398" width="712" height="104" rx="8"/>
-  <text class="k" x="40" y="420" style="fill:#8fbaf0">BOTTLENECK · THE ONLY PLACE MAMBA2 IS USED</text>
-  <text class="b" x="40" y="444">flatten 5×9×9 into a sequence of 405 tokens, each 320 numbers</text>
-  <text class="b" x="40" y="464">→ LayerNorm → Mamba2 (state size 32, 8 heads of 80)</text>
-  <text class="b" x="40" y="484">→ reshape back to 5×9×9 (one pass over the sequence, in raster order)</text>
-  <path class="a" d="M700,398 V316"/>
-
-  <!-- Task 2 branch -->
-  <rect class="dash" x="24" y="512" width="712" height="40" rx="6"/>
-  <text class="s" x="380" y="537" text-anchor="middle">Task 2 only: user clicks → point encoder → two cross-attention blocks with the Mamba2 output</text>
-
-  <!-- Around the network -->
-  <rect class="lane" x="8" y="570" width="744" height="252" rx="10"/>
-  <text class="k" x="24" y="594">AROUND THE NETWORK</text>
-
-  <rect class="box" x="24" y="606" width="352" height="100" rx="6"/>
-  <text class="h" x="38" y="630">Self-supervised pretraining</text>
-  <text class="b" x="38" y="656">disruptive autoencoder: mask, downsample and add</text>
-  <text class="b" x="38" y="676">noise to a scan, then reconstruct it (L1 loss); uses</text>
-  <text class="b" x="38" y="696">371 extra unlabelled CBCTs (STS-3D-Tooth)</text>
-
-  <rect class="box" x="384" y="606" width="352" height="100" rx="6"/>
-  <text class="h" x="398" y="630">Loss: Dice + cross-entropy</text>
-  <text class="b" x="398" y="656">label smoothing: 0.9 on the true class, 0.1 shared</text>
-  <text class="b" x="398" y="676">by related classes; 10× loss weight on</text>
-  <text class="b" x="398" y="696">the incisive and lingual canals</text>
-
-  <rect class="box" x="24" y="714" width="352" height="100" rx="6"/>
-  <text class="h" x="38" y="738">Mirroring with label swap</text>
-  <text class="b" x="38" y="764">when a scan is flipped left–right (augmentation</text>
-  <text class="b" x="38" y="784">or test-time), left/right labels and predictions</text>
-  <text class="b" x="38" y="804">are swapped with their partners</text>
-
-  <rect class="box" x="384" y="714" width="352" height="100" rx="6"/>
-  <text class="h" x="398" y="738">Post-processing</text>
-  <text class="b" x="398" y="764">drop connected components smaller than a per-class</text>
-  <text class="b" x="398" y="784">threshold: the 0.5th percentile of component</text>
-  <text class="b" x="398" y="804">volumes in the ground truth</text>
+  <rect width="100%" height="100%" fill="#000000"/>
+    <polygon points="24,92 42.4,78.2 47.4,78.2 29,92" fill="#d4d4cf" stroke="#e6e6e1" stroke-width="0.8"/>
+  <polygon points="29,92 47.4,78.2 47.4,190.2 29,204" fill="#7d7d78" stroke="#e6e6e1" stroke-width="0.8"/>
+  <rect x="24" y="92" width="5" height="112" fill="#a9a9a4" stroke="#e6e6e1" stroke-width="0.8"/>
+  <text class="c" x="35.7" y="72.2" text-anchor="middle" style="font-size:15px">1</text>
+  <polygon points="57.4,140.0 70.4,148.0 57.4,156.0" fill="#f0883e"/>
+  <polygon points="79.4,92 97.80000000000001,78.2 107.80000000000001,78.2 89.4,92" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="89.4,92 107.80000000000001,78.2 107.80000000000001,190.2 89.4,204" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="79.4" y="92" width="10" height="112" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="93.6" y="72.2" text-anchor="middle" style="font-size:15px">32</text>
+  <polygon points="114.80000000000001,141.0 124.80000000000001,148.0 114.80000000000001,155.0" fill="#f0883e"/>
+  <polygon points="122.80000000000001,141.0 132.8,148.0 122.80000000000001,155.0" fill="#f0883e"/>
+  <text class="g" x="123.8" y="170.0" text-anchor="middle">×1</text>
+  <polygon points="139.8,92 158.20000000000002,78.2 168.20000000000002,78.2 149.8,92" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="149.8,92 168.20000000000002,78.2 168.20000000000002,190.2 149.8,204" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="139.8" y="92" width="10" height="112" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="154.0" y="72.2" text-anchor="middle" style="font-size:15px">32</text>
+  <rect x="140.3" y="210.0" width="9" height="15.0" fill="#e5484d"/>
+  <polygon points="133.8,225.0 155.8,225.0 144.8,236.0" fill="#e5484d"/>
+  <polygon points="138.3,269.85 154.10000000000002,257.95000000000005 167.10000000000002,257.95000000000005 151.3,269.85" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="151.3,269.85 167.10000000000002,257.95000000000005 167.10000000000002,347.95000000000005 151.3,359.85" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="138.3" y="269.85" width="13" height="90" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="152.7" y="252.0" text-anchor="middle" style="font-size:15px">64</text>
+  <polygon points="174.10000000000002,307.85 184.10000000000002,314.85 174.10000000000002,321.85" fill="#f0883e"/>
+  <polygon points="182.10000000000002,307.85 192.10000000000002,314.85 182.10000000000002,321.85" fill="#f0883e"/>
+  <text class="g" x="183.1" y="336.9" text-anchor="middle">×2</text>
+  <polygon points="199.10000000000002,269.85 214.90000000000003,257.95000000000005 227.90000000000003,257.95000000000005 212.10000000000002,269.85" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="212.10000000000002,269.85 227.90000000000003,257.95000000000005 227.90000000000003,347.95000000000005 212.10000000000002,359.85" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="199.10000000000002" y="269.85" width="13" height="90" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="213.5" y="252.0" text-anchor="middle" style="font-size:15px">64</text>
+  <rect x="201.1" y="365.9" width="9" height="15.0" fill="#e5484d"/>
+  <polygon points="194.6,380.9 216.6,380.9 205.6,391.9" fill="#e5484d"/>
+  <polygon points="197.60000000000002,424.05 211.20000000000002,413.85 227.20000000000002,413.85 213.60000000000002,424.05" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="213.60000000000002,424.05 227.20000000000002,413.85 227.20000000000002,485.85 213.60000000000002,496.05" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="197.60000000000002" y="424.05" width="16" height="72" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="212.4" y="407.9" text-anchor="middle" style="font-size:15px">128</text>
+  <polygon points="234.20000000000002,453.05 244.20000000000002,460.05 234.20000000000002,467.05" fill="#f0883e"/>
+  <polygon points="242.20000000000002,453.05 252.20000000000002,460.05 242.20000000000002,467.05" fill="#f0883e"/>
+  <text class="g" x="243.2" y="482.1" text-anchor="middle">×3</text>
+  <polygon points="259.20000000000005,424.05 272.80000000000007,413.85 288.80000000000007,413.85 275.20000000000005,424.05" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="275.20000000000005,424.05 288.80000000000007,413.85 288.80000000000007,485.85 275.20000000000005,496.05" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="259.20000000000005" y="424.05" width="16" height="72" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="274.0" y="407.9" text-anchor="middle" style="font-size:15px">128</text>
+  <rect x="262.7" y="502.1" width="9" height="15.0" fill="#e5484d"/>
+  <polygon points="256.2,517.0 278.2,517.0 267.2,528.0" fill="#e5484d"/>
+  <polygon points="257.20000000000005,559.05 269.20000000000005,550.05 289.20000000000005,550.05 277.20000000000005,559.05" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="277.20000000000005,559.05 289.20000000000005,550.05 289.20000000000005,608.05 277.20000000000005,617.05" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="257.20000000000005" y="559.05" width="20" height="58" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="273.2" y="544.0" text-anchor="middle" style="font-size:15px">256</text>
+  <polygon points="296.20000000000005,581.05 306.20000000000005,588.05 296.20000000000005,595.05" fill="#f0883e"/>
+  <polygon points="304.20000000000005,581.05 314.20000000000005,588.05 304.20000000000005,595.05" fill="#f0883e"/>
+  <text class="g" x="305.2" y="610.0" text-anchor="middle">×5</text>
+  <polygon points="321.20000000000005,559.05 333.20000000000005,550.05 353.20000000000005,550.05 341.20000000000005,559.05" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="341.20000000000005,559.05 353.20000000000005,550.05 353.20000000000005,608.05 341.20000000000005,617.05" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="321.20000000000005" y="559.05" width="20" height="58" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="337.2" y="544.0" text-anchor="middle" style="font-size:15px">256</text>
+  <rect x="326.7" y="623.0" width="9" height="15.0" fill="#e5484d"/>
+  <polygon points="320.2,638.0 342.2,638.0 331.2,649.0" fill="#e5484d"/>
+  <polygon points="320.20000000000005,678.925 330.70000000000005,671.025 352.70000000000005,671.025 342.20000000000005,678.925" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="342.20000000000005,678.925 352.70000000000005,671.025 352.70000000000005,717.025 342.20000000000005,724.925" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="320.20000000000005" y="678.925" width="22" height="46" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="336.5" y="665.0" text-anchor="middle" style="font-size:15px">320</text>
+  <polygon points="359.70000000000005,694.925 369.70000000000005,701.925 359.70000000000005,708.925" fill="#f0883e"/>
+  <polygon points="367.70000000000005,694.925 377.70000000000005,701.925 367.70000000000005,708.925" fill="#f0883e"/>
+  <text class="g" x="368.7" y="723.9" text-anchor="middle">×5</text>
+  <polygon points="384.70000000000005,678.925 395.20000000000005,671.025 417.20000000000005,671.025 406.70000000000005,678.925" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="406.70000000000005,678.925 417.20000000000005,671.025 417.20000000000005,717.025 406.70000000000005,724.925" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="384.70000000000005" y="678.925" width="22" height="46" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="401.0" y="665.0" text-anchor="middle" style="font-size:15px">320</text>
+  <rect x="391.2" y="730.9" width="9" height="15.0" fill="#e5484d"/>
+  <polygon points="384.7,745.9 406.7,745.9 395.7,756.9" fill="#e5484d"/>
+  <polygon points="384.70000000000005,786.125 394.30000000000007,778.925 416.30000000000007,778.925 406.70000000000005,786.125" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="406.70000000000005,786.125 416.30000000000007,778.925 416.30000000000007,816.925 406.70000000000005,824.125" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="384.70000000000005" y="786.125" width="22" height="38" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="400.5" y="772.9" text-anchor="middle" style="font-size:15px">320</text>
+  <polygon points="423.30000000000007,798.125 433.30000000000007,805.125 423.30000000000007,812.125" fill="#f0883e"/>
+  <polygon points="431.30000000000007,798.125 441.30000000000007,805.125 431.30000000000007,812.125" fill="#f0883e"/>
+  <text class="g" x="432.3" y="827.1" text-anchor="middle">×5</text>
+  <polygon points="448.30000000000007,786.125 457.9000000000001,778.925 479.9000000000001,778.925 470.30000000000007,786.125" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="470.30000000000007,786.125 479.9000000000001,778.925 479.9000000000001,816.925 470.30000000000007,824.125" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="448.30000000000007" y="786.125" width="22" height="38" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="464.1" y="772.9" text-anchor="middle" style="font-size:15px">320</text>
+  <rect x="454.8" y="830.1" width="9" height="15.0" fill="#8a8780"/>
+  <polygon points="448.3,845.1 470.3,845.1 459.3,856.1" fill="#8a8780"/>
+  <text class="g" x="443.3" y="843.7" text-anchor="end">stride 1</text>
+  <polygon points="448.30000000000007,885.325 457.9000000000001,878.125 479.9000000000001,878.125 470.30000000000007,885.325" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="470.30000000000007,885.325 479.9000000000001,878.125 479.9000000000001,916.125 470.30000000000007,923.325" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="448.30000000000007" y="885.325" width="22" height="38" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="464.1" y="872.1" text-anchor="middle" style="font-size:15px">320</text>
+  <polygon points="486.9000000000001,897.325 496.9000000000001,904.325 486.9000000000001,911.325" fill="#f0883e"/>
+  <polygon points="494.9000000000001,897.325 504.9000000000001,904.325 494.9000000000001,911.325" fill="#f0883e"/>
+  <text class="g" x="495.9" y="926.3" text-anchor="middle">×5</text>
+  <polygon points="511.9000000000001,885.325 521.5000000000001,878.125 543.5000000000001,878.125 533.9000000000001,885.325" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="533.9000000000001,885.325 543.5000000000001,878.125 543.5000000000001,916.125 533.9000000000001,923.325" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="511.9000000000001" y="885.325" width="22" height="38" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="527.7" y="872.1" text-anchor="middle" style="font-size:15px">320</text>
+  <path d="M545.5000000000001,904.325 H557.5000000000001" stroke="#d55181" stroke-width="2" marker-end="url(#pk)"/>
+  <rect x="559.5000000000001" y="881.325" width="86" height="46" rx="7" fill="#2a1520" stroke="#d55181" stroke-width="1.6"/>
+  <text class="mb" x="602.5000000000001" y="909.325" text-anchor="middle">Mamba2</text>
+  <path d="M647.5000000000001,904.325 H661.5000000000001" stroke="#d55181" stroke-width="2" marker-end="url(#pk)"/>
+  <polygon points="665.5000000000001,885.325 675.1000000000001,878.125 697.1000000000001,878.125 687.5000000000001,885.325" fill="#e885a9" stroke="#f3b3ca" stroke-width="0.8"/>
+  <polygon points="687.5000000000001,885.325 697.1000000000001,878.125 697.1000000000001,916.125 687.5000000000001,923.325" fill="#9e3a60" stroke="#f3b3ca" stroke-width="0.8"/>
+  <rect x="665.5000000000001" y="885.325" width="22" height="38" fill="#d55181" stroke="#f3b3ca" stroke-width="0.8"/>
+  <text class="c" x="681.3" y="872.1" text-anchor="middle" style="font-size:15px">320</text>
+  <rect x="672.0" y="841.1" width="9" height="17.0" fill="#8a8780"/>
+  <polygon points="665.5,841.1 687.5,841.1 676.5,830.1" fill="#8a8780"/>
+  <text class="g" x="692.5" y="848.1" text-anchor="start">stride 1</text>
+  <polygon points="643.5000000000001,786.125 653.1000000000001,778.925 675.1000000000001,778.925 665.5000000000001,786.125" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="665.5000000000001,786.125 675.1000000000001,778.925 675.1000000000001,816.925 665.5000000000001,824.125" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="643.5000000000001" y="786.125" width="22" height="38" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="665.5000000000001,786.125 675.1000000000001,778.925 697.1000000000001,778.925 687.5000000000001,786.125" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="687.5000000000001,786.125 697.1000000000001,778.925 697.1000000000001,816.925 687.5000000000001,824.125" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="665.5000000000001" y="786.125" width="22" height="38" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="670.3" y="772.9" text-anchor="middle">320+320</text>
+  <path d="M485.9,805.1 H635.5" stroke="#46a758" stroke-width="3" marker-end="url(#gr)"/>
+  <text class="r" x="561.7" y="796.1" text-anchor="middle">5 × 9 × 9</text>
+  <polygon points="707.1000000000001,797.125 720.1000000000001,805.125 707.1000000000001,813.125" fill="#f0883e"/>
+  <polygon points="729.1000000000001,786.125 738.7000000000002,778.925 760.7000000000002,778.925 751.1000000000001,786.125" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="751.1000000000001,786.125 760.7000000000002,778.925 760.7000000000002,816.925 751.1000000000001,824.125" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="729.1000000000001" y="786.125" width="22" height="38" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="744.9" y="772.9" text-anchor="middle" style="font-size:15px">320</text>
+  <rect x="735.6" y="741.9" width="9" height="17.0" fill="#f5c542"/>
+  <polygon points="729.1,741.9 751.1,741.9 740.1,730.9" fill="#f5c542"/>
+  <polygon points="707.1000000000001,678.925 717.6000000000001,671.025 739.6000000000001,671.025 729.1000000000001,678.925" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="729.1000000000001,678.925 739.6000000000001,671.025 739.6000000000001,717.025 729.1000000000001,724.925" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="707.1000000000001" y="678.925" width="22" height="46" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="729.1000000000001,678.925 739.6000000000001,671.025 761.6000000000001,671.025 751.1000000000001,678.925" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="751.1000000000001,678.925 761.6000000000001,671.025 761.6000000000001,717.025 751.1000000000001,724.925" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="729.1000000000001" y="678.925" width="22" height="46" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="734.4" y="665.0" text-anchor="middle">320+320</text>
+  <path d="M423.2,701.9 H699.1" stroke="#46a758" stroke-width="3" marker-end="url(#gr)"/>
+  <text class="r" x="562.2" y="692.9" text-anchor="middle">10 × 18 × 18</text>
+  <polygon points="771.6000000000001,693.925 784.6000000000001,701.925 771.6000000000001,709.925" fill="#f0883e"/>
+  <polygon points="793.6000000000001,678.925 804.1000000000001,671.025 826.1000000000001,671.025 815.6000000000001,678.925" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="815.6000000000001,678.925 826.1000000000001,671.025 826.1000000000001,717.025 815.6000000000001,724.925" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="793.6000000000001" y="678.925" width="22" height="46" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="809.9" y="665.0" text-anchor="middle" style="font-size:15px">320</text>
+  <rect x="800.1" y="634.0" width="9" height="17.0" fill="#f5c542"/>
+  <polygon points="793.6,634.0 815.6,634.0 804.6,623.0" fill="#f5c542"/>
+  <polygon points="774.6000000000001,559.05 786.6000000000001,550.05 806.6000000000001,550.05 794.6000000000001,559.05" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="794.6000000000001,559.05 806.6000000000001,550.05 806.6000000000001,608.05 794.6000000000001,617.05" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="774.6000000000001" y="559.05" width="20" height="58" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="794.6000000000001,559.05 806.6000000000001,550.05 826.6000000000001,550.05 814.6000000000001,559.05" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="814.6000000000001,559.05 826.6000000000001,550.05 826.6000000000001,608.05 814.6000000000001,617.05" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="794.6000000000001" y="559.05" width="20" height="58" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="800.6" y="544.0" text-anchor="middle">256+256</text>
+  <path d="M359.2,588.0 H766.6" stroke="#46a758" stroke-width="3" marker-end="url(#gr)"/>
+  <text class="r" x="563.9" y="579.0" text-anchor="middle">20 × 36 × 36</text>
+  <polygon points="836.6000000000001,580.05 849.6000000000001,588.05 836.6000000000001,596.05" fill="#f0883e"/>
+  <polygon points="858.6000000000001,559.05 870.6000000000001,550.05 890.6000000000001,550.05 878.6000000000001,559.05" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="878.6000000000001,559.05 890.6000000000001,550.05 890.6000000000001,608.05 878.6000000000001,617.05" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="858.6000000000001" y="559.05" width="20" height="58" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="874.6" y="544.0" text-anchor="middle" style="font-size:15px">256</text>
+  <rect x="864.1" y="513.0" width="9" height="17.0" fill="#f5c542"/>
+  <polygon points="857.6,513.0 879.6,513.0 868.6,502.1" fill="#f5c542"/>
+  <polygon points="844.6000000000001,424.05 858.2000000000002,413.85 874.2000000000002,413.85 860.6000000000001,424.05" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="860.6000000000001,424.05 874.2000000000002,413.85 874.2000000000002,485.85 860.6000000000001,496.05" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="844.6000000000001" y="424.05" width="16" height="72" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="860.6000000000001,424.05 874.2000000000002,413.85 890.2000000000002,413.85 876.6000000000001,424.05" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="876.6000000000001,424.05 890.2000000000002,413.85 890.2000000000002,485.85 876.6000000000001,496.05" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="860.6000000000001" y="424.05" width="16" height="72" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="867.4" y="407.9" text-anchor="middle">128+128</text>
+  <path d="M294.8,460.1 H836.6" stroke="#46a758" stroke-width="3" marker-end="url(#gr)"/>
+  <text class="r" x="566.7" y="451.1" text-anchor="middle">40 × 72 × 72</text>
+  <polygon points="900.2000000000002,452.05 913.2000000000002,460.05 900.2000000000002,468.05" fill="#f0883e"/>
+  <polygon points="922.2000000000002,424.05 935.8000000000002,413.85 951.8000000000002,413.85 938.2000000000002,424.05" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="938.2000000000002,424.05 951.8000000000002,413.85 951.8000000000002,485.85 938.2000000000002,496.05" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="922.2000000000002" y="424.05" width="16" height="72" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="937.0" y="407.9" text-anchor="middle" style="font-size:15px">128</text>
+  <rect x="925.7" y="376.9" width="9" height="17.0" fill="#f5c542"/>
+  <polygon points="919.2,376.9 941.2,376.9 930.2,365.9" fill="#f5c542"/>
+  <polygon points="910.7000000000002,269.85 926.5000000000001,257.95000000000005 939.5000000000001,257.95000000000005 923.7000000000002,269.85" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="923.7000000000002,269.85 939.5000000000001,257.95000000000005 939.5000000000001,347.95000000000005 923.7000000000002,359.85" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="910.7000000000002" y="269.85" width="13" height="90" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="923.7000000000002,269.85 939.5000000000001,257.95000000000005 952.5000000000001,257.95000000000005 936.7000000000002,269.85" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="936.7000000000002,269.85 952.5000000000001,257.95000000000005 952.5000000000001,347.95000000000005 936.7000000000002,359.85" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="923.7000000000002" y="269.85" width="13" height="90" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="931.6" y="252.0" text-anchor="middle">64+64</text>
+  <path d="M233.9,314.9 H902.7" stroke="#46a758" stroke-width="3" marker-end="url(#gr)"/>
+  <text class="r" x="569.3" y="305.9" text-anchor="middle">80 × 144 × 144</text>
+  <polygon points="962.5000000000001,306.85 975.5000000000001,314.85 962.5000000000001,322.85" fill="#f0883e"/>
+  <polygon points="984.5000000000001,269.85 1000.3000000000001,257.95000000000005 1013.3000000000001,257.95000000000005 997.5000000000001,269.85" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="997.5000000000001,269.85 1013.3000000000001,257.95000000000005 1013.3000000000001,347.95000000000005 997.5000000000001,359.85" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="984.5000000000001" y="269.85" width="13" height="90" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="998.9" y="252.0" text-anchor="middle" style="font-size:15px">64</text>
+  <rect x="986.5" y="221.0" width="9" height="17.0" fill="#f5c542"/>
+  <polygon points="980.0,221.0 1002.0,221.0 991.0,210.0" fill="#f5c542"/>
+  <polygon points="976.0000000000001,92 994.4000000000001,78.2 1004.4000000000001,78.2 986.0000000000001,92" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="986.0000000000001,92 1004.4000000000001,78.2 1004.4000000000001,190.2 986.0000000000001,204" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="976.0000000000001" y="92" width="10" height="112" fill="#0b1624" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="986.0000000000001,92 1004.4000000000001,78.2 1014.4000000000001,78.2 996.0000000000001,92" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="996.0000000000001,92 1014.4000000000001,78.2 1014.4000000000001,190.2 996.0000000000001,204" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="986.0000000000001" y="92" width="10" height="112" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="995.2" y="72.2" text-anchor="middle">32+32</text>
+  <path d="M174.2,148.0 H968.0" stroke="#46a758" stroke-width="3" marker-end="url(#gr)"/>
+  <text class="r" x="572.1" y="139.0" text-anchor="middle">160 × 288 × 288</text>
+  <polygon points="1024.4,140.0 1037.4,148.0 1024.4,156.0" fill="#f0883e"/>
+  <polygon points="1046.4,92 1064.8000000000002,78.2 1074.8000000000002,78.2 1056.4,92" fill="#72a8ea" stroke="#9cc3f5" stroke-width="0.8"/>
+  <polygon points="1056.4,92 1074.8000000000002,78.2 1074.8000000000002,190.2 1056.4,204" fill="#2a5a99" stroke="#9cc3f5" stroke-width="0.8"/>
+  <rect x="1046.4" y="92" width="10" height="112" fill="#3d7fd1" stroke="#9cc3f5" stroke-width="0.8"/>
+  <text class="c" x="1060.6" y="72.2" text-anchor="middle" style="font-size:15px">32</text>
+  <polygon points="1084.8000000000002,140.0 1097.8000000000002,148.0 1084.8000000000002,156.0" fill="#9085e9"/>
+  <polygon points="1106.8000000000002,92 1125.2000000000003,78.2 1137.2000000000003,78.2 1118.8000000000002,92" fill="#b3abf0" stroke="#cfc9f7" stroke-width="0.8"/>
+  <polygon points="1118.8000000000002,92 1137.2000000000003,78.2 1137.2000000000003,190.2 1118.8000000000002,204" fill="#6258b0" stroke="#cfc9f7" stroke-width="0.8"/>
+  <rect x="1106.8000000000002" y="92" width="12" height="112" fill="#8a7fe0" stroke="#cfc9f7" stroke-width="0.8"/>
+  <text class="c" x="1122.0" y="72.2" text-anchor="middle" style="font-size:15px">47</text>
+  <text class="r2" x="599.7" y="953.3" text-anchor="middle">5 × 9 × 9 · flatten to 405 tokens → LayerNorm → Mamba2 → reshape</text>
+  <text class="k" x="24" y="26">ENCODER</text>
+  <text class="k" x="1149.2000000000003" y="26" text-anchor="end">DECODER</text>
+  <text class="g" x="24.0" y="48.0" text-anchor="start">numbers above the blocks = channels · sizes on the green arrows = feature-map size in voxels</text>
+  <text class="g" x="1046.4" y="226.0" text-anchor="start">47 class scores</text>
+  <text class="g" x="1046.4" y="243.0" text-anchor="start">per voxel</text>
+  <text class="g" x="24.0" y="226.0" text-anchor="start">CBCT patch</text>
+  <rect x="16" y="965.325" width="1137.2000000000003" height="138" rx="8" fill="none" stroke="#3a3935"/>
+  <polygon points="32.0,977.325 45.0,985.325 32.0,993.325" fill="#f0883e"/>
+  <text class="l" x="60.0" y="989.8" text-anchor="start">3×3×3 conv + InstanceNorm + LeakyReLU</text>
+  <polygon points="592.6000000000001,978.325 602.6000000000001,985.325 592.6000000000001,992.325" fill="#f0883e"/>
+  <polygon points="600.6000000000001,978.325 610.6000000000001,985.325 600.6000000000001,992.325" fill="#f0883e"/>
+  <text class="l" x="624.6" y="989.8" text-anchor="start">residual blocks (×n), each two 3×3×3 convs + shortcut</text>
+  <rect x="34.5" y="1005.325" width="7" height="10" fill="#e5484d"/>
+  <polygon points="30.0,1015.325 46.0,1015.325 38.0,1024.325" fill="#e5484d"/>
+  <text class="l" x="60.0" y="1019.8" text-anchor="start">residual block with stride 2: halves each side</text>
+  <rect x="599.1000000000001" y="1015.325" width="7" height="10" fill="#f5c542"/>
+  <polygon points="594.6000000000001,1015.325 610.6000000000001,1015.325 602.6000000000001,1006.325" fill="#f5c542"/>
+  <text class="l" x="624.6" y="1019.8" text-anchor="start">transposed conv, stride 2: doubles each side</text>
+  <path d="M26.0,1045.325 H42.0" stroke="#46a758" stroke-width="3" marker-end="url(#gr)"/>
+  <text class="l" x="60.0" y="1049.8" text-anchor="start">copy encoder features and concatenate</text>
+  <polygon points="596.6000000000001,1037.325 609.6000000000001,1045.325 596.6000000000001,1053.325" fill="#9085e9"/>
+  <text class="l" x="624.6" y="1049.8" text-anchor="start">1×1×1 conv: 47 class scores per voxel</text>
+  <rect x="27.0" y="1067.325" width="22" height="16" rx="4" fill="#2a1520" stroke="#d55181" stroke-width="1.6"/>
+  <text class="l" x="60.0" y="1079.8" text-anchor="start">Mamba2 layer over the whole bottleneck</text>
+  <rect x="599.1000000000001" y="1065.325" width="7" height="10" fill="#8a8780"/>
+  <polygon points="594.6000000000001,1075.325 610.6000000000001,1075.325 602.6000000000001,1084.325" fill="#8a8780"/>
+  <text class="l" x="624.6" y="1079.8" text-anchor="start">same block with stride 1: size kept</text>
 </svg>

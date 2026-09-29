@@ -11,8 +11,7 @@ const TYPE_NAMES = ['Central incisor', 'Lateral incisor', 'Canine', 'First premo
                     'Second premolar', 'First molar', 'Second molar', 'Third molar'];
 const QUADRANTS = { 1: 'upper right', 2: 'upper left', 3: 'lower left', 4: 'lower right' };
 const BONE = '#e6dfcc', AIR = '#5aa9e6', RESTO = '#aeb6bf', CANAL = '#ffd23f', PULP = '#ff5d73';
-const GHOST = '#d9d4c7', MIDLINE = '#8a8780';
-const SIDE_RIGHT = '#3987e5', SIDE_LEFT = '#d95926';
+const GHOST = '#d9d4c7';
 const SURFACE = 0x151514;
 
 const NAMES = {
@@ -23,19 +22,6 @@ const NAMES = {
   103: 'Left mandibular incisive canal', 104: 'Right mandibular incisive canal', 105: 'Lingual canal',
 };
 
-// Left/right partner of each label, as swapped by U-Mamba2's mirroring augmentation
-// (IA canals, sinuses, incisive canals, teeth; pulps follow their tooth).
-function partner(l) {
-  const pairs = { 3: 4, 4: 3, 5: 6, 6: 5, 103: 104, 104: 103 };
-  if (pairs[l]) return pairs[l];
-  const fdi = l > 100 ? l - 100 : l;
-  if (fdi >= 11 && fdi <= 48) {
-    const q = Math.floor(fdi / 10), swap = { 1: 2, 2: 1, 3: 4, 4: 3 }[q];
-    return (l > 100 ? 100 : 0) + swap * 10 + (fdi % 10);
-  }
-  return l;
-}
-
 function kind(l) {
   if (l === 1 || l === 2) return 'jaw';
   if (l >= 5 && l <= 7) return 'air';
@@ -43,15 +29,6 @@ function kind(l) {
   if (l === 3 || l === 4 || (l >= 103 && l <= 105)) return 'canal';
   if (l > 110) return 'pulp';
   return 'tooth';
-}
-
-// Which side of the patient a label belongs to: 'R', 'L' or null (midline).
-function side(l) {
-  if ([4, 6, 104].includes(l)) return 'R';
-  if ([3, 5, 103].includes(l)) return 'L';
-  const fdi = l > 100 ? l - 100 : l;
-  if (fdi >= 11 && fdi <= 48) return [1, 4].includes(Math.floor(fdi / 10)) ? 'R' : 'L';
-  return null;
 }
 
 function labelName(l) {
@@ -138,7 +115,6 @@ function init(root) {
       <div class="cv-tip" role="status"></div>
       <span class="cv-hint">Drag to rotate · scroll or pinch to zoom</span>
       <div class="cv-corner">
-        <button type="button" class="cv-btn cv-swap" aria-pressed="false" hidden>Swap left/right labels</button>
         <button type="button" class="cv-btn cv-rotate" aria-pressed="false">Pause rotation</button>
       </div>
     </div>
@@ -146,7 +122,7 @@ function init(root) {
     <div class="cv-legend"></div>`;
   const $ = s => root.querySelector(s);
   const toolbar = $('.cv-toolbar'), stage = $('.cv-stage'), status = $('.cv-status'), tip = $('.cv-tip');
-  const caption = $('.cv-caption'), legend = $('.cv-legend'), rotateBtn = $('.cv-rotate'), swapBtn = $('.cv-swap');
+  const caption = $('.cv-caption'), legend = $('.cv-legend'), rotateBtn = $('.cv-rotate');
 
   let renderer;
   try {
@@ -236,22 +212,9 @@ function init(root) {
         legend: dot(PULP, 'Pulp') + dot(CANAL, 'Nerve canals') + dot(GHOST, 'Teeth (see-through)'),
         style: l => ({ jaw: [GHOST, 0.05], air: [AIR, 0], resto: [RESTO, 0.12], canal: [CANAL, 1], pulp: [PULP, 1], tooth: [GHOST, 0.16] })[kind(l)],
       },
-      flip: {
-        label: 'Left–right flip',
-        caption: '',
-        legend: dot(SIDE_RIGHT, "Labelled patient's right") + dot(SIDE_LEFT, "Labelled patient's left") + dot(MIDLINE, 'Midline'),
-        style: (l, swapped) => {
-          const s = side(swapped ? partner(l) : l);
-          const c = s === 'R' ? SIDE_RIGHT : s === 'L' ? SIDE_LEFT : MIDLINE;
-          return ({ jaw: [GHOST, 0.06], air: [c, 0.25], resto: [MIDLINE, 0.6], canal: [c, 1], pulp: [c, 0], tooth: [c, 1] })[kind(l)];
-        },
-      },
     };
-    const flipCaption = swapped => swapped
-      ? 'Flipped and relabelled. After the flip, every left/right label is swapped for its partner (tooth 11 ↔ 21, left canal ↔ right canal, and so on), so the colours land on the correct side again. U-Mamba2 does this whenever its augmentation or test-time augmentation mirrors a scan.'
-      : 'The scan mirrored left to right, with its labels left unchanged. The blue structures are still labelled as the patient\'s right, but they now sit on the patient\'s left: trained on flips like this, a model would learn that left and right are interchangeable. Press "Swap left/right labels" to fix it.';
 
-    let current = 'all', swapped = false, flipGoal = 1, flipNow = 1;
+    let current = 'all';
     const buttons = Object.entries(modes).map(([id, m]) => {
       const b = document.createElement('button');
       b.type = 'button';
@@ -262,28 +225,19 @@ function init(root) {
       toolbar.appendChild(b);
       return [id, b];
     });
-    swapBtn.addEventListener('click', () => { swapped = !swapped; apply(); });
 
     function apply() {
       const m = modes[current];
       meshes.forEach(mesh => {
-        const [c, o] = m.style(mesh.userData.label, swapped);
+        const [c, o] = m.style(mesh.userData.label);
         mesh.userData.targetColor.set(c);
         mesh.userData.target = o;
       });
-      caption.textContent = current === 'flip' ? flipCaption(swapped) : m.caption;
+      caption.textContent = m.caption;
       legend.innerHTML = m.legend;
-      swapBtn.hidden = current !== 'flip';
-      swapBtn.setAttribute('aria-pressed', String(swapped));
     }
-    let flipTimer = null;
     function setMode(id) {
       current = id;
-      swapped = false;
-      // In flip mode, show the sides first, then mirror the scan.
-      clearTimeout(flipTimer);
-      flipGoal = 1;
-      if (id === 'flip') flipTimer = setTimeout(() => { if (current === 'flip') flipGoal = -1; }, 1400);
       buttons.forEach(([bid, b]) => b.setAttribute('aria-pressed', String(bid === id)));
       apply();
       tip.style.display = 'none';
@@ -308,10 +262,6 @@ function init(root) {
         mesh.visible = u.opacity > 0.01;
         mesh.renderOrder = mat.transparent ? 1 : 0;
       });
-      // Mirror about the midline by scaling x through zero (a squash-and-unfold animation).
-      flipNow += (flipGoal - flipNow) * 0.08;
-      if (Math.abs(flipGoal - flipNow) < 1e-3) flipNow = flipGoal;
-      group.scale.x = Math.abs(flipNow) < 0.02 ? Math.sign(flipNow || 1) * 0.02 : flipNow;
     };
 
     // Hover: first opaque-enough structure under the cursor.
@@ -332,7 +282,7 @@ function init(root) {
       const hit = raycaster.intersectObjects(pickable, false)[0];
       if (!hit) { tip.style.display = 'none'; return; }
       const l = hit.object.userData.label;
-      tip.textContent = labelName(current === 'flip' && swapped ? partner(l) : l);
+      tip.textContent = labelName(l);
       tip.style.left = `${e.clientX - rect.left}px`;
       tip.style.top = `${e.clientY - rect.top}px`;
       tip.style.display = 'block';

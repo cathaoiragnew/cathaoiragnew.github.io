@@ -39,7 +39,7 @@ Set against a standard image segmentation model, the structure is the same:
 
 | Step | Image model | ToothGroupNet |
 |---|---|---|
-| **Input** | Pixels, 3 numbers each (RGB) | 24,000 points sampled from the mesh, 6 numbers each (xyz + surface normal) |
+| **Input** | An RGB image, 3 × H × W (3 channels: red, green, blue) | A point cloud, 24,000 × 6: 24,000 points sampled from the mesh, 6 numbers each (xyz + surface normal) |
 | **Feature vectors** | CNN or ViT backbone → feature map | Point Transformer backbone → a feature vector per point |
 | **Operations** | Heads for class, box and mask | Heads for tooth class and offset to the tooth centre, then clustering, cropping and resampling |
 | **Output** | A mask and label per object | A tooth number (FDI) and tooth instance for every vertex |

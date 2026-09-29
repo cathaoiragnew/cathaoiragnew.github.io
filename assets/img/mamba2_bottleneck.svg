@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 775" width="1000" height="775" role="img" aria-labelledby="t d">
+  <title id="t">What the Mamba2 bottleneck layer does</title>
+  <desc id="d">Three panels. One: the 5 by 9 by 9 bottleneck grid with 320 channels is flattened into a sequence of 405 tokens. Two: the Mamba2 scan. Reading the tokens in order, a fixed-size state is carried from token to token. At each token the old state is scaled by a factor a between 0 and 1 (forget), the token is written in through B, and an output is read from the state through C. The factors are computed from each token, so the layer chooses what to remember. The cost grows linearly with the number of tokens. Three: the layer's steps in U-Mamba2: LayerNorm, a linear layer from 320 to 640 channels plus a gate, B, C and step size, a short convolution over 4 tokens, the scan with 8 heads of 80 channels and state size 32, gating and RMSNorm, and a linear layer back to 320 channels, reshaped to 5 by 9 by 9.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c3c2b7"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3987e5"/></marker>
+    <marker id="ap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d55181"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e0a3ff"/></marker>
+    <style>
+      text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; fill: #ffffff; }
+      .k { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; fill: #c3c2b7; }
+      .h { font-size: 19px; font-weight: 600; }
+      .b { font-size: 16px; }
+      .bb { font-size: 15.5px; font-weight: 600; }
+      .s { font-size: 15px; fill: #c3c2b7; }
+      .n { font-size: 14.5px; fill: #c3c2b7; font-style: italic; }
+      .eq { font-size: 19px; font-family: "Cambria Math", "STIX Two Math", Georgia, serif; }
+      .xs { font-size: 13px; fill: #c3c2b7; }
+      .xs2 { font-size: 13px; fill: #8a8780; font-style: italic; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#000000"/>
+  <text class="k" x="20" y="30" text-anchor="start">1 · FLATTEN THE BOTTLENECK INTO A SEQUENCE</text>
+  <polygon points="40,70 74,46.2 170,46.2 136,70" fill="#e885a9" stroke="#f3b3ca" stroke-width="0.8"/>
+  <polygon points="136,70 170,46.2 170,142.2 136,166" fill="#9e3a60" stroke="#f3b3ca" stroke-width="0.8"/>
+  <rect x="40" y="70" width="96" height="96" fill="#d55181" stroke="#f3b3ca" stroke-width="0.8"/>
+  <path d="M50.7,70 V166" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M40,80.7 H136" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M61.3,70 V166" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M40,91.3 H136" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M72.0,70 V166" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M40,102.0 H136" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M82.7,70 V166" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M40,112.7 H136" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M93.3,70 V166" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M40,123.3 H136" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M104.0,70 V166" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M40,134.0 H136" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M114.7,70 V166" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M40,144.7 H136" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M125.3,70 V166" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M40,155.3 H136" stroke="#ffffff" stroke-opacity="0.35"/>
+  <path d="M142.8,65.2 V161.2" stroke="#ffffff" stroke-opacity="0.3"/>
+  <path d="M46.8,65.2 H142.8" stroke="#ffffff" stroke-opacity="0.3"/>
+  <path d="M149.6,60.5 V156.5" stroke="#ffffff" stroke-opacity="0.3"/>
+  <path d="M53.6,60.5 H149.6" stroke="#ffffff" stroke-opacity="0.3"/>
+  <path d="M156.4,55.7 V151.7" stroke="#ffffff" stroke-opacity="0.3"/>
+  <path d="M60.4,55.7 H156.4" stroke="#ffffff" stroke-opacity="0.3"/>
+  <path d="M163.2,51.0 V147.0" stroke="#ffffff" stroke-opacity="0.3"/>
+  <path d="M67.2,51.0 H163.2" stroke="#ffffff" stroke-opacity="0.3"/>
+  <text class="b" x="105.0" y="190" text-anchor="middle">5 × 9 × 9 grid</text>
+  <text class="s" x="105.0" y="209" text-anchor="middle">320 channels</text>
+  <path d="M186,110.0 L246,110.0" stroke="#c3c2b7" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <text class="s" x="216" y="100.0" text-anchor="middle">flatten</text>
+  <rect x="290" y="82" width="24" height="58" rx="3" fill="#d55181" stroke="#f3b3ca" stroke-width="0.8"/>
+  <path d="M294,91.7 H310" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M294,101.3 H310" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M294,111.0 H310" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M294,120.7 H310" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M294,130.3 H310" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <text class="b" x="302" y="162" text-anchor="middle">x<tspan dy="4" font-size="0.72em">1</tspan><tspan dy="-4"></tspan></text>
+  <rect x="328" y="82" width="24" height="58" rx="3" fill="#d55181" stroke="#f3b3ca" stroke-width="0.8"/>
+  <path d="M332,91.7 H348" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M332,101.3 H348" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M332,111.0 H348" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M332,120.7 H348" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M332,130.3 H348" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <text class="b" x="340" y="162" text-anchor="middle">x<tspan dy="4" font-size="0.72em">2</tspan><tspan dy="-4"></tspan></text>
+  <rect x="366" y="82" width="24" height="58" rx="3" fill="#d55181" stroke="#f3b3ca" stroke-width="0.8"/>
+  <path d="M370,91.7 H386" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M370,101.3 H386" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M370,111.0 H386" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M370,120.7 H386" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M370,130.3 H386" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <text class="b" x="378" y="162" text-anchor="middle">x<tspan dy="4" font-size="0.72em">3</tspan><tspan dy="-4"></tspan></text>
+  <rect x="404" y="82" width="24" height="58" rx="3" fill="#d55181" stroke="#f3b3ca" stroke-width="0.8"/>
+  <path d="M408,91.7 H424" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M408,101.3 H424" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M408,111.0 H424" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M408,120.7 H424" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M408,130.3 H424" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <text class="b" x="416" y="162" text-anchor="middle">x<tspan dy="4" font-size="0.72em">4</tspan><tspan dy="-4"></tspan></text>
+  <rect x="442" y="82" width="24" height="58" rx="3" fill="#d55181" stroke="#f3b3ca" stroke-width="0.8"/>
+  <path d="M446,91.7 H462" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M446,101.3 H462" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M446,111.0 H462" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M446,120.7 H462" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M446,130.3 H462" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <text class="b" x="454" y="162" text-anchor="middle">x<tspan dy="4" font-size="0.72em">5</tspan><tspan dy="-4"></tspan></text>
+  <rect x="480" y="82" width="24" height="58" rx="3" fill="#d55181" stroke="#f3b3ca" stroke-width="0.8"/>
+  <path d="M484,91.7 H500" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M484,101.3 H500" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M484,111.0 H500" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M484,120.7 H500" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M484,130.3 H500" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <text class="b" x="492" y="162" text-anchor="middle">x<tspan dy="4" font-size="0.72em">6</tspan><tspan dy="-4"></tspan></text>
+  <text class="h" x="536" y="116" text-anchor="middle">…</text>
+  <rect x="558" y="82" width="24" height="58" rx="3" fill="#d55181" stroke="#f3b3ca" stroke-width="0.8"/>
+  <path d="M562,91.7 H578" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M562,101.3 H578" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M562,111.0 H578" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M562,120.7 H578" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M562,130.3 H578" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+  <text class="b" x="570" y="162" text-anchor="middle">x<tspan dy="4" font-size="0.72em">405</tspan><tspan dy="-4"></tspan></text>
+  <text class="b" x="614" y="102" text-anchor="start">405 tokens, each a vector of 320 numbers</text>
+  <text class="s" x="614" y="124" text-anchor="start">(normalised with LayerNorm first)</text>
+  <text class="s" x="614" y="152" text-anchor="start">The Mamba2 layer reads them in order,</text>
+  <text class="s" x="614" y="172" text-anchor="start">one at a time.</text>
+  <text class="k" x="20" y="235" text-anchor="start">2 · THE SCAN: ONE PASS OVER THE TOKENS, CARRYING A SMALL STATE</text>
+  <rect x="20" y="373" width="66" height="50" rx="7" fill="#1a1a19" stroke="#8a8780" stroke-width="1.4"/>
+  <text class="s" x="53" y="404" text-anchor="middle">h<tspan dy="4" font-size="0.72em">0</tspan><tspan dy="-4"></tspan> = 0</text>
+  <path d="M89,398.0 L110.0,398.0" stroke="#3987e5" stroke-width="2.2" fill="none" marker-end="url(#ab)"/>
+  <rect x="113.0" y="373" width="74" height="50" rx="7" fill="#14223a" stroke="#3987e5" stroke-width="1.4"/>
+  <text class="h" x="150" y="405" text-anchor="middle">h<tspan dy="4" font-size="0.72em">1</tspan><tspan dy="-4"></tspan></text>
+  <rect x="125.0" y="479" width="50" height="40" rx="7" fill="#2a1520" stroke="#d55181" stroke-width="1.4"/>
+  <text class="b" x="150" y="505" text-anchor="middle">x<tspan dy="4" font-size="0.72em">1</tspan><tspan dy="-4"></tspan></text>
+  <path d="M150,476 L150,427" stroke="#d55181" stroke-width="2" fill="none" marker-end="url(#ap)"/>
+  <rect x="125.0" y="273" width="50" height="40" rx="7" fill="#24182e" stroke="#e0a3ff" stroke-width="1.4"/>
+  <text class="b" x="150" y="299" text-anchor="middle">y<tspan dy="4" font-size="0.72em">1</tspan><tspan dy="-4"></tspan></text>
+  <path d="M150,370 L150,317" stroke="#e0a3ff" stroke-width="2" fill="none" marker-end="url(#ao)"/>
+  <path d="M190.0,398.0 L240.0,398.0" stroke="#3987e5" stroke-width="2.2" fill="none" marker-end="url(#ab)"/>
+  <rect x="243.0" y="373" width="74" height="50" rx="7" fill="#14223a" stroke="#3987e5" stroke-width="1.4"/>
+  <text class="h" x="280" y="405" text-anchor="middle">h<tspan dy="4" font-size="0.72em">2</tspan><tspan dy="-4"></tspan></text>
+  <rect x="255.0" y="479" width="50" height="40" rx="7" fill="#2a1520" stroke="#d55181" stroke-width="1.4"/>
+  <text class="b" x="280" y="505" text-anchor="middle">x<tspan dy="4" font-size="0.72em">2</tspan><tspan dy="-4"></tspan></text>
+  <path d="M280,476 L280,427" stroke="#d55181" stroke-width="2" fill="none" marker-end="url(#ap)"/>
+  <rect x="255.0" y="273" width="50" height="40" rx="7" fill="#24182e" stroke="#e0a3ff" stroke-width="1.4"/>
+  <text class="b" x="280" y="299" text-anchor="middle">y<tspan dy="4" font-size="0.72em">2</tspan><tspan dy="-4"></tspan></text>
+  <path d="M280,370 L280,317" stroke="#e0a3ff" stroke-width="2" fill="none" marker-end="url(#ao)"/>
+  <path d="M320.0,398.0 L370.0,398.0" stroke="#3987e5" stroke-width="2.2" fill="none" marker-end="url(#ab)"/>
+  <rect x="373.0" y="373" width="74" height="50" rx="7" fill="#14223a" stroke="#3987e5" stroke-width="1.4"/>
+  <text class="h" x="410" y="405" text-anchor="middle">h<tspan dy="4" font-size="0.72em">3</tspan><tspan dy="-4"></tspan></text>
+  <rect x="385.0" y="479" width="50" height="40" rx="7" fill="#2a1520" stroke="#d55181" stroke-width="1.4"/>
+  <text class="b" x="410" y="505" text-anchor="middle">x<tspan dy="4" font-size="0.72em">3</tspan><tspan dy="-4"></tspan></text>
+  <path d="M410,476 L410,427" stroke="#d55181" stroke-width="2" fill="none" marker-end="url(#ap)"/>
+  <rect x="385.0" y="273" width="50" height="40" rx="7" fill="#24182e" stroke="#e0a3ff" stroke-width="1.4"/>
+  <text class="b" x="410" y="299" text-anchor="middle">y<tspan dy="4" font-size="0.72em">3</tspan><tspan dy="-4"></tspan></text>
+  <path d="M410,370 L410,317" stroke="#e0a3ff" stroke-width="2" fill="none" marker-end="url(#ao)"/>
+  <text class="h" x="485.0" y="404" text-anchor="middle">…</text>
+  <path d="M526.0,398.0 L535.0,398.0" stroke="#3987e5" stroke-width="2.2" fill="none" marker-end="url(#ab)"/>
+  <rect x="538.0" y="373" width="74" height="50" rx="7" fill="#14223a" stroke="#3987e5" stroke-width="1.4"/>
+  <text class="h" x="575" y="405" text-anchor="middle">h<tspan dy="4" font-size="0.72em">405</tspan><tspan dy="-4"></tspan></text>
+  <rect x="550.0" y="479" width="50" height="40" rx="7" fill="#2a1520" stroke="#d55181" stroke-width="1.4"/>
+  <text class="b" x="575" y="505" text-anchor="middle">x<tspan dy="4" font-size="0.72em">405</tspan><tspan dy="-4"></tspan></text>
+  <path d="M575,476 L575,427" stroke="#d55181" stroke-width="2" fill="none" marker-end="url(#ap)"/>
+  <rect x="550.0" y="273" width="50" height="40" rx="7" fill="#24182e" stroke="#e0a3ff" stroke-width="1.4"/>
+  <text class="b" x="575" y="299" text-anchor="middle">y<tspan dy="4" font-size="0.72em">405</tspan><tspan dy="-4"></tspan></text>
+  <path d="M575,370 L575,317" stroke="#e0a3ff" stroke-width="2" fill="none" marker-end="url(#ao)"/>
+  <text class="n" x="93.0" y="361" text-anchor="start">forget: × a<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan></text>
+  <text class="n" x="158" y="457" text-anchor="start">write: B<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan></text>
+  <text class="n" x="158" y="341" text-anchor="start">read: C<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan></text>
+  <rect x="644" y="261" width="340" height="262" rx="8" fill="#1a1a19" stroke="#3a3935" stroke-width="1"/>
+  <text class="b" x="660" y="291" text-anchor="start">At every token t:</text>
+  <text class="eq" x="660" y="325" text-anchor="start">h<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan> = a<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan> · h<tspan dy="4" font-size="0.72em">t−1</tspan><tspan dy="-4"></tspan> + B<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan> · x<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan></text>
+  <text class="eq" x="660" y="355" text-anchor="start">y<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan> = C<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan> · h<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan></text>
+  <text class="s" x="660" y="389" text-anchor="start">a<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan> (between 0 and 1): how much of the old</text>
+  <text class="s" x="660" y="410" text-anchor="start">state to keep. B<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan>: how to write the token in.</text>
+  <text class="s" x="660" y="431" text-anchor="start">C<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan>: what to read out.</text>
+  <text class="s" x="660" y="452" text-anchor="start">All three are computed from x<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan> itself, so the</text>
+  <text class="s" x="660" y="473" text-anchor="start">layer decides token by token what to remember.</text>
+  <text class="s" x="20" y="555" text-anchor="start">The state has a fixed size, so the cost grows linearly with the number of tokens. Attention would compare every pair: 405 × 405.</text>
+  <text class="s" x="20" y="577" text-anchor="start">In Mamba2, a<tspan dy="4" font-size="0.72em">t</tspan><tspan dy="-4"></tspan> is a single number per head. That simpler form lets the scan be computed in parallel as matrix multiplications.</text>
+  <text class="k" x="20" y="629" text-anchor="start">3 · INSIDE U-MAMBA2'S BOTTLENECK LAYER</text>
+  <rect x="20.0" y="647" width="141.66666666666666" height="84" rx="7" fill="#1a1a19" stroke="#4a4945" stroke-width="1.4"/>
+  <text class="bb" x="90.83333333333333" y="674" text-anchor="middle">LayerNorm</text>
+  <text class="xs" x="90.83333333333333" y="697" text-anchor="middle">each token's</text>
+  <text class="xs" x="90.83333333333333" y="716" text-anchor="middle">320 numbers</text>
+  <path d="M164.66666666666666,689 L180.66666666666666,689" stroke="#c3c2b7" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+  <rect x="183.66666666666666" y="647" width="141.66666666666666" height="84" rx="7" fill="#1a1a19" stroke="#4a4945" stroke-width="1.4"/>
+  <text class="bb" x="254.5" y="674" text-anchor="middle">Linear 320 → 640</text>
+  <text class="xs" x="254.5" y="697" text-anchor="middle">also makes the gate,</text>
+  <text class="xs" x="254.5" y="716" text-anchor="middle">B, C and step size</text>
+  <path d="M328.3333333333333,689 L344.3333333333333,689" stroke="#c3c2b7" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+  <rect x="347.3333333333333" y="647" width="141.66666666666666" height="84" rx="7" fill="#1a1a19" stroke="#4a4945" stroke-width="1.4"/>
+  <text class="bb" x="418.16666666666663" y="674" text-anchor="middle">Short convolution</text>
+  <text class="xs" x="418.16666666666663" y="697" text-anchor="middle">mixes each token with</text>
+  <text class="xs" x="418.16666666666663" y="716" text-anchor="middle">the 3 before it</text>
+  <path d="M492.0,689 L508.0,689" stroke="#c3c2b7" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+  <rect x="511.0" y="647" width="141.66666666666666" height="84" rx="7" fill="#14223a" stroke="#3987e5" stroke-width="1.4"/>
+  <text class="bb" x="581.8333333333334" y="674" text-anchor="middle">Scan</text>
+  <text class="xs" x="581.8333333333334" y="697" text-anchor="middle">8 heads × 80 channels,</text>
+  <text class="xs" x="581.8333333333334" y="716" text-anchor="middle">state size 32</text>
+  <path d="M655.6666666666666,689 L671.6666666666666,689" stroke="#c3c2b7" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+  <rect x="674.6666666666666" y="647" width="141.66666666666666" height="84" rx="7" fill="#1a1a19" stroke="#4a4945" stroke-width="1.4"/>
+  <text class="bb" x="745.5" y="674" text-anchor="middle">× gate, RMSNorm</text>
+  <text class="xs" x="745.5" y="697" text-anchor="middle">gate from the</text>
+  <text class="xs" x="745.5" y="716" text-anchor="middle">first Linear</text>
+  <path d="M819.3333333333333,689 L835.3333333333333,689" stroke="#c3c2b7" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+  <rect x="838.3333333333333" y="647" width="141.66666666666666" height="84" rx="7" fill="#1a1a19" stroke="#4a4945" stroke-width="1.4"/>
+  <text class="bb" x="909.1666666666666" y="674" text-anchor="middle">Linear 640 → 320</text>
+  <text class="xs" x="909.1666666666666" y="697" text-anchor="middle">then reshape back</text>
+  <text class="xs" x="909.1666666666666" y="716" text-anchor="middle">to 5 × 9 × 9</text>
+  <text class="xs2" x="20" y="759" text-anchor="start">Simplified: the equations leave out the step size Δ and a direct skip term D · x, which Mamba2 also uses.</text>
+</svg>

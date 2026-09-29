@@ -25,10 +25,6 @@ share-img: /assets/img/toothfairy3_hero.png
 
 My [last write-up](../teeth_segmentation/) looked at intra-oral scans: 3D surfaces of the teeth and gums, as seen by a scanner in the mouth. This time I wanted to go below the surface. A **CBCT (cone-beam computed tomography)** scan is a 3D X-ray volume, so it shows what an intra-oral scan can't: the jawbone, the tooth roots, the pulp inside each tooth, and the nerve canals running through the jaw.
 
-The fundamentals are still the same:
-
-**input → feature vectors → operations → outputs**
-
 The winning solution, U-Mamba2, combines three things: **a strong, well-tuned baseline, one targeted change to the architecture, and a lot of domain knowledge built into the training.** This page walks through all three.
 
 ## The benchmark: ToothFairy3
@@ -45,7 +41,12 @@ The dataset was used for the [ToothFairy3 challenge](https://toothfairy3.grand-c
 - **Task 1, fast multi-class segmentation** of every class, where speed counts too. Teams are ranked separately on Dice and HD95 for every class and on average runtime, and the ranks are averaged, with runtime weighted as much as all the classes together.
 - **Task 2, interactive segmentation of the inferior alveolar canals**, where the model is given user clicks as prompts.
 
-This page focuses on Task 1.
+This page focuses on Task 1. The challenge scores all 32 pulps as a single "pulp" class, so Task 1 is scored on **46 classes**: the 77 labels, with the 32 pulp labels counted as one (77 − 32 + 1 = 46).
+
+Two scores measure accuracy. Both are computed for each class in each scan:
+
+- **Dice** measures overlap between the predicted mask and the true mask: twice the overlapping volume, divided by the two volumes added together. 1 is a perfect match and 0 means no overlap.
+- **HD95** (the 95th percentile Hausdorff distance) measures how far the predicted boundary strays from the true one. For every point on the boundary of one mask, take the distance to the nearest point on the boundary of the other, in both directions. HD95 is the 95th percentile of those distances, so the worst 5% (a few stray voxels) don't dominate. Lower is better. In the challenge's evaluation code it's measured in voxels, and a structure that is missed completely, or predicted where there is none, scores the length of the scan's diagonal. One miss therefore adds a lot to the average.
 
 ## Same recipe, new domain
 
@@ -53,26 +54,35 @@ Set against a standard 2D segmentation model, the structure is the same:
 
 | Step | 2D image model | U-Mamba2 |
 |---|---|---|
-| **Input** | Pixels, 3 numbers each (RGB) | A 160 × 288 × 288 patch of voxels, 1 number each (X-ray density) |
+| **Input** | An RGB image, 3 × H × W (3 channels: red, green, blue) | A CBCT patch, 1 × 160 × 288 × 288 (1 channel: X-ray density) |
 | **Feature vectors** | CNN encoder → feature maps | 3D residual CNN encoder → feature maps, with a Mamba2 layer at the bottleneck |
 | **Operations** | Decoder with skip connections, then a class for every pixel | 3D decoder with skip connections, then post-processing |
-| **Output** | A class for every pixel | A class for every voxel: 46 structures plus background |
+| **Output** | Class scores, C × H × W → a class for every pixel | Class scores, 47 × 160 × 288 × 288 → a class for every voxel (46 structures plus background) |
 
 After point clouds, this felt like home ground. A CBCT scan **does** have a grid, so everything from 2D convolutional networks carries over with 3D kernels. The difficulty is size. The scan on this page is 512 × 512 × 262 voxels, which is **68.7 million voxels**, far too many to feed a 3D network in one go. So the network sees one patch at a time (13.3 million voxels in the final model), and the full scan is covered with a sliding window whose predictions are blended together.
 
 ## U-Mamba2 architecture
 
-U-Mamba2 ([code on GitHub](https://github.com/zhiqin1998/U-Mamba2){:target="_blank"}, [paper](https://arxiv.org/abs/2509.12069){:target="_blank"}) is by Zhi Qin Tan, Xiatian Zhu, Owen Addison and Yunpeng Li (team TAIR Lab). The repository is a fork of [nnU-Net](https://github.com/MIC-DKFZ/nnUNet){:target="_blank"} v2, and the network is nnU-Net's residual encoder U-Net with one addition:
-
-<a href="{{ '/assets/img/umamba2_architecture.svg' | relative_url }}" target="_blank"><img src="{{ '/assets/img/umamba2_architecture.svg' | relative_url }}"
-     alt="U-Mamba2 architecture: a seven-stage residual encoder shrinks a 160 by 288 by 288 patch to 5 by 9 by 9 with 320 channels; a Mamba2 layer processes the 405 bottleneck tokens; a six-stage decoder with skip connections outputs 47 class scores per voxel. Below: pretraining, loss, mirroring and post-processing"
-     style="width:100%; max-width:760px;"></a>
-
-*The Task 1 network as configured for the final submission in the repository's ToothFairy3 instructions. Click the diagram to open it full size.*
+U-Mamba2 ([code on GitHub](https://github.com/zhiqin1998/U-Mamba2){:target="_blank"}, [paper](https://arxiv.org/abs/2509.12069){:target="_blank"}) is by Zhi Qin Tan, Xiatian Zhu, Owen Addison and Yunpeng Li (team TAIR Lab). The repository is a fork of [nnU-Net](https://github.com/MIC-DKFZ/nnUNet){:target="_blank"} v2, and the network is nnU-Net's residual encoder U-Net with one addition: a Mamba2 layer at the bottleneck.
 
 ### The backbone: nnU-Net's residual encoder U-Net
 
-The encoder has **seven stages**. The first keeps full resolution, the next five each halve every side, and the last keeps the size, so a 160 × 288 × 288 patch ends up as a **5 × 9 × 9 grid of 320-channel feature vectors**. Stages are built from residual blocks (1, 3, 4, 6, 6, 6 and 6 of them), with feature widths growing from 32 to 320. The decoder mirrors this: each stage upsamples with a transposed convolution, concatenates the matching encoder features (the skip connection) and refines the result with convolutions. The output is a score for each class at every voxel. The team merged the 32 pulp classes into one, giving 46 structures plus background. This is the "nnU-Net ResEnc" family from [nnU-Net Revisited](https://arxiv.org/abs/2404.09556){:target="_blank"} (Isensee et al., 2024), a paper whose main message is that a well-configured CNN U-Net is still very hard to beat in 3D medical segmentation.
+<a href="{{ '/assets/img/umamba2_architecture.svg' | relative_url }}" target="_blank"><img src="{{ '/assets/img/umamba2_architecture.svg' | relative_url }}"
+     alt="U-Mamba2 architecture drawn as 3D blocks in a U shape. Encoder: a 1-channel CBCT patch of 160 by 288 by 288 voxels goes through a stem convolution and residual blocks with 32, 64, 128, 256, 320 and 320 channels, halving every side at each stage down to 5 by 9 by 9. Bottleneck: a seventh stage of 320 channels at 5 by 9 by 9, then a Mamba2 layer. Decoder: at each level, a transposed convolution doubles every side, the matching encoder features are concatenated and one 3 by 3 by 3 convolution follows. A final 1 by 1 by 1 convolution gives 47 class scores per voxel."
+     style="width:100%;"></a>
+
+*The Task 1 network as configured for the final submission in the repository's ToothFairy3 instructions. Numbers above the blocks are channels; the sizes on the green arrows are the feature-map size at each level. Click the diagram to open it full size.*
+
+Following one patch through the network:
+
+- **In:** a 1 × 160 × 288 × 288 patch, one channel of X-ray density.
+- **Stem:** one 3 × 3 × 3 convolution lifts it to 32 channels. As everywhere in nnU-Net, the convolutions use instance normalisation and LeakyReLU activations.
+- **Encoder:** seven stages of **residual blocks** (1, 3, 4, 6, 6, 6 and 6 of them). A residual block is two 3 × 3 × 3 convolutions plus a shortcut that adds the block's input back to its output. Stages 2 to 6 start with a block whose first convolution has stride 2, which halves every side: 160 × 288 × 288 → 80 × 144 × 144 → 40 × 72 × 72 → 20 × 36 × 36 → 10 × 18 × 18 → 5 × 9 × 9. At the same time the channels grow: 32 → 64 → 128 → 256 → 320, then stay at 320. Stage 7 keeps the 5 × 9 × 9 size.
+- **Bottleneck:** the patch is now a **5 × 9 × 9 grid of 320-channel feature vectors**. Neighbouring vectors are 32 voxels (about 1 cm) apart in the scan. This is where the Mamba2 layer sits.
+- **Decoder:** six stages mirror the encoder. Each one doubles every side with a transposed convolution, concatenates the encoder features from the same level (the skip connection, for example 128 + 128 = 256 channels at 40 × 72 × 72) and applies one 3 × 3 × 3 convolution to bring the channels back down.
+- **Out:** a 1 × 1 × 1 convolution turns the 32 channels at every voxel into **47 class scores**: 46 structures plus background. The 46 match the challenge's classes, because the team merged the 32 pulp labels into one, just as the challenge scores them.
+
+This is the "nnU-Net ResEnc" family from [nnU-Net Revisited](https://arxiv.org/abs/2404.09556){:target="_blank"} (Isensee et al., 2024), a paper whose main message is that a well-configured CNN U-Net is still very hard to beat in 3D medical segmentation.
 
 ### The addition: Mamba2 at the bottleneck
 
@@ -82,12 +92,20 @@ Convolutions are local. Even at the bottleneck, each feature vector has mostly b
 2. Apply LayerNorm, then **Mamba2**.
 3. Reshape back to 5 × 9 × 9 and hand it to the decoder.
 
-[Mamba](https://arxiv.org/abs/2312.00752){:target="_blank"} (Gu & Dao, 2023) is a state space model. It reads a sequence one token at a time and carries a fixed-size state forward, updating it with each token, so its cost grows **linearly** with sequence length, where attention grows quadratically. [Mamba2](https://arxiv.org/abs/2405.21060){:target="_blank"} (Dao & Gu, 2024) restricts the state update to a simpler form, which lets the same computation be written as matrix multiplications that run fast on GPUs. That efficiency is the paper's motivation for using Mamba2. The paper also reports that putting the block only at the bottleneck gave the best results for 3D CT. It's also where the sequence is shortest: 405 tokens, compared with 13.3 million voxels at full resolution.
+[Mamba](https://arxiv.org/abs/2312.00752){:target="_blank"} (Gu & Dao, 2023) is a state space model. Here is what that means in practice:
 
-Two details that only show up in the code:
+<a href="{{ '/assets/img/mamba2_bottleneck.svg' | relative_url }}" target="_blank"><img src="{{ '/assets/img/mamba2_bottleneck.svg' | relative_url }}"
+     alt="What the Mamba2 layer does. One: the 5 by 9 by 9 bottleneck grid with 320 channels is flattened into 405 tokens. Two: the scan. A fixed-size state h is carried from token to token. At each token the old state is scaled by a, between 0 and 1, the token is written in through B, and an output y is read out through C. Three: the steps inside U-Mamba2's layer: LayerNorm, a linear layer from 320 to 640 channels, a short convolution over 4 tokens, the scan with 8 heads of 80 channels and state size 32, gating and RMSNorm, and a linear layer back to 320, reshaped to 5 by 9 by 9."
+     style="width:100%;"></a>
 
-- **The Mamba2 layer makes one forward pass over the sequence**, in raster order (row by row, slice by slice). Each token's output can draw on every token *before* it, not after it.
-- **There is no residual connection around the layer.** Its output replaces the bottleneck features rather than being added to them.
+*What the Mamba2 layer does to the bottleneck features. Click the diagram to open it full size.*
+
+- **A small memory, carried along.** The layer reads the 405 tokens in order and keeps a **state**: a fixed-size memory (in U-Mamba2, 8 heads, each holding 80 × 32 numbers). At each token it does three things: it fades the old state a little (**forget**), adds the new token into it (**write**) and reads an output from it (**read**).
+- **The token decides.** How much to forget, what to write and what to read are all computed from the token itself. This is what makes Mamba *selective*: it can hold on to what matters and let the rest fade. Older state space models used the same fixed update for every token.
+- **Linear cost.** The state never grows, so the cost grows **linearly** with the number of tokens. Attention compares every token with every other token, so its cost grows with the square: 405 × 405 pairs here.
+- **What Mamba2 changes.** [Mamba2](https://arxiv.org/abs/2405.21060){:target="_blank"} (Dao & Gu, 2024) makes the "forget" step a single number per head. That simpler form lets the scan be computed with matrix multiplications instead of Mamba's specialised scan, which parallelises better. That efficiency is the paper's motivation for using Mamba2.
+
+The paper also reports that putting the block only at the bottleneck gave the best results for 3D CT. It's also where the sequence is shortest: 405 tokens, compared with 13.3 million voxels at full resolution.
 
 For Task 2, the same network gets an extra branch: user clicks are turned into embeddings by a SAM-style point encoder, and two cross-attention blocks fuse them with the Mamba2 output.
 
@@ -95,13 +113,21 @@ For Task 2, the same network gets an extra branch: user clicks are turned into e
 
 Most of what makes the solution specific to teeth isn't in the network. It's in how it's trained and what happens after it:
 
-**Self-supervised pretraining.** Before seeing any labels, the network is trained as a [disruptive autoencoder](https://arxiv.org/abs/2307.16896){:target="_blank"} (Valanarasu et al., 2023): parts of a scan are masked, downsampled or made noisy, and the network learns to reconstruct the original (L1 loss). On top of ToothFairy3, this uses 371 unlabelled CBCT scans from the STS-3D-Tooth dataset.
+**Self-supervised pretraining.** Before seeing any labels, the whole network is trained as a [disruptive autoencoder](https://arxiv.org/abs/2307.16896){:target="_blank"} (Valanarasu et al., 2023). The idea is to damage a scan and have the network repair it:
 
-**Label smoothing between related structures.** Normally the training target for a voxel is 1 for its class and 0 for everything else. Here the true class gets 0.9 and the remaining 0.1 is shared by related classes, such as similar teeth or the connected nerve canals, so near-misses between them cost less.
+1. Take a training patch and damage it three ways: add random noise, shrink it to a quarter of its size on each side and scale it back up (which blurs it), and blank out 30% of its 16 × 16 × 16-voxel cubes.
+2. Feed the damaged patch through U-Mamba2. For this stage the output layer has a single channel instead of 47 class scores: the network predicts the original intensity of every voxel.
+3. Compare the prediction with the undamaged patch using the **L1 loss**, the mean absolute error. At every voxel, take the difference between the predicted and the true intensity, drop the sign, and average over the whole patch.
 
-**A heavier weight for the tiniest structures.** The two incisive canals and the lingual canal are thin and small. In this scan they cover 658, 819 and 136 voxels, against 1.43 million for the lower jawbone. Their loss weight is set to 10, so the large structures don't drown them out.
+It's plain regression on intensities. L1 penalises errors in proportion to their size, where L2 (mean squared error) squares them and so punishes the few large errors much more. To repair a scan well, the network has to learn what jaws, teeth and canals look like, which is a good starting point for segmentation. No labels are needed, so on top of ToothFairy3 this stage also uses 371 unlabelled CBCT scans from the STS-3D-Tooth dataset. The segmentation training then starts from these weights.
 
-**Mirroring that respects left and right.** Flipping scans left to right is a standard nnU-Net augmentation, but it breaks labels that name a side: a flipped *left* canine looks exactly like a *right* canine. U-Mamba2 keeps the flip and swaps every left/right label with its partner whenever it happens (tooth 13 ↔ 23, left canal ↔ right canal, and so on). It does the same at test time, when predictions on flipped copies of the scan are averaged. The viewer below animates this.
+**The segmentation loss.** As in standard nnU-Net, the training loss adds two terms. **Cross-entropy** scores the predicted class probabilities at every voxel against the target. **Dice loss** rewards a high Dice score (see above) for each structure, averaged over the structures, so a small structure counts as much as a large one. The next two tricks change the targets and weights inside this loss.
+
+**Label smoothing between related structures.** Normally the training target for a voxel is 1 for its class and 0 for everything else. Here the true class gets 0.9 and the remaining 0.1 is shared by related classes, so near-misses between them cost less. A tooth shares with its neighbours on the same side of the same jaw and with the pulp, each central incisor with the one across the midline, each inferior alveolar canal with the incisive canal on the same side, and the two sinuses with each other.
+
+**A heavier weight for the tiniest structures.** The two incisive canals and the lingual canal are thin and small. In this scan they cover 658, 819 and 136 voxels, against 1.43 million for the lower jawbone. In the cross-entropy term their weight is set to 10, against 1 for every other class, so the large structures don't drown them out.
+
+**Mirroring that respects left and right.** Flipping scans left to right is a standard nnU-Net augmentation, but it breaks labels that name a side: a flipped *left* canine looks exactly like a *right* canine. U-Mamba2 keeps the flip and swaps every left/right label with its partner whenever it happens (tooth 13 ↔ 23, left canal ↔ right canal, and so on). It does the same at test time, when predictions on flipped copies of the scan are averaged.
 
 It's a different answer to the problem ToothGroupNet faced in my last write-up. ToothGroupNet merged most left and right tooth types into one class and worked out the side from geometry afterwards. U-Mamba2 keeps separate classes and makes the augmentation respect them.
 
@@ -114,11 +140,13 @@ Drag to rotate, scroll to zoom, and switch between the views. Hover over a struc
 <div class="cv" data-src="{{ '/assets/data/toothfairy3_F001.bin' | relative_url }}"></div>
 <script type="module" src="{{ '/assets/js/cbct_viewer.js' | relative_url }}"></script>
 
-*Everything shown comes from the dataset's ground-truth labels for one scan (ToothFairy3F_001), not from model predictions. Each structure is a surface extracted from its label with marching cubes and simplified for the web. The left–right flip applies the label pairs U-Mamba2 swaps during augmentation.*
+*Everything shown comes from the dataset's ground-truth labels for one scan (ToothFairy3F_001), not from model predictions. Each structure is a surface extracted from its label with marching cubes and simplified for the web.*
 
 ## Results
 
-The paper's validation results for Task 1 use a 90/10 split of ToothFairy3, stratified so both parts contain the same mix of data sources:
+For its validation results, the paper trains on 90% of ToothFairy3 and holds back the other 10% for testing. The split is **stratified by data source**: each of the three sets (A, B and C above, which differ in field of view and scanner) is split 90/10 on its own. That way the validation scans have the same mix of scanners and fields of view as the training scans. A plain random split could, by chance, put too many of the new scanner's scans on one side and skew the results.
+
+The paper's Task 1 validation results (higher Dice is better, lower HD95 is better):
 
 | Model | Dice | HD95 | Dice after post-processing | HD95 after post-processing | Time per scan (s) |
 |---|---|---|---|---|---|
@@ -153,7 +181,7 @@ Black_Myth had a slightly higher mean Dice and lower mean HD95, but took more th
 
 ## Knowing the anatomy is part of the model
 
-What struck me most was how much of this winning solution is knowledge about teeth rather than new machinery. The architecture change is a single layer. Around it, each trick encodes one fact about the anatomy:
+What struck me most was how much of this winning solution is knowledge about teeth rather than new networks. The architecture change is a single layer. Around it, each trick encodes one fact about the anatomy:
 
 - **Some structures are related**, so near-misses between them are penalised less (label smoothing).
 - **Some structures are tiny**, so they're weighted up (class weights).
