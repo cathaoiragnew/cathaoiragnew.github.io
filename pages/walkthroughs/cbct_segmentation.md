@@ -15,6 +15,10 @@ share-img: /assets/img/toothfairy3_hero.png
   main table tr th, main table tr td { border-color: #4a4945; }
   /* "Segmentation" is too long for the theme's 50px title on phones and breaks mid-word. */
   @media (max-width: 575px) { .intro-header .page-heading h1 { font-size: 2.25rem; } }
+  /* Let the wide diagrams grow past the text column on big screens, centred on it. */
+  .wide-fig { width: min(var(--fig-w), calc(100vw - 48px)); position: relative; left: 50%;
+    transform: translateX(-50%); margin: 1rem 0; }
+  .wide-fig img { width: 100%; display: block; }
 </style>
 
 <img src="{{ '/assets/img/toothfairy3_hero.png' | relative_url }}"
@@ -57,7 +61,7 @@ Set against a standard 2D segmentation model, the structure is the same:
 | **Input** | An RGB image, 3 × H × W (3 channels: red, green, blue) | A CBCT patch, 1 × 160 × 288 × 288 (1 channel: X-ray density) |
 | **Feature vectors** | CNN encoder → feature maps | 3D residual CNN encoder → feature maps, with a Mamba2 layer at the bottleneck |
 | **Operations** | Decoder with skip connections, then a class for every pixel | 3D decoder with skip connections, then post-processing |
-| **Output** | Class scores, C × H × W → a class for every pixel | Class scores, 47 × 160 × 288 × 288 → a class for every voxel (46 structures plus background) |
+| **Output** | Class scores, C × H × W → argmax over the C channels → an H × W label map | Class scores, 47 × 160 × 288 × 288 → argmax over the 47 channels → a 160 × 288 × 288 label map (46 structures plus background) |
 
 After point clouds, this felt like home ground. A CBCT scan **does** have a grid, so everything from 2D convolutional networks carries over with 3D kernels. The difficulty is size. The scan on this page is 512 × 512 × 262 voxels, which is **68.7 million voxels**, far too many to feed a 3D network in one go. So the network sees one patch at a time (13.3 million voxels in the final model), and the full scan is covered with a sliding window whose predictions are blended together.
 
@@ -67,11 +71,10 @@ U-Mamba2 ([code on GitHub](https://github.com/zhiqin1998/U-Mamba2){:target="_bla
 
 ### The backbone: nnU-Net's residual encoder U-Net
 
-<a href="{{ '/assets/img/umamba2_architecture.svg' | relative_url }}" target="_blank"><img src="{{ '/assets/img/umamba2_architecture.svg' | relative_url }}"
-     alt="U-Mamba2 architecture drawn as 3D blocks in a U shape. Encoder: a 1-channel CBCT patch of 160 by 288 by 288 voxels goes through a stem convolution and residual blocks with 32, 64, 128, 256, 320 and 320 channels, halving every side at each stage down to 5 by 9 by 9. Bottleneck: a seventh stage of 320 channels at 5 by 9 by 9, then a Mamba2 layer. Decoder: at each level, a transposed convolution doubles every side, the matching encoder features are concatenated and one 3 by 3 by 3 convolution follows. A final 1 by 1 by 1 convolution gives 47 class scores per voxel."
-     style="width:100%;"></a>
+<div class="wide-fig" style="--fig-w: 1200px;"><a href="{{ '/assets/img/umamba2_architecture.svg' | relative_url }}" target="_blank"><img src="{{ '/assets/img/umamba2_architecture.svg' | relative_url }}"
+     alt="U-Mamba2 architecture drawn as 3D blocks in a U shape. Encoder: a CBCT patch of 1 by 160 by 288 by 288 goes through a stem convolution and residual blocks with 32, 64, 128, 256, 320 and 320 channels, halving every side at each stage down to 5 by 9 by 9. Bottleneck: a seventh stage of 320 channels at 5 by 9 by 9, then a Mamba2 layer. Decoder: at each level, a transposed convolution doubles every side, the matching encoder features are concatenated and one 3 by 3 by 3 convolution follows. A final 1 by 1 by 1 convolution gives class scores of 47 by 160 by 288 by 288, and the argmax over the 47 channels gives a 160 by 288 by 288 map of class labels."></a></div>
 
-*The Task 1 network as configured for the final submission in the repository's ToothFairy3 instructions. Numbers above the blocks are channels; the sizes on the green arrows are the feature-map size at each level. Click the diagram to open it full size.*
+*The Task 1 network as configured for the final submission in the repository's ToothFairy3 instructions, for one 160 × 288 × 288 patch. Numbers above the blocks are channels; the sizes on the green arrows are the feature-map size at each level. At inference the argmax is taken once for the whole scan, after the scores from all patches are combined (see below). Click the diagram to open it full size.*
 
 Following one patch through the network:
 
@@ -80,7 +83,9 @@ Following one patch through the network:
 - **Encoder:** seven stages of **residual blocks** (1, 3, 4, 6, 6, 6 and 6 of them). A residual block is two 3 × 3 × 3 convolutions plus a shortcut that adds the block's input back to its output. Stages 2 to 6 start with a block whose first convolution has stride 2, which halves every side: 160 × 288 × 288 → 80 × 144 × 144 → 40 × 72 × 72 → 20 × 36 × 36 → 10 × 18 × 18 → 5 × 9 × 9. At the same time the channels grow: 32 → 64 → 128 → 256 → 320, then stay at 320. Stage 7 keeps the 5 × 9 × 9 size.
 - **Bottleneck:** the patch is now a **5 × 9 × 9 grid of 320-channel feature vectors**. Neighbouring vectors are 32 voxels (about 1 cm) apart in the scan. This is where the Mamba2 layer sits.
 - **Decoder:** six stages mirror the encoder. Each one doubles every side with a transposed convolution, concatenates the encoder features from the same level (the skip connection, for example 128 + 128 = 256 channels at 40 × 72 × 72) and applies one 3 × 3 × 3 convolution to bring the channels back down.
-- **Out:** a 1 × 1 × 1 convolution turns the 32 channels at every voxel into **47 class scores**: 46 structures plus background. The 46 match the challenge's classes, because the team merged the 32 pulp labels into one, just as the challenge scores them.
+- **Out:** a 1 × 1 × 1 convolution turns the 32 channels at every voxel into **47 class scores**, so the output is 47 × 160 × 288 × 288: 46 structures plus background. The 46 match the challenge's classes, because the team merged the 32 pulp labels into one, just as the challenge scores them.
+- **Label:** the class at each voxel is the **argmax** over the 47 channels, the one with the highest score. That gives a 160 × 288 × 288 map with one class number per voxel. At inference, U-Mamba2 applies the argmax to the raw scores (logits) directly, with no softmax: softmax keeps the order of the scores, so it wouldn't change which one wins. Softmax is only used during training, inside the loss.
+- **Whole scan:** the patches overlap as they slide across the scan. Each patch's scores are weighted towards its centre and added into one score volume covering the whole scan, still with 47 channels. The argmax is taken once on that, giving a label map the same size as the scan: 512 × 512 × 262 for the scan on this page.
 
 This is the "nnU-Net ResEnc" family from [nnU-Net Revisited](https://arxiv.org/abs/2404.09556){:target="_blank"} (Isensee et al., 2024), a paper whose main message is that a well-configured CNN U-Net is still very hard to beat in 3D medical segmentation.
 
@@ -94,9 +99,8 @@ Convolutions are local. Even at the bottleneck, each feature vector has mostly b
 
 [Mamba](https://arxiv.org/abs/2312.00752){:target="_blank"} (Gu & Dao, 2023) is a state space model. Here is what that means in practice:
 
-<a href="{{ '/assets/img/mamba2_bottleneck.svg' | relative_url }}" target="_blank"><img src="{{ '/assets/img/mamba2_bottleneck.svg' | relative_url }}"
-     alt="What the Mamba2 layer does. One: the 5 by 9 by 9 bottleneck grid with 320 channels is flattened into 405 tokens. Two: the scan. A fixed-size state h is carried from token to token. At each token the old state is scaled by a, between 0 and 1, the token is written in through B, and an output y is read out through C. Three: the steps inside U-Mamba2's layer: LayerNorm, a linear layer from 320 to 640 channels, a short convolution over 4 tokens, the scan with 8 heads of 80 channels and state size 32, gating and RMSNorm, and a linear layer back to 320, reshaped to 5 by 9 by 9."
-     style="width:100%;"></a>
+<div class="wide-fig" style="--fig-w: 1000px;"><a href="{{ '/assets/img/mamba2_bottleneck.svg' | relative_url }}" target="_blank"><img src="{{ '/assets/img/mamba2_bottleneck.svg' | relative_url }}"
+     alt="What the Mamba2 layer does. One: the 5 by 9 by 9 bottleneck grid with 320 channels is flattened into 405 tokens. Two: the scan. A fixed-size state h is carried from token to token. At each token the old state is scaled by a, between 0 and 1, the token is written in through B, and an output y is read out through C. Three: the steps inside U-Mamba2's layer: LayerNorm, a linear layer from 320 to 640 channels, a short convolution over 4 tokens, the scan with 8 heads of 80 channels and state size 32, gating and RMSNorm, and a linear layer back to 320, reshaped to 5 by 9 by 9."></a></div>
 
 *What the Mamba2 layer does to the bottleneck features. Click the diagram to open it full size.*
 
