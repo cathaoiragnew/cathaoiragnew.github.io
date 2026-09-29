@@ -117,13 +117,16 @@ For Task 2, the same network gets an extra branch: user clicks are turned into e
 
 Most of what makes the solution specific to teeth isn't in the network. It's in how it's trained and what happens after it:
 
-**Self-supervised pretraining.** Before seeing any labels, the whole network is trained as a [disruptive autoencoder](https://arxiv.org/abs/2307.16896){:target="_blank"} (Valanarasu et al., 2023). The idea is to damage a scan and have the network repair it:
+**Self-supervised pretraining.** Before seeing any labels, the whole network is trained as a [disruptive autoencoder](https://arxiv.org/abs/2307.16896){:target="_blank"} (Valanarasu et al., 2023): the input is a disrupted patch, and the target is the original patch.
 
-1. Take a training patch and damage it three ways: add random noise, shrink it to a quarter of its size on each side and scale it back up (which blurs it), and blank out 30% of its 16 × 16 × 16-voxel cubes.
-2. Feed the damaged patch through U-Mamba2. For this stage the output layer has a single channel instead of 47 class scores: the network predicts the original intensity of every voxel.
-3. Compare the prediction with the undamaged patch using the **L1 loss**, the mean absolute error. At every voxel, take the difference between the predicted and the true intensity, drop the sign, and average over the whole patch.
+1. **Disrupt** each 1 × 160 × 288 × 288 training patch, with intensities normalised to zero mean and unit variance, in three steps:
+   - add Gaussian noise (standard deviation about 0.32),
+   - downsample by 4 on each side and upsample back with nearest-neighbour interpolation, which removes fine detail,
+   - mask 30% of its 16 × 16 × 16-voxel blocks by setting them to −2.
+2. **Predict:** pass the disrupted patch through U-Mamba2. For this stage the output layer has a single channel instead of 47, so the output is 1 × 160 × 288 × 288: a predicted intensity for every voxel.
+3. **Compare** the prediction with the original patch using the **L1 loss**, the mean absolute error: \|predicted − original\| at every voxel, averaged over the patch.
 
-It's plain regression on intensities. L1 penalises errors in proportion to their size, where L2 (mean squared error) squares them and so punishes the few large errors much more. To repair a scan well, the network has to learn what jaws, teeth and canals look like, which is a good starting point for segmentation. No labels are needed, so on top of ToothFairy3 this stage also uses 371 unlabelled CBCT scans from the STS-3D-Tooth dataset. The segmentation training then starts from these weights.
+It's a regression on voxel intensities. L1 penalises errors in proportion to their size, where L2 (mean squared error) squares them and so punishes the few large errors much more. To reconstruct masked and low-resolution regions, the network has to learn the typical shapes and intensities of jaws, teeth and canals, which is a good starting point for segmentation. No labels are needed, so on top of ToothFairy3 this stage also uses 371 unlabelled CBCT scans from the STS-3D-Tooth dataset. The segmentation training then starts from these weights.
 
 **The segmentation loss.** As in standard nnU-Net, the training loss adds two terms. **Cross-entropy** scores the predicted class probabilities at every voxel against the target. **Dice loss** rewards a high Dice score (see above) for each structure, averaged over the structures, so a small structure counts as much as a large one. The next two tricks change the targets and weights inside this loss.
 
