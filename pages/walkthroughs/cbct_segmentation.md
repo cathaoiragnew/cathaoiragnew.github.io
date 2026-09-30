@@ -63,7 +63,24 @@ Set against a standard 2D segmentation model, the structure is the same:
 | **Operations** | Decoder with skip connections, then a class for every pixel | 3D decoder with skip connections, then post-processing |
 | **Output** | Class scores, C × H × W → argmax over the C channels → an H × W label map | Class scores, 47 × 160 × 288 × 288 → argmax over the 47 channels → a 160 × 288 × 288 label map (46 structures plus background) |
 
-After point clouds, this felt like home ground. A CBCT scan **does** have a grid, so everything from 2D convolutional networks carries over with 3D kernels. The difficulty is size. The scan on this page is 512 × 512 × 262 voxels, which is **68.7 million voxels**, far too many to feed a 3D network in one go. So the network sees one patch at a time (13.3 million voxels in the final model), and the full scan is covered with a sliding window whose predictions are blended together.
+After point clouds, this felt like home ground. A CBCT scan **does** have a grid, so everything from 2D convolutional networks carries over with 3D kernels. The difficulty is size.
+
+### Scans in, patches through the network
+
+The network never sees a whole scan. It looks through a fixed 160 × 288 × 288 window, the patch size nnU-Net chose when it planned the model, and that window is smaller than the scan on every axis:
+
+| | Slices | Rows | Columns | Voxels | Size at 0.3 mm |
+|---|---|---|---|---|---|
+| The scan on this page | 262 | 512 | 512 | 68.7 million | 79 × 154 × 154 mm |
+| One patch | 160 | 288 | 288 | 13.3 million | 48 × 86 × 86 mm |
+
+One patch covers about a fifth of this scan. Feeding the whole scan at once would need about five times the memory for the network's activations, and one patch is already large: the first encoder level alone holds 32 × 13.3 million ≈ 425 million numbers. Scans in the dataset also differ in size, and a fixed patch size handles them all the same way.
+
+- **Training:** every step crops a random 160 × 288 × 288 patch from a training scan, so the network learns from many different patches of each scan.
+- **Inference:** the window slides across the scan. U-Mamba2 sets the step to at most 95% of the patch size (nnU-Net's default is 50%), and nnU-Net spaces the positions evenly so the last one ends at the scan's edge. For this scan that gives two positions along each axis: slices 0–159 and 102–261, and rows and columns 0–287 and 224–511. So **2 × 2 × 2 = 8 patches** cover the whole scan, overlapping by 58 slices and by 64 rows and columns. Fewer patches means less computation, which matters here because runtime counts in the Task 1 ranking. Each patch is also predicted on flipped copies (see mirroring below).
+- **Stitching:** each patch gives 47 × 160 × 288 × 288 class scores. These are added into one 47 × 262 × 512 × 512 score volume, weighted by a Gaussian that favours each patch's centre, where the network has context on all sides. The argmax over the 47 channels is taken once on that volume, giving the final 262 × 512 × 512 label map.
+
+This scan is already at the dataset's 0.3 mm spacing, so nnU-Net doesn't resample it before cutting it into patches.
 
 ## U-Mamba2 architecture
 
@@ -74,7 +91,7 @@ U-Mamba2 ([code on GitHub](https://github.com/zhiqin1998/U-Mamba2){:target="_bla
 <div class="wide-fig" style="--fig-w: 1200px;"><a href="{{ '/assets/img/umamba2_architecture.svg' | relative_url }}" target="_blank"><img src="{{ '/assets/img/umamba2_architecture.svg' | relative_url }}"
      alt="U-Mamba2 architecture drawn as 3D blocks in a U shape. Encoder: a CBCT patch of 1 by 160 by 288 by 288 goes through a stem convolution and residual blocks with 32, 64, 128, 256, 320 and 320 channels, halving every side at each stage down to 5 by 9 by 9. Bottleneck: a seventh stage of 320 channels at 5 by 9 by 9, then a Mamba2 layer. Decoder: at each level, a transposed convolution doubles every side, the matching encoder features are concatenated and one 3 by 3 by 3 convolution follows. A final 1 by 1 by 1 convolution gives class scores of 47 by 160 by 288 by 288, and the argmax over the 47 channels gives a 160 by 288 by 288 map of class labels."></a></div>
 
-*The Task 1 network as configured for the final submission in the repository's ToothFairy3 instructions, for one 160 × 288 × 288 patch. Numbers above the blocks are channels; the sizes on the green arrows are the feature-map size at each level. At inference the argmax is taken once for the whole scan, after the scores from all patches are combined (see below). Click the diagram to open it full size.*
+*The Task 1 network as configured for the final submission in the repository's ToothFairy3 instructions, for one 160 × 288 × 288 patch. Numbers above the blocks are channels; the sizes on the green arrows are the feature-map size at each level. At inference the argmax is taken once for the whole scan, after the scores from all patches are combined (see [Scans in, patches through the network](#scans-in-patches-through-the-network)). Click the diagram to open it full size.*
 
 Following one patch through the network:
 
@@ -85,7 +102,7 @@ Following one patch through the network:
 - **Decoder:** six stages mirror the encoder. Each one doubles every side with a transposed convolution, concatenates the encoder features from the same level (the skip connection, for example 128 + 128 = 256 channels at 40 × 72 × 72) and applies one 3 × 3 × 3 convolution to bring the channels back down.
 - **Out:** a 1 × 1 × 1 convolution turns the 32 channels at every voxel into **47 class scores**, so the output is 47 × 160 × 288 × 288: 46 structures plus background. The 46 match the challenge's classes, because the team merged the 32 pulp labels into one, just as the challenge scores them.
 - **Label:** the class at each voxel is the **argmax** over the 47 channels, the one with the highest score. That gives a 160 × 288 × 288 map with one class number per voxel. At inference, U-Mamba2 applies the argmax to the raw scores (logits) directly, with no softmax: softmax keeps the order of the scores, so it wouldn't change which one wins. Softmax is only used during training, inside the loss.
-- **Whole scan:** the patches overlap as they slide across the scan. Each patch's scores are weighted towards its centre and added into one score volume covering the whole scan, still with 47 channels. The argmax is taken once on that, giving a label map the same size as the scan: 512 × 512 × 262 for the scan on this page.
+- **Whole scan:** at inference the argmax isn't taken per patch. The scores from all 8 overlapping patches are combined into one score volume first, and the argmax is taken once on that, as described [above](#scans-in-patches-through-the-network).
 
 This is the "nnU-Net ResEnc" family from [nnU-Net Revisited](https://arxiv.org/abs/2404.09556){:target="_blank"} (Isensee et al., 2024), a paper whose main message is that a well-configured CNN U-Net is still very hard to beat in 3D medical segmentation.
 
