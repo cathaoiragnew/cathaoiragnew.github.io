@@ -1,0 +1,12 @@
+/* Navbar avatar vs. links.
+   From 1200px up the navbar links sit in one row on the right. With "Paper Walkthroughs" added, that row
+   reaches past the centre of the screen until about 1500px wide, so the centred avatar covered "About Me".
+   Keep the avatar centred when there is room; otherwise move it just left of the links.
+   752px = the link row's width measured from the navbar's right edge (678px)
+         + half the 100px avatar (50px) + a 24px gap.
+   If navbar links are added or renamed, re-measure the 678px. */
+@media (min-width: 1200px) {
+  .navbar-custom.top-nav-regular .avatar-container {
+    left: min(50%, calc(100% - 752px));
+  }
+}
